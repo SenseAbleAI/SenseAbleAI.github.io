@@ -120,7 +120,7 @@ const RephraseTextPage: React.FC = () => {
     setActiveTab('profile'); // Switch back to profile tab on reset
   };
 
-  const handleAcceptRewrite = (version: 'gentle' | 'full', text: string) => {
+  const handleAcceptRewrite = (text: string) => {
     // Replace original text with accepted version
     setOriginalText(text);
     // Reset states to allow iteration

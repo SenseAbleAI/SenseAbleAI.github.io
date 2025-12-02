@@ -5,6 +5,18 @@ export interface User {
   createdAt?: string;
 }
 
+export interface OtherPreferences {
+  ageRange?: string;
+  gender?: string;
+  country?: string;
+  languagePreference?: string;
+  accessibilityNeeds?: string[];
+  additionalSupport?: string;
+  accessibilityCategory?: string;
+  accessibilitySubOption?: string;
+  consentGiven?: boolean;
+}
+
 export interface UserPreferences {
   id?: number;
   user_id: number;
@@ -12,7 +24,7 @@ export interface UserPreferences {
   reading_level: ReadingLevel;
   preferred_complexity: ComplexityLevel;
   color_palette: ColorPalette;
-  other_preferences?: Record<string, unknown>;
+  other_preferences?: OtherPreferences;
 }
 
 export type AccessibilityNeed = 
