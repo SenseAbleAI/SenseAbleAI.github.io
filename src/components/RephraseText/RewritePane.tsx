@@ -69,8 +69,8 @@ const RewritePane: React.FC<RewritePaneProps> = ({
 
       {/* Accept Button */}
       <div className="flex justify-center">
-        <Button onClick={handleAccept} className="px-8">
-          Accept {activeVersion === 'gentle' ? 'Gentle' : 'Full'} Rewrite
+        <Button onClick={handleAccept} size="sm">
+          ✓ Accept
         </Button>
       </div>
     </div>

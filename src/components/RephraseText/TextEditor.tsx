@@ -3,6 +3,7 @@ import { TextHighlight, FamiliarityLevel } from '../../types';
 
 interface TextEditorProps {
   text: string;
+  onTextChange: (text: string) => void;
   highlights: TextHighlight[];
   onAddHighlight: (highlight: TextHighlight) => void;
   onUpdateHighlight?: (id: string, level: FamiliarityLevel) => void;
@@ -12,7 +13,6 @@ interface TextEditorProps {
   onHighlightHover?: (id: string | null) => void;
   acceptedReplacements?: Map<number, string>;
   onHighlightClick?: (highlightId: string) => void;
-  onTextChange?: (text: string) => void;
 }
 
 // SVG Pattern definitions for accessibility
@@ -46,6 +46,7 @@ const PatternDefs: React.FC = () => (
 
 const TextEditor: React.FC<TextEditorProps> = ({
   text,
+  onTextChange,
   highlights,
   onAddHighlight,
   onUpdateHighlight,
@@ -55,7 +56,6 @@ const TextEditor: React.FC<TextEditorProps> = ({
   onHighlightHover,
   acceptedReplacements = new Map(),
   onHighlightClick,
-  onTextChange: _onTextChange,
 }) => {
   const [selectedText, setSelectedText] = useState<{ text: string; start: number; end: number } | null>(null);
   const [showTagMenu, setShowTagMenu] = useState(false);
@@ -177,6 +177,8 @@ const TextEditor: React.FC<TextEditorProps> = ({
     let lastIndex = 0;
 
     // Combine highlights and accepted replacements for rendering
+    const acceptedPositions = Array.from(acceptedReplacements.keys());
+
     sortedHighlights.forEach((highlight, index) => {
       // Add text before highlight
       if (lastIndex < highlight.start) {
@@ -187,11 +189,12 @@ const TextEditor: React.FC<TextEditorProps> = ({
         );
       }
 
-      // Get colors and patterns
+      // Get colors, patterns, and icons
       const familiarityLevel = highlight.familiarityLevel || 'familiar';
       const backgroundColor = colorPalette[familiarityLevel];
       const textColor = colorPalette.textColors?.[familiarityLevel];
       const pattern = colorPalette.patterns?.[familiarityLevel];
+      const icon = colorPalette.icons?.[familiarityLevel];
       const isHovered = highlight.id === hoveredHighlightId;
 
       // Build background style with pattern overlay
@@ -238,6 +241,7 @@ const TextEditor: React.FC<TextEditorProps> = ({
             />
           )}
           <span style={{ position: 'relative', zIndex: 1 }}>
+            {icon && <span style={{ marginRight: '4px', fontWeight: 'bold' }}>{icon}</span>}
             {text.slice(highlight.start, highlight.end)}
           </span>
         </mark>

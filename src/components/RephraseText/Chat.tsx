@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 interface ChatProps {
-  onCustomRephrase: (instruction: string) => void;
   originalText: string;
+  onCustomRephrase: (instruction: string) => void;
 }
 
-const Chat: React.FC<ChatProps> = ({ onCustomRephrase, originalText: _originalText }) => {
+const Chat: React.FC<ChatProps> = ({ originalText, onCustomRephrase }) => {
   const [instruction, setInstruction] = useState('');
   const [chatHistory, setChatHistory] = useState<Array<{ type: 'user' | 'assistant'; message: string }>>([]);
   const [loading, setLoading] = useState(false);

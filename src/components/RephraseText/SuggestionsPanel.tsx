@@ -1,4 +1,4 @@
-import { useRef, useImperativeHandle, forwardRef } from 'react';
+import React, { useRef, useImperativeHandle, forwardRef, useState } from 'react';
 import { Suggestion, TextHighlight } from '../../types';
 
 interface SuggestionsPanelProps {
@@ -25,6 +25,7 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
   colorPalette,
 }, ref) => {
   const suggestionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const [expandedSuggestions, setExpandedSuggestions] = useState<Set<number>>(new Set());
 
   useImperativeHandle(ref, () => ({
     scrollToSuggestion: (highlightId: string) => {
@@ -44,11 +45,25 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
       {suggestions.map((suggestion, index) => {
         // Get the tag color for this suggestion
         const tagColor = suggestion.tag ? colorPalette[suggestion.tag] : '#6B7280';
+        const textColor = suggestion.tag && colorPalette.textColors ? colorPalette.textColors[suggestion.tag] : '#000000';
+        const icon = suggestion.tag && colorPalette.icons ? colorPalette.icons[suggestion.tag] : null;
         const firstAlternative = suggestion.alternatives[0] || suggestion.phrase;
 
         // Find the corresponding highlight
         const highlight = highlights.find(h => h.text === suggestion.phrase);
         const isHovered = highlight && hoveredId === highlight.id;
+        const isExpanded = expandedSuggestions.has(index);
+        const toggleExpanded = () => {
+          setExpandedSuggestions(prev => {
+            const newSet = new Set(prev);
+            if (newSet.has(index)) {
+              newSet.delete(index);
+            } else {
+              newSet.add(index);
+            }
+            return newSet;
+          });
+        };
 
         return (
           <div
@@ -63,6 +78,7 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
             }`}
             onMouseEnter={() => highlight && onHover(highlight.id)}
             onMouseLeave={() => onHover(null)}
+            onClick={toggleExpanded}
           >
             {/* Original -> Alternative format */}
             <div className="flex items-center gap-1.5 flex-wrap">
@@ -70,9 +86,10 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
                 className="text-xs font-medium px-1.5 py-0.5 rounded"
                 style={{
                   backgroundColor: tagColor,
-                  color: '#000000'
+                  color: textColor
                 }}
               >
+                {icon && <span style={{ marginRight: '4px', fontWeight: 'bold' }}>{icon}</span>}
                 {suggestion.phrase}
               </span>
               <span className="text-gray-400 text-xs">→</span>
@@ -81,31 +98,35 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
               </span>
             </div>
 
-            {/* Explanation */}
+            {/* Explanation with line clamp - click card to expand */}
             {suggestion.explanation && (
-              <div className="text-xs text-gray-600 leading-snug">
+              <div
+                className={`text-xs text-gray-600 leading-snug ${
+                  isExpanded ? '' : 'line-clamp-2'
+                }`}
+              >
                 {suggestion.explanation}
               </div>
             )}
 
-            {/* Compact action buttons at bottom */}
-            <div className="flex gap-1.5 justify-center">
+            {/* Minimal icon buttons - background appears on hover */}
+            <div className="flex gap-2 justify-center" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => onAccept(suggestion.phrase, firstAlternative)}
-                className="p-1.5 bg-green-600 hover:bg-green-700 text-white rounded transition flex items-center justify-center"
+                className="p-1.5 text-green-600 hover:bg-green-100 rounded-full transition-all duration-200 flex items-center justify-center group"
                 title="Accept"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
               </button>
               <button
                 onClick={() => onIgnore(suggestion.phrase)}
-                className="p-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded transition flex items-center justify-center"
+                className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-all duration-200 flex items-center justify-center group"
                 title="Ignore"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
+                <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>

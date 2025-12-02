@@ -1,7 +1,12 @@
 import api from './api';
 import { User, UserPreferences } from '../types';
+import { IS_DEMO_MODE } from '../config';
+import { mockUserService } from './mockUserService';
 
-export const userService = {
+/**
+ * Real user service using backend API
+ */
+const realUserService = {
   async register(data: any): Promise<User> {
     const response = await api.post('/api/users/register', data);
     return response.data;
@@ -27,3 +32,10 @@ export const userService = {
     return response.data;
   },
 };
+
+/**
+ * Export either mock or real service based on config
+ * Demo mode: Uses localStorage (no backend needed)
+ * Production mode: Uses real backend API
+ */
+export const userService = IS_DEMO_MODE ? mockUserService : realUserService;

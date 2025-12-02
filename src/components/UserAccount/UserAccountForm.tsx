@@ -250,7 +250,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <div className="bg-white shadow-lg rounded-lg p-8">
-          <h2 className="text-3xl font-bold mb-2" style={{ color: isLoginMode ? '#3B82F6' : '#111827' }}>
+          <h2 className="text-3xl font-bold mb-2" style={{ color: isLoginMode ? '#4F46E5' : '#111827' }}>
             {isLoginMode ? 'Welcome to SenseAble' : 'Update Your Profile'}
           </h2>
           <p className="text-gray-600 mb-8">

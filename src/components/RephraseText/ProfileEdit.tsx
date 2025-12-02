@@ -5,7 +5,7 @@ import { AccessibilityNeed, ReadingLevel, ComplexityLevel } from '../../types';
 import { getColorPalette } from '../../utils/colorPalettes';
 
 const ProfileEdit: React.FC = () => {
-  const { user, preferences, setPreferences } = useUser();
+  const { user, preferences, setUser, setPreferences } = useUser();
 
   const [formData, setFormData] = useState({
     name: user?.name || '',

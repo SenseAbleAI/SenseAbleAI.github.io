@@ -11,12 +11,14 @@ import { useUser } from '../context/UserContext';
 import { mockAnalyzeText, mockCustomRephrase, mockGetFullRewrite, mockGetGentleRewrite, mockGetSuggestions } from '../mocks/analyzeData';
 import { FamiliarityLevel, Suggestion, TextHighlight } from '../types';
 import { defaultColorPalette } from '../utils/colorPalettes';
+import exampleTexts from '../mocks/exampleTexts.json';
 
 const RephraseTextPage: React.FC = () => {
   const { user, preferences } = useUser();
   const navigate = useNavigate();
 
   const [originalText, setOriginalText] = useState('');
+  const [showExamplesPopover, setShowExamplesPopover] = useState(false);
   const [highlights, setHighlights] = useState<TextHighlight[]>([]);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [isAnalyzed, setIsAnalyzed] = useState(false);
@@ -120,7 +122,7 @@ const RephraseTextPage: React.FC = () => {
     setActiveTab('profile'); // Switch back to profile tab on reset
   };
 
-  const handleAcceptRewrite = (text: string) => {
+  const handleAcceptRewrite = (version: 'gentle' | 'full', text: string) => {
     // Replace original text with accepted version
     setOriginalText(text);
     // Reset states to allow iteration
@@ -216,15 +218,50 @@ const RephraseTextPage: React.FC = () => {
                   {isAnalyzed ? 'Analyzed Text' : 'Original Text'}
                 </h2>
                 {isAnalyzed && (
-                  <Button
-                    variant="outline"
-                    size="sm"
+                  <button
                     onClick={handleReset}
+                    className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 border border-gray-300 rounded-lg transition-colors"
                   >
-                    Start Over
-                  </Button>
+                    ↻ Start Over
+                  </button>
                 )}
               </div>
+
+              {/* Example Text Buttons and Note - Only show when not analyzed */}
+              {!isAnalyzed && (
+                <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                  <div className="flex items-start gap-2 mb-3">
+                    <span className="text-amber-600 text-sm">⚠️</span>
+                    <p className="text-xs text-amber-800 leading-relaxed">
+                      Please use the example texts provided to explore this demo. Due to internal security requirements, we're unable to host the models and resources needed for a fully interactive or live experience.
+                    </p>
+                  </div>
+                  <div className="flex gap-2 flex-wrap">
+                    <button
+                      onClick={() => {
+                        const exampleData = exampleTexts.examples.find(e => e.id === 6);
+                        if (exampleData) {
+                          setOriginalText(exampleData.original_text);
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
+                    >
+                      Example 1: Japanese Festival
+                    </button>
+                    <button
+                      onClick={() => {
+                        const exampleData = exampleTexts.examples.find(e => e.id === 1);
+                        if (exampleData) {
+                          setOriginalText(exampleData.original_text);
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
+                    >
+                      Example 2: Cotton Curtains
+                    </button>
+                  </div>
+                </div>
+              )}
 
               {!isAnalyzed ? (
                 <textarea

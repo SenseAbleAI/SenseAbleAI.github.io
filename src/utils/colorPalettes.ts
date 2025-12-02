@@ -6,15 +6,20 @@ export const defaultColorPalette: ColorPalette = {
   'familiar': '#6BCF7F'
 };
 
-// Okabe–Ito colorblind-safe palette with dot patterns
+// Okabe–Ito colorblind-safe palette with icons for differentiation
 export const colorblindPalette: ColorPalette = {
   'not-familiar': '#0173B2',
   'somewhat-familiar': '#DE8F05',
   'familiar': '#029E73',
-  patterns: {
-    'not-familiar': 'dots',      // Dense dots for high importance
-    'somewhat-familiar': 'diagonal',  // Diagonal lines for medium
-    'familiar': 'grid'           // Light grid for familiar
+  textColors: {
+    'not-familiar': '#FFFFFF',     // White text on dark blue for high contrast
+    'somewhat-familiar': '#000000', // Black text on orange
+    'familiar': '#000000'          // Black text on green
+  },
+  icons: {
+    'not-familiar': '✖',         // X mark for not familiar
+    'somewhat-familiar': '▲',    // Triangle for somewhat familiar
+    'familiar': '●'              // Circle for familiar
   }
 };
 
