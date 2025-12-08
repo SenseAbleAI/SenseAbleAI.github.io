@@ -13,5 +13,5 @@ An intelligent text rephrasing tool that adapts content based on individual acce
 
 ## 🗺️ Flowchart
 
-![SenseAble Flowchart](assets/images/flowchart.jpg)
+![SenseAble Flowchart](assets/flowchart.jpg)
 
