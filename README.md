@@ -1,36 +1,17 @@
-# SenseAble Frontend
+# 🎯 SenseAble - Personalized Text Accessibility
 
-React + TypeScript frontend for the SenseAble accessibility tool..
+An intelligent text rephrasing tool that adapts content based on individual accessibility needs.
 
-## Setup
+## ✨ Features
 
-1. Install dependencies:
-```bash
-npm install
-```
+- Smart text analysis with phrase tagging
+- Gentle & Full rewrites
+- Custom chat instructions
+- Accessibility-based color palettes
+- Interactive suggestions (Accept/Ignore)
+- Iterative refinement workflow
 
-2. Set up environment variables:
-```bash
-cp .env.example .env
-```
+## 🗺️ Flowchart
 
-3. Start development server:
-```bash
-npm run dev
-```
+![SenseAble Flowchart](assets/images/flowchart.jpg)
 
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## Features
-
-- User account management
-- Text rephrasing with AI
-- Text highlighting and tagging
-- Multiple rephrase versions
-- Accessibility-focused color palettes
-- Responsive design with TailwindCSS
