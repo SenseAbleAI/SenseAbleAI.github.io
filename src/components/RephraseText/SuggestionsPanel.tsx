@@ -109,23 +109,23 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
               </div>
             )}
 
-            {/* Icon buttons - rectangular with borders */}
+            {/* Icon buttons - smaller with thinner rounded borders */}
             <div className="flex gap-2 justify-center" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => onAccept(suggestion.phrase, firstAlternative)}
-                className="px-3 py-2 text-green-600 bg-white hover:bg-green-50 border-2 border-green-500 rounded transition-all duration-200 flex items-center justify-center gap-1 group"
+                className="px-2 py-1.5 text-green-600 bg-white hover:bg-green-50 border border-green-500 rounded-md transition-all duration-200 flex items-center justify-center gap-1 group"
                 title="Accept"
               >
-                <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
               </button>
               <button
                 onClick={() => onIgnore(suggestion.phrase)}
-                className="px-3 py-2 text-red-400 bg-white hover:bg-red-50 border-2 border-red-400 rounded transition-all duration-200 flex items-center justify-center gap-1 group"
+                className="px-2 py-1.5 text-red-400 bg-white hover:bg-red-50 border border-red-400 rounded-md transition-all duration-200 flex items-center justify-center gap-1 group"
                 title="Ignore"
               >
-                <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
