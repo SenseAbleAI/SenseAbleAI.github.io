@@ -8,7 +8,7 @@ import RewritePane from '../components/RephraseText/RewritePane';
 import SuggestionsPanel, { SuggestionsPanelRef } from '../components/RephraseText/SuggestionsPanel';
 import TextEditor from '../components/RephraseText/TextEditor';
 import { useUser } from '../context/UserContext';
-import { mockAnalyzeText, mockCustomRephrase, mockGetFullRewrite, mockGetGentleRewrite, mockGetSuggestions } from '../mocks/analyzeData';
+import { mockAnalyzeText, mockCustomRephrase, mockGetFullRewrite, mockGetGentleRewrite, mockGetSuggestions, cleanTaggedText } from '../mocks/analyzeData';
 import { FamiliarityLevel, Suggestion, TextHighlight } from '../types';
 import { defaultColorPalette } from '../utils/colorPalettes';
 import exampleTexts from '../mocks/exampleTexts.json';
@@ -25,6 +25,8 @@ const RephraseTextPage: React.FC = () => {
   const [showRewritePane, setShowRewritePane] = useState(false);
   const [gentleRewrite, setGentleRewrite] = useState('');
   const [fullRewrite, setFullRewrite] = useState('');
+  const [gentleUnderlines, setGentleUnderlines] = useState<Array<{start_index: number, end_index: number}>>([]);
+  const [fullUnderlines, setFullUnderlines] = useState<Array<{start_index: number, end_index: number}>>([]);
   const [loading, setLoading] = useState(false);
   const [hoveredHighlightId, setHoveredHighlightId] = useState<string | null>(null);
   const [acceptedReplacements, setAcceptedReplacements] = useState<Map<number, string>>(new Map());
@@ -88,8 +90,10 @@ const RephraseTextPage: React.FC = () => {
     setTimeout(() => {
       const gentle = mockGetGentleRewrite(originalText, highlights);
       const full = mockGetFullRewrite(originalText, highlights);
-      setGentleRewrite(gentle);
-      setFullRewrite(full);
+      setGentleRewrite(gentle.text);
+      setFullRewrite(full.text);
+      setGentleUnderlines(gentle.underlines || []);
+      setFullUnderlines(full.underlines || []);
       setShowRewritePane(true);
       setLoading(false);
     }, 800);
@@ -117,6 +121,8 @@ const RephraseTextPage: React.FC = () => {
     setShowRewritePane(false);
     setGentleRewrite('');
     setFullRewrite('');
+    setGentleUnderlines([]);
+    setFullUnderlines([]);
     setAcceptedReplacements(new Map());
     setHoveredHighlightId(null);
     setActiveTab('profile'); // Switch back to profile tab on reset
@@ -233,31 +239,34 @@ const RephraseTextPage: React.FC = () => {
                   <div className="flex items-start gap-2 mb-3">
                     <span className="text-amber-600 text-base">⚠️</span>
                     <p className="text-sm text-amber-800 leading-relaxed">
-                      Please use the example texts provided to explore this demo. Due to internal security requirements, we're unable to host the models and resources needed for a fully interactive experience.
+                      Please use the example text provided to explore this demo. Due to internal security requirements, we're unable to host the models and resources needed for a fully interactive experience.
                     </p>
                   </div>
                   <div className="flex gap-2 flex-wrap">
                     <button
                       onClick={() => {
-                        const exampleData = exampleTexts.examples.find(e => e.id === 6);
-                        if (exampleData) {
-                          setOriginalText(exampleData.original_text);
-                        }
+                        // Get persona from user name, default to first example (arun) if no match
+                        const personaName = user?.name?.toLowerCase();
+                        const exampleData = personaName
+                          ? exampleTexts.examples.find(e => e.persona === personaName)
+                          : null;
+
+                        // Use matched persona or default to first example
+                        const selectedExample = exampleData || exampleTexts.examples[0];
+
+                        // Remove tags for display in textarea (tags will be read back during analyze)
+                        setOriginalText(cleanTaggedText(selectedExample.original_text));
                       }}
                       className="px-4 py-2 text-base font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
                     >
-                      Example 1: Japanese Festival
-                    </button>
-                    <button
-                      onClick={() => {
-                        const exampleData = exampleTexts.examples.find(e => e.id === 1);
-                        if (exampleData) {
-                          setOriginalText(exampleData.original_text);
-                        }
-                      }}
-                      className="px-4 py-2 text-base font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
-                    >
-                      Example 2: Cotton Curtains
+                      Example: {(() => {
+                        const personaName = user?.name?.toLowerCase();
+                        const exampleData = personaName
+                          ? exampleTexts.examples.find(e => e.persona === personaName)
+                          : null;
+                        const selectedExample = exampleData || exampleTexts.examples[0];
+                        return (selectedExample as any).title || 'Load Example';
+                      })()}
                     </button>
                   </div>
                 </div>
@@ -310,6 +319,8 @@ const RephraseTextPage: React.FC = () => {
               <RewritePane
                 gentleRewrite={gentleRewrite}
                 fullRewrite={fullRewrite}
+                gentleUnderlines={gentleUnderlines}
+                fullUnderlines={fullUnderlines}
                 originalText={originalText}
                 highlights={highlights}
                 onAccept={handleAcceptRewrite}

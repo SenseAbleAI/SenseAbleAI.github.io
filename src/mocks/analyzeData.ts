@@ -32,14 +32,10 @@ export const getAllExamples = () => {
  */
 export const getHighlightsFromExample = (exampleId: number = 1): TextHighlight[] => {
   const example = getExampleById(exampleId);
-  
-  return example.tagged_phrases.map((phrase, index) => ({
-    id: `highlight-${index}-${phrase.start_index}`,
-    start: phrase.start_index,
-    end: phrase.end_index,
-    text: phrase.phrase,
-    familiarityLevel: tagMapping[phrase.tag],
-  }));
+
+  // Parse tags from the original_text
+  const { highlights } = parseTaggedText(example.original_text);
+  return highlights;
 };
 
 /**
@@ -47,14 +43,70 @@ export const getHighlightsFromExample = (exampleId: number = 1): TextHighlight[]
  */
 export const getSuggestionsFromExample = (exampleId: number = 1): Suggestion[] => {
   const example = getExampleById(exampleId);
+  const { highlights, cleanText } = parseTaggedText(example.original_text);
 
-  return example.tagged_phrases.map(phrase => ({
-    phrase: phrase.phrase,
-    alternatives: phrase.rephrased_versions.map(v => v.replacement),
-    position: { start: phrase.start_index, end: phrase.end_index },
-    tag: tagMapping[phrase.tag],
-    explanation: phrase.explanation || 'Consider using simpler language for better clarity.',
-  }));
+  return example.tagged_phrases.map((phrase, index) => {
+    // Find the corresponding highlight to get position
+    const highlight = highlights.find(h => h.text === phrase.phrase);
+
+    return {
+      phrase: phrase.phrase,
+      alternatives: [phrase.simpler],
+      position: highlight ? { start: highlight.start, end: highlight.end } : { start: 0, end: 0 },
+      tag: tagMapping[phrase.tag],
+      explanation: phrase.explanation || 'Consider using simpler language for better clarity.',
+    };
+  });
+};
+
+/**
+ * Remove all tags from text
+ */
+export const cleanTaggedText = (taggedText: string): string => {
+  return taggedText.replace(/<(nf|sf|f|u)>(.*?)<\/\1>/g, '$2');
+};
+
+/**
+ * Parse tagged text and extract highlights
+ */
+const parseTaggedText = (taggedText: string): { cleanText: string, highlights: TextHighlight[] } => {
+  const highlights: TextHighlight[] = [];
+  let cleanText = taggedText;
+  let offset = 0;
+
+  // Regular expression to match tags: <nf>text</nf>, <sf>text</sf>, <f>text</f>
+  const tagPattern = /<(nf|sf|f)>(.*?)<\/\1>/g;
+  let match;
+  let idCounter = 0;
+
+  // Create a copy for regex matching
+  const textForMatching = taggedText;
+
+  while ((match = tagPattern.exec(textForMatching)) !== null) {
+    const [fullMatch, tag, content] = match;
+    const tagType = tag === 'nf' ? 'not-familiar' : tag === 'sf' ? 'somewhat-familiar' : 'familiar';
+
+    // Calculate position in clean text (accounting for already removed tags)
+    const matchStart = match.index - offset;
+    const contentStart = matchStart;
+    const contentEnd = contentStart + content.length;
+
+    highlights.push({
+      id: `highlight-${idCounter++}-${contentStart}`,
+      start: contentStart,
+      end: contentEnd,
+      text: content,
+      familiarityLevel: tagType as FamiliarityLevel,
+    });
+
+    // Update offset by the length of tags removed
+    offset += fullMatch.length - content.length;
+  }
+
+  // Remove all tags from text
+  cleanText = taggedText.replace(/<(nf|sf|f)>(.*?)<\/\1>/g, '$2');
+
+  return { cleanText, highlights };
 };
 
 /**
@@ -62,15 +114,24 @@ export const getSuggestionsFromExample = (exampleId: number = 1): Suggestion[] =
  * Uses JSON data if text matches an example, otherwise uses fallback logic
  */
 export const mockAnalyzeText = (text: string): TextHighlight[] => {
-  // Check if this text matches any example
+  // Check if this text contains tags (from JSON)
+  if (text.includes('<nf>') || text.includes('<sf>') || text.includes('<f>')) {
+    const { highlights } = parseTaggedText(text);
+    return highlights;
+  }
+
+  // Check if this is clean text matching any example
   const matchingExample = exampleTextsData.examples.find(
-    ex => ex.original_text.trim() === text.trim()
+    ex => {
+      const { cleanText } = parseTaggedText(ex.original_text);
+      return cleanText.trim() === text.trim();
+    }
   );
-  
+
   if (matchingExample) {
     return getHighlightsFromExample(matchingExample.id);
   }
-  
+
   // Fallback: simple phrase detection for custom text
   return detectComplexPhrases(text);
 };
@@ -96,22 +157,30 @@ export const mockGetSuggestions = (highlights: TextHighlight[], text: string): S
       `easier "${h.text}"`
     ],
     position: { start: h.start, end: h.end },
+    tag: h.familiarityLevel,
+    explanation: 'Consider using simpler language for better clarity.',
   }));
 };
 
 /**
  * Generate gentle rewrite - minor modifications based on tags
  * Replaces only "not-familiar" tagged phrases with simpler alternatives
+ * Returns object with rewrite text (with <u> tags embedded)
  */
-export const mockGetGentleRewrite = (text: string, highlights: TextHighlight[]): string => {
-  // Check if this text matches any example
+export const mockGetGentleRewrite = (text: string, highlights: TextHighlight[]): { text: string, underlines?: Array<{start_index: number, end_index: number}> } => {
+  // Check if clean text matches any example
+  const cleanText = cleanTaggedText(text);
+
   const matchingExample = exampleTextsData.examples.find(
-    ex => ex.original_text.trim() === text.trim()
+    ex => cleanTaggedText(ex.original_text).trim() === cleanText.trim()
   );
 
   if (matchingExample && (matchingExample as any).gentle_rewrite) {
-    // Return the pre-written gentle rewrite from JSON
-    return (matchingExample as any).gentle_rewrite;
+    // Return the pre-written gentle rewrite from JSON (already has <u> tags)
+    return {
+      text: (matchingExample as any).gentle_rewrite,
+      underlines: [] // Not needed since tags are embedded
+    };
   }
 
   // Fallback: replace only "not-familiar" tagged phrases
@@ -122,22 +191,28 @@ export const mockGetGentleRewrite = (text: string, highlights: TextHighlight[]):
     rewrittenText = rewrittenText.slice(0, h.start) + simplifiedVersion + rewrittenText.slice(h.end);
   });
 
-  return rewrittenText;
+  return { text: rewrittenText };
 };
 
 /**
  * Generate full rewrite - deeper modifications of content
  * Replaces all tagged phrases with simpler alternatives
+ * Returns object with rewrite text (with <u> tags embedded)
  */
-export const mockGetFullRewrite = (text: string, highlights: TextHighlight[]): string => {
-  // Check if this text matches any example
+export const mockGetFullRewrite = (text: string, highlights: TextHighlight[]): { text: string, underlines?: Array<{start_index: number, end_index: number}> } => {
+  // Check if clean text matches any example
+  const cleanText = cleanTaggedText(text);
+
   const matchingExample = exampleTextsData.examples.find(
-    ex => ex.original_text.trim() === text.trim()
+    ex => cleanTaggedText(ex.original_text).trim() === cleanText.trim()
   );
 
   if (matchingExample && (matchingExample as any).full_rewrite) {
-    // Return the pre-written full rewrite from JSON
-    return (matchingExample as any).full_rewrite;
+    // Return the pre-written full rewrite from JSON (already has <u> tags)
+    return {
+      text: (matchingExample as any).full_rewrite,
+      underlines: [] // Not needed since tags are embedded
+    };
   }
 
   // Fallback: replace all tagged phrases
@@ -147,7 +222,7 @@ export const mockGetFullRewrite = (text: string, highlights: TextHighlight[]): s
     rewrittenText = rewrittenText.slice(0, h.start) + simplifiedVersion + rewrittenText.slice(h.end);
   });
 
-  return rewrittenText;
+  return { text: rewrittenText };
 };
 
 /**

@@ -341,31 +341,28 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
         <div className="min-h-screen flex">
           {/* Left Side - Personas */}
           <div className="w-1/2 bg-gradient-to-br from-blue-50 to-indigo-100 p-12 flex flex-col">
-            <div className="mb-12">
-              <h1 className="text-4xl font-bold text-blue-600 mb-3">
-                SenseAble
-              </h1>
-              <p className="text-base text-gray-700">
-                Empowering every user with personalized accessibility
-              </p>
-            </div>
-
             {/* Persona Cards - Centered */}
             <div className="flex-1 flex items-center justify-center">
               <div className="max-w-lg">
-                <div className="mb-6">
+                <div className="mb-8">
+                  <h1 className="text-4xl font-bold text-blue-600 mb-3">
+                    SenseAble
+                  </h1>
+                  <p className="text-base text-gray-700 mb-6">
+                    Empowering every user with personalized accessibility
+                  </p>
                   <h2 className="text-xl font-semibold text-gray-900">
                     Get started with these user personas
                   </h2>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="grid grid-cols-2 gap-3 mb-6 max-w-md">
                   {personas.map((persona) => (
                     <button
                       key={persona.id}
                       type="button"
                       onClick={() => handlePersonaSelect(persona)}
-                      className={`bg-white rounded-2xl p-8 w-full aspect-square flex flex-col items-center justify-center transition-all duration-200 hover:shadow-lg ${
+                      className={`bg-white rounded-xl p-4 w-full aspect-square flex flex-col items-center justify-center transition-all duration-200 hover:shadow-lg ${
                         selectedPersona === persona.id
                           ? 'ring-4 shadow-xl'
                           : 'hover:scale-105'
@@ -377,15 +374,15 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       }
                     >
                       <div
-                        className="rounded-full flex items-center justify-center mb-4 transition-colors"
+                        className="rounded-full flex items-center justify-center mb-2 transition-colors"
                         style={{
-                          width: '4.5rem',
-                          height: '4.5rem',
+                          width: '4rem',
+                          height: '4rem',
                           backgroundColor: selectedPersona === persona.id ? persona.color : persona.bgColor,
                         }}
                       >
                         <svg
-                          className="w-10 h-10"
+                          className="w-8 h-8"
                           style={{
                             color: selectedPersona === persona.id ? '#ffffff' : persona.color,
                           }}
@@ -402,7 +399,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           />
                         </svg>
                       </div>
-                      <span className="text-lg font-semibold text-gray-900">{persona.name}</span>
+                      <span className="text-base font-semibold text-gray-900">{persona.name}</span>
                     </button>
                   ))}
                 </div>

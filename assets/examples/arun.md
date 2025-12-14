@@ -1,4 +1,4 @@
-Original text: 
+Original text:
 The Haneto costume worn at Aomori’s Nebuta Matsuri is one of Japan’s most recognizable festival outfits. It is the traditional clothing for dancers in the Aomori festival and includes a white yukata with blue patterns, a triangular straw hat decorated with flowers called a hanagasa, a yellow waistband, and a sash called a tasuki. Dancers also wear tabi socks and zōri sandals, and they may attach small bells to their costume. Japanese festivals often feature popular foods such as sushi, ramen, and takoyaki that are now popular worldwide. Aomori, where Nebuta Matsuri takes place, is also known for its natural landscapes and coastal views, making it a well-known travel destination in Japan.
 
 Tagging:

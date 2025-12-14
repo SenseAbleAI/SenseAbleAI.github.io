@@ -643,6 +643,553 @@
           ]
         }
       ]
-    }
+    },
+      {
+    "id": 6,
+    "original_text": "The Haneto costume worn at Aomori’s Nebuta Matsuri is one of Japan’s most recognizable festival outfits. It is the traditional clothing for dancers in the Aomori festival and includes a white yukata with blue patterns, a triangular straw hat decorated with flowers called a hanagasa, a yellow waistband, and a sash called a tasuki. Dancers also wear tabi socks and zōri sandals, and they may attach small bells to their costume. Japanese festivals often feature popular foods such as sushi, ramen, and takoyaki that are now popular worldwide. Aomori, where Nebuta Matsuri takes place, is also known for its natural landscapes and coastal views, making it a well-known travel destination in Japan.",
+    "gentle_rewrite": "The Haneto costume worn at Aomori’s Nebuta Matsuri is one of Japan’s most recognizable festival outfits, with bright colors and clear patterns. It is the traditional clothing for dancers in the Aomori festival and includes a white yukata (a light summer kimono) with blue patterns, a triangular straw hat decorated with flowers called a hanagasa, a yellow waistband, and a sleeve-tying sash called a tasuki. Dancers also wear tabi socks, which are Japanese split-toe socks, and zōri sandals, simple traditional Japanese flat sandals, and they may attach small bells to their costume so they jingle as they move. Japanese festivals often feature foods such as sushi, ramen, and takoyaki, a popular Japanese street snack that can feel a bit like enjoying chaat at Indian festivals. Aomori, where Nebuta Matsuri takes place, is also known for its green hills, natural landscapes, and coastal views, making it a well-known travel destination in Japan.",
+    "full_rewrite": "The Haneto costume worn at Aomori’s Nebuta Matsuri is a bright and eye-catching festival outfit that many people in Japan recognize. It is the traditional clothing for dancers in this summer festival in Aomori and includes a white yukata, which is a light summer kimono, with blue patterns. The costume also has a triangular straw hat decorated with colorful flowers called a hanagasa, a yellow waistband, and a tasuki, a sash that ties back the sleeves so dancers can move freely. Dancers also wear tabi, traditional Japanese split-toe socks, and zōri, simple traditional Japanese flat sandals, and they sometimes attach small bells to their costume so the sound matches the rhythm of the music. Japanese festivals often include food stalls that sell sushi, ramen, and takoyaki, a popular Japanese street snack that, for some people, feels similar to enjoying chaat at Indian festivals. Aomori, the city where Nebuta Matsuri takes place, is also famous for its green mountains, apple orchards, natural landscapes, and wide coastal views, which make it a popular travel destination in Japan.",
+    "tagged_phrases": [
+      {
+        "phrase": "Haneto costume",
+        "tag": "not_familiar",
+        "start_index": 4,
+        "end_index": 18,
+        "explanation": "This specific festival costume name may be new to many readers who are not familiar with Japanese culture.",
+        "rephrased_versions": [
+          {
+            "replacement": "Haneto festival outfit",
+            "length": 22
+          },
+          {
+            "replacement": "special Nebuta festival costume",
+            "length": 31
+          }
+        ]
+      },
+      {
+        "phrase": "Nebuta Matsuri",
+        "tag": "not_familiar",
+        "start_index": 36,
+        "end_index": 50,
+        "explanation": "This is the name of a Japanese summer festival and may need a short explanation.",
+        "rephrased_versions": [
+          {
+            "replacement": "Nebuta summer festival",
+            "length": 22
+          },
+          {
+            "replacement": "Nebuta Matsuri festival in Aomori",
+            "length": 33
+          }
+        ]
+      },
+      {
+        "phrase": "Aomori",
+        "tag": "somewhat_familiar",
+        "start_index": 27,
+        "end_index": 33,
+        "explanation": "This is a place name in Japan and may benefit from extra context for some readers.",
+        "rephrased_versions": [
+          {
+            "replacement": "Aomori city in northern Japan",
+            "length": 30
+          },
+          {
+            "replacement": "Aomori, a city in the Tohoku region",
+            "length": 35
+          }
+        ]
+      },
+      {
+        "phrase": "yukata",
+        "tag": "not_familiar",
+        "start_index": 192,
+        "end_index": 198,
+        "explanation": "A traditional clothing term that many readers may not recognize without explanation.",
+        "rephrased_versions": [
+          {
+            "replacement": "light summer kimono",
+            "length": 20
+          },
+          {
+            "replacement": "casual cotton kimono worn in summer",
+            "length": 36
+          }
+        ]
+      },
+      {
+        "phrase": "tasuki",
+        "tag": "not_familiar",
+        "start_index": 324,
+        "end_index": 330,
+        "explanation": "A specific accessory name that may be unfamiliar to most readers.",
+        "rephrased_versions": [
+          {
+            "replacement": "sleeve-tying sash",
+            "length": 18
+          },
+          {
+            "replacement": "sash used to tie back the sleeves",
+            "length": 34
+          }
+        ]
+      },
+      {
+        "phrase": "tabi",
+        "tag": "not_familiar",
+        "start_index": 350,
+        "end_index": 354,
+        "explanation": "A traditional clothing item that may be unknown to readers outside Japan.",
+        "rephrased_versions": [
+          {
+            "replacement": "Japanese split-toe socks",
+            "length": 25
+          },
+          {
+            "replacement": "traditional Japanese split-toe socks",
+            "length": 37
+          }
+        ]
+      },
+      {
+        "phrase": "zōri",
+        "tag": "not_familiar",
+        "start_index": 365,
+        "end_index": 369,
+        "explanation": "A traditional type of footwear that many readers may not know.",
+        "rephrased_versions": [
+          {
+            "replacement": "traditional Japanese flat sandals",
+            "length": 32
+          },
+          {
+            "replacement": "simple Japanese straw or plastic sandals",
+            "length": 41
+          }
+        ]
+      },
+      {
+        "phrase": "takoyaki",
+        "tag": "not_familiar",
+        "start_index": 502,
+        "end_index": 510,
+        "explanation": "A Japanese food word that may need a brief explanation.",
+        "rephrased_versions": [
+          {
+            "replacement": "popular Japanese street snack",
+            "length": 29
+          },
+          {
+            "replacement": "ball-shaped snack made with batter and pieces of octopus",
+            "length": 63
+          }
+        ]
+      },
+      {
+        "phrase": "natural landscapes",
+        "tag": "somewhat_familiar",
+        "start_index": 607,
+        "end_index": 625,
+        "explanation": "This phrase is a bit abstract and can be described more concretely.",
+        "rephrased_versions": [
+          {
+            "replacement": "scenery with mountains, forests, and fields",
+            "length": 47
+          },
+          {
+            "replacement": "beautiful views of nature like hills and trees",
+            "length": 50
+          }
+        ]
+      },
+      {
+        "phrase": "coastal views",
+        "tag": "somewhat_familiar",
+        "start_index": 630,
+        "end_index": 643,
+        "explanation": "This phrase may be clearer if expressed in simpler words.",
+        "rephrased_versions": [
+          {
+            "replacement": "views of the sea and shoreline",
+            "length": 30
+          },
+          {
+            "replacement": "scenery looking out over the ocean",
+            "length": 35
+          }
+        ]
+      },
+      {
+        "phrase": "travel destination",
+        "tag": "somewhat_familiar",
+        "start_index": 668,
+        "end_index": 686,
+        "explanation": "A slightly formal phrase that could be simplified.",
+        "rephrased_versions": [
+          {
+            "replacement": "place people visit for trips",
+            "length": 28
+          },
+          {
+            "replacement": "popular place for tourists to visit",
+            "length": 35
+          }
+        ]
+      },
+      {
+        "phrase": "popular foods such as sushi, ramen, and takoyaki that are now popular worldwide",
+        "tag": "somewhat_familiar",
+        "start_index": 462,
+        "end_index": 541,
+        "explanation": "This phrase repeats the word 'popular' and can be smoothed out for better style.",
+        "rephrased_versions": [
+          {
+            "replacement": "well-known foods such as sushi, ramen, and takoyaki enjoyed around the world",
+            "length": 76
+          },
+          {
+            "replacement": "famous dishes like sushi, ramen, and takoyaki that many people worldwide enjoy",
+            "length": 78
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "original_text": "The Haneto costume worn at Aomori’s Nebuta Matsuri is one of Japan’s most recognizable festival outfits, with bright colors and clear patterns. It is the traditional clothing for dancers in the Aomori festival and includes a white yukata (a light summer kimono) with blue patterns, a triangular straw hat decorated with flowers called a hanagasa, a yellow waistband, and a sleeve-tying sash called a tasuki. Dancers also wear tabi socks, which are Japanese split-toe socks, and zōri sandals, simple traditional Japanese flat sandals, and they may attach small bells to their costume so they jingle as they move. Japanese festivals often feature foods such as sushi, ramen, and takoyaki, a popular Japanese street snack that can feel a bit like enjoying chaat at Indian festivals. Aomori, where Nebuta Matsuri takes place, is also known for its green hills, natural landscapes, and coastal views, making it a well-known travel destination in Japan.",
+    "tagged_phrases": [
+      {
+        "phrase": "Haneto costume",
+        "tag": "not_familiar",
+        "start_index": 4,
+        "end_index": 18,
+        "explanation": "This festival costume name may still be unfamiliar even in the simpler version.",
+        "rephrased_versions": [
+          {
+            "replacement": "Haneto festival outfit",
+            "length": 22
+          },
+          {
+            "replacement": "special costume worn in the Nebuta festival",
+            "length": 45
+          }
+        ]
+      },
+      {
+        "phrase": "Nebuta Matsuri",
+        "tag": "not_familiar",
+        "start_index": 36,
+        "end_index": 50,
+        "explanation": "The festival name can be briefly described to help readers understand it.",
+        "rephrased_versions": [
+          {
+            "replacement": "Nebuta summer festival",
+            "length": 22
+          },
+          {
+            "replacement": "Nebuta lantern festival in Aomori",
+            "length": 34
+          }
+        ]
+      },
+      {
+        "phrase": "hanagasa",
+        "tag": "not_familiar",
+        "start_index": 337,
+        "end_index": 345,
+        "explanation": "A specific Japanese word for a flower-decorated straw hat.",
+        "rephrased_versions": [
+          {
+            "replacement": "flower-decorated straw hat",
+            "length": 29
+          },
+          {
+            "replacement": "straw hat with colorful flowers",
+            "length": 32
+          }
+        ]
+      },
+      {
+        "phrase": "Japanese split-toe socks",
+        "tag": "somewhat_familiar",
+        "start_index": 448,
+        "end_index": 472,
+        "explanation": "This phrase might be clearer if shortened.",
+        "rephrased_versions": [
+          {
+            "replacement": "Japanese tabi socks",
+            "length": 20
+          },
+          {
+            "replacement": "traditional split-toe socks",
+            "length": 27
+          }
+        ]
+      },
+      {
+        "phrase": "traditional Japanese flat sandals",
+        "tag": "somewhat_familiar",
+        "start_index": 499,
+        "end_index": 532,
+        "explanation": "This longer description can be shortened while keeping the meaning.",
+        "rephrased_versions": [
+          {
+            "replacement": "traditional zōri sandals",
+            "length": 24
+          },
+          {
+            "replacement": "simple flat Japanese sandals",
+            "length": 28
+          }
+        ]
+      },
+      {
+        "phrase": "popular Japanese street snack",
+        "tag": "somewhat_familiar",
+        "start_index": 689,
+        "end_index": 718,
+        "explanation": "This phrase can be simplified further for young readers.",
+        "rephrased_versions": [
+          {
+            "replacement": "well-loved Japanese snack sold at stalls",
+            "length": 44
+          },
+          {
+            "replacement": "snack often sold at Japanese street food stalls",
+            "length": 53
+          }
+        ]
+      },
+      {
+        "phrase": "natural landscapes",
+        "tag": "somewhat_familiar",
+        "start_index": 857,
+        "end_index": 875,
+        "explanation": "The phrase is a bit general and can be made more concrete.",
+        "rephrased_versions": [
+          {
+            "replacement": "views of hills, forests, and fields",
+            "length": 37
+          },
+          {
+            "replacement": "scenery with nature like trees and mountains",
+            "length": 47
+          }
+        ]
+      },
+      {
+        "phrase": "coastal views",
+        "tag": "somewhat_familiar",
+        "start_index": 881,
+        "end_index": 894,
+        "explanation": "This can be rephrased for clarity.",
+        "rephrased_versions": [
+          {
+            "replacement": "views of the sea and shore",
+            "length": 28
+          },
+          {
+            "replacement": "scenery looking out over the ocean",
+            "length": 35
+          }
+        ]
+      },
+      {
+        "phrase": "travel destination",
+        "tag": "somewhat_familiar",
+        "start_index": 919,
+        "end_index": 937,
+        "explanation": "A slightly formal expression that can be simplified.",
+        "rephrased_versions": [
+          {
+            "replacement": "place people travel to for holidays",
+            "length": 36
+          },
+          {
+            "replacement": "popular place for tourists to visit",
+            "length": 35
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "original_text": "The Haneto costume worn at Aomori’s Nebuta Matsuri is a bright and eye-catching festival outfit that many people in Japan recognize. It is the traditional clothing for dancers in this summer festival in Aomori and includes a white yukata, which is a light summer kimono, with blue patterns. The costume also has a triangular straw hat decorated with colorful flowers called a hanagasa, a yellow waistband, and a tasuki, a sash that ties back the sleeves so dancers can move freely. Dancers also wear tabi, traditional Japanese split-toe socks, and zōri, simple traditional Japanese flat sandals, and they sometimes attach small bells to their costume so the sound matches the rhythm of the music. Japanese festivals often include food stalls that sell sushi, ramen, and takoyaki, a popular Japanese street snack that, for some people, feels similar to enjoying chaat at Indian festivals. Aomori, the city where Nebuta Matsuri takes place, is also famous for its green mountains, apple orchards, natural landscapes, and wide coastal views, which make it a popular travel destination in Japan.",
+    "tagged_phrases": [
+      {
+        "phrase": "Haneto costume",
+        "tag": "not_familiar",
+        "start_index": 4,
+        "end_index": 18,
+        "explanation": "Even with extra explanation, this costume name itself may not be clear to all readers.",
+        "rephrased_versions": [
+          {
+            "replacement": "Haneto festival outfit",
+            "length": 22
+          },
+          {
+            "replacement": "special costume for the Nebuta festival dancers",
+            "length": 50
+          }
+        ]
+      },
+      {
+        "phrase": "Nebuta Matsuri",
+        "tag": "not_familiar",
+        "start_index": 36,
+        "end_index": 50,
+        "explanation": "The name of the festival may need a brief meaning.",
+        "rephrased_versions": [
+          {
+            "replacement": "Nebuta summer festival",
+            "length": 22
+          },
+          {
+            "replacement": "Nebuta lantern parade festival",
+            "length": 30
+          }
+        ]
+      },
+      {
+        "phrase": "hanagasa",
+        "tag": "not_familiar",
+        "start_index": 376,
+        "end_index": 384,
+        "explanation": "A Japanese word that benefits from a short explanation.",
+        "rephrased_versions": [
+          {
+            "replacement": "flower-decorated straw hat",
+            "length": 29
+          },
+          {
+            "replacement": "straw hat covered with bright flowers",
+            "length": 38
+          }
+        ]
+      },
+      {
+        "phrase": "a sash that ties back the sleeves so dancers can move freely",
+        "tag": "somewhat_familiar",
+        "start_index": 420,
+        "end_index": 480,
+        "explanation": "This long description can be shortened while keeping the idea.",
+        "rephrased_versions": [
+          {
+            "replacement": "sash that ties back the sleeves",
+            "length": 32
+          },
+          {
+            "replacement": "sleeve-tying sash for dancers",
+            "length": 31
+          }
+        ]
+      },
+      {
+        "phrase": "traditional Japanese split-toe socks",
+        "tag": "somewhat_familiar",
+        "start_index": 506,
+        "end_index": 542,
+        "explanation": "This phrase can be shortened and connected to the word 'tabi'.",
+        "rephrased_versions": [
+          {
+            "replacement": "Japanese tabi socks",
+            "length": 20
+          },
+          {
+            "replacement": "traditional split-toe socks",
+            "length": 27
+          }
+        ]
+      },
+      {
+        "phrase": "simple traditional Japanese flat sandals",
+        "tag": "somewhat_familiar",
+        "start_index": 554,
+        "end_index": 594,
+        "explanation": "A long descriptive phrase that could be made shorter.",
+        "rephrased_versions": [
+          {
+            "replacement": "simple zōri sandals",
+            "length": 20
+          },
+          {
+            "replacement": "flat traditional Japanese sandals",
+            "length": 32
+          }
+        ]
+      },
+      {
+        "phrase": "popular Japanese street snack",
+        "tag": "somewhat_familiar",
+        "start_index": 782,
+        "end_index": 811,
+        "explanation": "This phrase can be simplified for very young readers.",
+        "rephrased_versions": [
+          {
+            "replacement": "well-known snack sold at Japanese street stalls",
+            "length": 49
+          },
+          {
+            "replacement": "street snack many people in Japan enjoy",
+            "length": 43
+          }
+        ]
+      },
+      {
+        "phrase": "chaat at Indian festivals",
+        "tag": "somewhat_familiar",
+        "start_index": 861,
+        "end_index": 886,
+        "explanation": "The comparison may be unfamiliar to readers outside India and can use a bit more context.",
+        "rephrased_versions": [
+          {
+            "replacement": "Indian festival snack called chaat",
+            "length": 34
+          },
+          {
+            "replacement": "savory Indian snack often eaten at festivals",
+            "length": 46
+          }
+        ]
+      },
+      {
+        "phrase": "apple orchards",
+        "tag": "somewhat_familiar",
+        "start_index": 979,
+        "end_index": 993,
+        "explanation": "Some readers may not know the word 'orchards'.",
+        "rephrased_versions": [
+          {
+            "replacement": "areas of land with many apple trees",
+            "length": 38
+          },
+          {
+            "replacement": "fields where many apple trees are grown",
+            "length": 41
+          }
+        ]
+      },
+      {
+        "phrase": "travel destination",
+        "tag": "somewhat_familiar",
+        "start_index": 1063,
+        "end_index": 1081,
+        "explanation": "A formal phrase that can be simplified.",
+        "rephrased_versions": [
+          {
+            "replacement": "place people go on trips",
+            "length": 24
+          },
+          {
+            "replacement": "popular place for tourists to visit",
+            "length": 35
+          }
+        ]
+      }
+    ]
+  }
   ]
 }

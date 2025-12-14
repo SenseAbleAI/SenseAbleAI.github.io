@@ -2,1194 +2,403 @@
   "examples": [
     {
       "id": 1,
-      "original_text": "Cotton curtains, while seemingly simple, offer a nuanced blend of practicality and aesthetic refinement that makes them an enduring choice in interior design. Their natural fibers create a breathable, temperature-balancing barrier that subtly filters light, softening a room's ambience without fully obscuring outdoor illumination. This organic texture lends an understated elegance that integrates seamlessly into both contemporary and traditional spaces. Beyond appearance, cotton's washability and durability contribute to its long-term value; however, these virtues are tempered by its propensity to wrinkle and its vulnerability to gradual fading when exposed to sustained sunlight. Unlined cotton panels, in particular, struggle to achieve the depth of light control provided by synthetic or blackout alternatives, which may be a consideration for users seeking heightened privacy or darkness. Nonetheless, the tactile warmth, visual softness, and ecological appeal of cotton make it a sophisticated option for homeowners who prioritize comfort, natural materials, and a subtle interplay of light and texture.",
-      "gentle_rewrite": "Cotton curtains, while seemingly simple, offer a careful mix of practicality and very neat and stylish look that makes them an enduring choice in interior design. Their natural fibers create a breathable, layer that helps keep the room not too hot or cold that subtly filters light, softening a room's ambience without fully obscuring outdoor illumination. This organic texture lends a simple but classy look that integrates seamlessly into both contemporary and traditional spaces. Beyond appearance, cotton's washability and durability contribute to its long-term value; however, these virtues are tempered by its propensity to wrinkle and its vulnerability to gradual fading when exposed to sustained sunlight. Unlined cotton panels, in particular, struggle to achieve the depth of light control provided by synthetic or blackout alternatives, which may be a consideration for users seeking heightened privacy or darkness. Nonetheless, the pleasant, cozy feel to the touch, visual softness, and ecological appeal of cotton make it a sophisticated option for homeowners who prioritize comfort, natural materials, and a gentle way light and fabric surface work together.",
-      "full_rewrite": "Cotton curtains, while seemingly simple, offer a careful mix of usefulness in everyday life and very neat and stylish look that makes them an enduring choice in how the inside of a room is arranged and decorated. Their natural fibers create a lets air pass through, layer that helps keep the room not too hot or cold that subtly filters light, softening a room's overall feeling in the room without fully obscuring outdoor illumination. This natural feel of the fabric lends a simple but classy look that integrates seamlessly into both contemporary and traditional spaces. Beyond appearance, cotton's easy to wash and long-lasting contribute to its long-term value; however, these virtues are tempered by its tends to get creased easily and its can slowly lose its color over time when exposed to sustained sunlight. Unlined cotton panels, in particular, struggle to achieve the depth of light control provided by other curtains made from man-made or blackout fabrics, which may be a consideration for users seeking heightened privacy or darkness. Nonetheless, the pleasant, cozy feel to the touch, visual softness, and good for the environment of cotton make it a sophisticated option for homeowners who prioritize comfort, natural materials, and a gentle way light and fabric surface work together.",
+      "persona": "arun",
+      "title": "Japanese Festival",
+      "original_text": "The <nf>Haneto costume</nf> worn at Aomori's <nf>Nebuta Matsuri</nf> is one of Japan's most recognizable <sf>festival outfits</sf>. It is the <sf>traditional clothing</sf> for dancers in the Aomori festival and includes a white <nf>yukata</nf> with blue patterns, a triangular straw hat decorated with flowers called a <nf>hanagasa</nf>, a yellow waistband, and a sash called a <nf>tasuki</nf>. Dancers also wear <nf>tabi socks</nf> and <nf>zōri sandals</nf>, and they may attach small bells to their costume. <sf>Japanese festivals</sf> often feature popular foods such as <sf>sushi</sf>, <sf>ramen</sf>, and <sf>takoyaki</sf> that are now popular worldwide. Aomori, where Nebuta Matsuri takes place, is also known for its <sf>natural landscapes</sf> and <sf>coastal views</sf>, making it a well-known travel destination in Japan.",
+      "gentle_rewrite": "The <u>traditional festival dancer outfit</u> worn at Aomori’s <u>Nebuta Matsuri, a famous festival in northern Japan</u>, is one of Japan’s most recognizable <u>festival outfits</u>. It is the <u>traditional clothing</u> for dancers and includes a white <u>light cotton robe worn in summer (yukata)</u> with blue patterns, a <u>flower-decorated straw hat (hanagasa)</u>, a yellow waistband, and a <u>cloth band used to tie sleeves (tasuki)</u>. Dancers also wear <u>split-toe socks (tabi)</u> and <u>flat traditional sandals (zōri)</u>, and they may attach small bells to their costume. <u>Cultural celebrations in Japan</u> often feature popular foods such as <u>rice rolls with fish or vegetables (sushi)</u>, <u>noodle soup (ramen)</u>, and <u>fried snack balls (takoyaki)</u> that are now popular worldwide. Aomori, where Nebuta Matsuri takes place, is also known for <u>mountains, forests, and open nature</u>, as well as <u>views of the sea and beaches</u>, making it a well-known travel destination in Japan.",
+      "full_rewrite": "<u>During a major cultural celebration in northern Japan called Nebuta Matsuri</u>, dancers wear a <u>special traditional outfit</u> that is widely recognized across the country. This outfit includes a <u>light cotton robe similar to a simple kurta (yukata)</u>, a <u>flower-decorated straw hat</u>, a yellow belt, and a <u>cloth band used to tie up sleeves so dancers can move freely</u>. The dancers also wear <u>split-toe socks and flat sandals, similar to basic chappals</u>, and sometimes add <u>small bells that make sound while dancing</u>. Like <u>Indian festivals with street food</u>, Japanese festivals offer <u>well-known dishes</u> such as <u>rice rolls (sushi)</u>, <u>noodle soup (ramen)</u>, and <u>fried snack balls similar to paniyaram (takoyaki)</u>. The region of Aomori is also famous for its <u>mountains, forests, and seaside areas</u>, which makes it a <u>popular place for tourists visiting Japan</u>.",
       "tagged_phrases": [
         {
-          "phrase": "nuanced blend",
+          "phrase": "Haneto costume",
           "tag": "not_familiar",
-          "start_index": 49,
-          "end_index": 62,
-          "explanation": "This phrase may be too complex for most readers. Using simpler language makes the text more accessible.",
-          "rephrased_versions": [
-            {
-              "replacement": "careful mix",
-              "length": 11
-            },
-            {
-              "replacement": "fine combination",
-              "length": 16
-            }
-          ]
+          "explanation": "A specific Japanese name; describing its function makes it clearer.",
+          "simpler": "traditional festival dancer outfit"
         },
         {
-          "phrase": "practicality",
-          "tag": "somewhat_familiar",
-          "start_index": 66,
-          "end_index": 78,
-          "explanation": "A somewhat technical term that can be made clearer for better understanding.",
-          "rephrased_versions": [
-            {
-              "replacement": "usefulness in everyday life",
-              "length": 27
-            },
-            {
-              "replacement": "how easy it is to use",
-              "length": 21
-            }
-          ]
-        },
-        {
-          "phrase": "aesthetic refinement",
+          "phrase": "Nebuta Matsuri",
           "tag": "not_familiar",
-          "start_index": 83,
-          "end_index": 103,
-          "explanation": "This formal phrase is difficult for many readers. A simpler alternative improves clarity.",
-          "rephrased_versions": [
-            {
-              "replacement": "very neat and stylish look",
-              "length": 26
-            },
-            {
-              "replacement": "polished, good-looking style",
-              "length": 27
-            }
-          ]
+          "explanation": "Festival names are unfamiliar without location or context.",
+          "simpler": "a famous festival in northern Japan"
         },
         {
-          "phrase": "interior design",
-          "tag": "somewhat_familiar",
-          "start_index": 142,
-          "end_index": 157,
-          "explanation": "While commonly used, explaining this concept more simply helps all readers.",
-          "rephrased_versions": [
-            {
-              "replacement": "how the inside of a room is arranged and decorated",
-              "length": 53
-            },
-            {
-              "replacement": "the way a room looks and is set up",
-              "length": 32
-            }
-          ]
-        },
-        {
-          "phrase": "temperature-balancing barrier",
+          "phrase": "yukata",
           "tag": "not_familiar",
-          "start_index": 201,
-          "end_index": 231,
-          "explanation": "This complex technical term needs simplification for most readers.",
-          "rephrased_versions": [
-            {
-              "replacement": "layer that helps keep the room not too hot or cold",
-              "length": 56
-            },
-            {
-              "replacement": "fabric that helps even out the room temperature",
-              "length": 50
-            }
-          ]
+          "explanation": "Traditional clothing term; needs description (similar to a simple kurta worn at home).",
+          "simpler": "light cotton robe worn in summer"
         },
         {
-          "phrase": "ambience",
-          "tag": "somewhat_familiar",
-          "start_index": 277,
-          "end_index": 285,
-          "explanation": "A French-origin word that may not be clear to all readers.",
-          "rephrased_versions": [
-            {
-              "replacement": "overall feeling in the room",
-              "length": 28
-            },
-            {
-              "replacement": "mood or atmosphere of the space",
-              "length": 33
-            }
-          ]
-        },
-        {
-          "phrase": "organic texture",
-          "tag": "somewhat_familiar",
-          "start_index": 337,
-          "end_index": 352,
-          "explanation": "This descriptor can be explained more concretely for better comprehension.",
-          "rephrased_versions": [
-            {
-              "replacement": "natural feel of the fabric",
-              "length": 27
-            },
-            {
-              "replacement": "surface that feels natural and real",
-              "length": 36
-            }
-          ]
-        },
-        {
-          "phrase": "understated elegance",
+          "phrase": "hanagasa",
           "tag": "not_familiar",
-          "start_index": 362,
-          "end_index": 382,
-          "explanation": "An abstract phrase that's hard for most readers to visualize.",
-          "rephrased_versions": [
-            {
-              "replacement": "simple but classy look",
-              "length": 22
-            },
-            {
-              "replacement": "quiet, gentle kind of beauty",
-              "length": 30
-            }
-          ]
+          "explanation": "The Japanese name hides the actual meaning.",
+          "simpler": "straw hat decorated with flowers"
         },
         {
-          "phrase": "propensity to wrinkle",
-          "tag": "somewhat_familiar",
-          "start_index": 590,
-          "end_index": 611,
-          "explanation": "The word 'propensity' is formal and can be simplified.",
-          "rephrased_versions": [
-            {
-              "replacement": "tends to get creased easily",
-              "length": 27
-            },
-            {
-              "replacement": "likely to show wrinkles quickly",
-              "length": 31
-            }
-          ]
-        },
-        {
-          "phrase": "vulnerability to gradual fading",
-          "tag": "somewhat_familiar",
-          "start_index": 620,
-          "end_index": 651,
-          "explanation": "A complex phrase that describes a simple concept.",
-          "rephrased_versions": [
-            {
-              "replacement": "can slowly lose its color over time",
-              "length": 36
-            },
-            {
-              "replacement": "may gently fade if it gets a lot of sun",
-              "length": 40
-            }
-          ]
-        },
-        {
-          "phrase": "synthetic or blackout alternatives",
-          "tag": "somewhat_familiar",
-          "start_index": 785,
-          "end_index": 819,
-          "explanation": "Technical terminology that benefits from plain language explanation.",
-          "rephrased_versions": [
-            {
-              "replacement": "other curtains made from man-made or blackout fabrics",
-              "length": 57
-            },
-            {
-              "replacement": "different options like man-made or fully darkening curtains",
-              "length": 63
-            }
-          ]
-        },
-        {
-          "phrase": "tactile warmth",
+          "phrase": "tasuki",
           "tag": "not_familiar",
-          "start_index": 917,
-          "end_index": 931,
-          "explanation": "A sophisticated descriptor that needs simplification.",
-          "rephrased_versions": [
-            {
-              "replacement": "pleasant, cozy feel to the touch",
-              "length": 33
-            },
-            {
-              "replacement": "feels warm and comforting when you touch it",
-              "length": 47
-            }
-          ]
+          "explanation": "Very specific accessory; function-based explanation helps.",
+          "simpler": "cloth band used to tie sleeves"
         },
         {
-          "phrase": "ecological appeal",
-          "tag": "somewhat_familiar",
-          "start_index": 954,
-          "end_index": 971,
-          "explanation": "Environmental terminology that can be stated more simply.",
-          "rephrased_versions": [
-            {
-              "replacement": "good for the environment",
-              "length": 24
-            },
-            {
-              "replacement": "environment-friendly advantage",
-              "length": 31
-            }
-          ]
-        },
-        {
-          "phrase": "subtle interplay of light and texture",
+          "phrase": "tabi socks",
           "tag": "not_familiar",
-          "start_index": 1077,
-          "end_index": 1114,
-          "explanation": "An overly poetic phrase that obscures meaning for many readers.",
-          "rephrased_versions": [
-            {
-              "replacement": "gentle way light and fabric surface work together",
-              "length": 52
-            },
-            {
-              "replacement": "soft mix of how light falls on the fabric and how it feels",
-              "length": 59
-            }
-          ]
+          "explanation": "Uncommon clothing item outside Japan.",
+          "simpler": "split-toe socks worn with sandals"
+        },
+        {
+          "phrase": "zōri sandals",
+          "tag": "not_familiar",
+          "explanation": "Can be related to simple Indian chappals.",
+          "simpler": "flat traditional sandals"
+        },
+        {
+          "phrase": "festival outfits",
+          "tag": "somewhat_familiar",
+          "explanation": "Clarifies purpose for general readers.",
+          "simpler": "special clothes worn during festivals"
+        },
+        {
+          "phrase": "traditional clothing",
+          "tag": "somewhat_familiar",
+          "explanation": "Makes the idea more concrete.",
+          "simpler": "clothes worn for cultural events"
+        },
+        {
+          "phrase": "Japanese festivals",
+          "tag": "somewhat_familiar",
+          "explanation": "Adds context for readers outside Japan.",
+          "simpler": "cultural celebrations in Japan"
+        },
+        {
+          "phrase": "sushi",
+          "tag": "somewhat_familiar",
+          "explanation": "Many know the word but not the details.",
+          "simpler": "rice rolls with fish or vegetables"
+        },
+        {
+          "phrase": "ramen",
+          "tag": "somewhat_familiar",
+          "explanation": "Clarifies what kind of food it is.",
+          "simpler": "noodle soup dish"
+        },
+        {
+          "phrase": "takoyaki",
+          "tag": "somewhat_familiar",
+          "explanation": "The name is known",
+          "simpler": "fried snack balls"
+        },
+        {
+          "phrase": "natural landscapes",
+          "tag": "somewhat_familiar",
+          "explanation": "forests",
+          "simpler": "mountains"
+        },
+        {
+          "phrase": "coastal views",
+          "tag": "somewhat_familiar",
+          "explanation": "Simpler wording improves clarity.",
+          "simpler": "views of the sea and beaches"
         }
       ]
     },
     {
       "id": 2,
-      "original_text": "Over the past year, we've worked with dozens of teams building large language model (LLM) agents across industries. Consistently, the most successful implementations weren't using complex frameworks or specialized libraries. Instead, they were building with simple, composable patterns. In this post, we share what we've learned from working with our customers and building agents ourselves, and give practical advice for developers on building effective agents.",
+      "persona": "maria",
+      "title": "Indian Breakfast",
+      "original_text": "<sf>South Indian breakfasts</sf> are a <sf>celebration of comfort and flavour</sf>. The iconic <nf>masala dosa</nf>, <f>golden and crispy</f>, is a must-try—best enjoyed <sf>piping hot</sf> with a <f>strong cup of tea</f>, an <sf>unbeatable combination</sf> for any food lover. The accompanying <nf>chutney</nf> is <sf>spot on</sf>: spicy, fresh, and <sf>bursting with flavour</sf>, elevating every bite of the dosa. Equally popular is <nf>filter coffee</nf>, famous for its <sf>rich aroma and bold taste</sf>, making mornings instantly better. For those who prefer softer textures, <nf>idly</nf> is a <sf>wholesome and healthy choice</sf>, often praised as one of the lightest breakfasts. Steamed to perfection, it pairs beautifully with <nf>red and green chutneys</nf>. Don’t miss the <sf>indulgent</sf> <nf>Mangalore bun</nf> either—slightly sweet, fluffy, and perfect with chutney. Served very hot, these South Indian classics offer a <sf>satisfying and memorable breakfast experience</sf>.",
+      "gentle_rewrite": "South Indian breakfasts are known for being <u>very tasty and comforting</u>. The famous <u>masala dosa, a thin Indian crepe filled with spiced potatoes</u>, is golden and crispy. It tastes best when served <u>very hot and fresh</u>, along with a <u>strong cup of tea</u>, which makes a great food pairing. The side sauce, called <u>chutney (a spicy Indian sauce)</u>, is fresh and spicy and adds a lot of flavour to each bite. Another popular drink is <u>filter coffee, a traditional Indian coffee</u>, known for its strong smell and bold taste. If you like soft foods, <u>idly, soft steamed rice cakes</u>, are a healthy and light option. They are steamed until soft and eaten with <u>red and green spicy sauces</u>. You can also try <u>Mangalore bun, a soft and slightly sweet fried bread</u>, which tastes best when served very hot. Together, these dishes make a <u>filling and enjoyable breakfast</u>.",
+      "full_rewrite": "South Indian breakfast foods are <u>warm, comforting, and full of flavour</u>. One of the most popular dishes is <u>masala dosa, a thin Indian crepe filled with gently spiced mashed potatoes</u>. It is crispy on the outside and soft inside. People enjoy it best when it is <u>served very hot</u>, often with <u>a strong cup of tea</u>. Dosa is eaten with <u>chutney, a spicy Indian dipping sauce</u>. The chutney is fresh and adds strong flavour to every bite. Many people also drink <u>filter coffee, a traditional Indian coffee made using a metal filter</u>, which has a deep smell and strong taste. If you prefer soft and light foods, <u>idly are a great choice</u>. <u>Idly are soft, steamed rice cakes</u> that are easy to eat and gentle on the stomach. They are usually served with <u>red and green spicy sauces</u>. Another popular item is <u>Mangalore bun</u>, which is <u>a fluffy, slightly sweet fried bread</u>. It feels rich and filling and is best eaten hot. These foods together create <u>a simple, filling, and enjoyable breakfast</u> that many people love.",
       "tagged_phrases": [
         {
-          "phrase": "large language model",
+          "phrase": "South Indian breakfasts",
+          "tag": "somewhat_familiar",
+          "explanation": "User may know India",
+          "simpler": "Breakfast foods from South India"
+        },
+        {
+          "phrase": "celebration of comfort and flavour",
+          "tag": "somewhat_familiar",
+          "explanation": "Abstract phrase that may feel vague or figurative",
+          "simpler": "Very tasty and comforting food"
+        },
+        {
+          "phrase": "masala dosa",
           "tag": "not_familiar",
-          "start_index": 69,
-          "end_index": 89,
-          "explanation": "Technical AI jargon that most readers won't understand.",
-          "rephrased_versions": [
-            {
-              "replacement": "advanced AI system",
-              "length": 18
-            },
-            {
-              "replacement": "smart text program",
-              "length": 18
-            }
-          ]
+          "explanation": "Specific cultural food item unfamiliar to many US users",
+          "simpler": "Indian crepe filled with spiced potatoes"
         },
         {
-          "phrase": "LLM agents",
+          "phrase": "golden and crispy",
+          "tag": "familiar",
+          "explanation": "Simple food description already clear",
+          "simpler": "Golden and crispy"
+        },
+        {
+          "phrase": "piping hot",
+          "tag": "somewhat_familiar",
+          "explanation": "Idiomatic phrase may cause confusion",
+          "simpler": "Very hot and fresh"
+        },
+        {
+          "phrase": "strong cup of tea",
+          "tag": "familiar",
+          "explanation": "Common phrase in English",
+          "simpler": "Strong tea"
+        },
+        {
+          "phrase": "unbeatable combination",
+          "tag": "somewhat_familiar",
+          "explanation": "Figurative language may be unclear",
+          "simpler": "Very good match"
+        },
+        {
+          "phrase": "chutney",
           "tag": "not_familiar",
-          "start_index": 91,
-          "end_index": 101,
-          "explanation": "Industry-specific acronym that needs clarification.",
-          "rephrased_versions": [
-            {
-              "replacement": "AI helpers",
-              "length": 10
-            },
-            {
-              "replacement": "smart assistants",
-              "length": 16
-            }
-          ]
+          "explanation": "Food term unfamiliar outside Indian cuisine",
+          "simpler": "Spicy Indian sauce"
         },
         {
-          "phrase": "complex frameworks",
+          "phrase": "spot on",
           "tag": "somewhat_familiar",
-          "start_index": 182,
-          "end_index": 200,
-          "explanation": "Programming terminology that benefits from simplification.",
-          "rephrased_versions": [
-            {
-              "replacement": "complicated tools",
-              "length": 17
-            },
-            {
-              "replacement": "heavy systems",
-              "length": 13
-            }
-          ]
+          "explanation": "Idiomatic phrase",
+          "simpler": "Perfect"
         },
         {
-          "phrase": "specialized libraries",
+          "phrase": "bursting with flavour",
           "tag": "somewhat_familiar",
-          "start_index": 204,
-          "end_index": 225,
-          "explanation": "Developer jargon that can be stated more plainly.",
-          "rephrased_versions": [
-            {
-              "replacement": "specific tools",
-              "length": 14
-            },
-            {
-              "replacement": "custom packages",
-              "length": 15
-            }
-          ]
+          "explanation": "Figurative expression",
+          "simpler": "Full of strong taste"
         },
         {
-          "phrase": "composable patterns",
+          "phrase": "filter coffee",
+          "tag": "not_familiar",
+          "explanation": "Specific preparation style unfamiliar",
+          "simpler": "Traditional Indian coffee made with a filter"
+        },
+        {
+          "phrase": "rich aroma and bold taste",
           "tag": "somewhat_familiar",
-          "start_index": 264,
-          "end_index": 283,
-          "explanation": "Abstract programming concept that needs clearer explanation.",
-          "rephrased_versions": [
-            {
-              "replacement": "reusable designs",
-              "length": 16
-            },
-            {
-              "replacement": "building blocks",
-              "length": 15
-            }
-          ]
+          "explanation": "Descriptive but abstract wording",
+          "simpler": "Strong smell and strong taste"
+        },
+        {
+          "phrase": "idly",
+          "tag": "not_familiar",
+          "explanation": "Unknown food name",
+          "simpler": "Soft steamed rice cakes"
+        },
+        {
+          "phrase": "wholesome and healthy choice",
+          "tag": "somewhat_familiar",
+          "explanation": "Abstract health wording",
+          "simpler": "Healthy and filling food"
+        },
+        {
+          "phrase": "red and green chutneys",
+          "tag": "not_familiar",
+          "explanation": "Plural and color-based food terms unfamiliar",
+          "simpler": "Red and green spicy sauces"
+        },
+        {
+          "phrase": "Mangalore bun",
+          "tag": "not_familiar",
+          "explanation": "slightly sweet fried bread",
+          "simpler": "Soft"
+        },
+        {
+          "phrase": "indulgent",
+          "tag": "somewhat_familiar",
+          "explanation": "Abstract adjective",
+          "simpler": "Rich and treats-like"
+        },
+        {
+          "phrase": "satisfying and memorable breakfast experience",
+          "tag": "somewhat_familiar",
+          "explanation": "Long abstract phrase",
+          "simpler": "Very filling and enjoyable breakfast"
         }
       ]
     },
     {
       "id": 3,
-      "original_text": "Cotton curtains, while seemingly simple, offer a careful mix of practicality and very neat and stylish look that makes them an enduring choice in interior design. Their natural fibers create a breathable, layer that helps keep the room not too hot or cold that subtly filters light, softening a room's ambience without fully obscuring outdoor illumination. This organic texture lends a simple but classy look that integrates seamlessly into both contemporary and traditional spaces. Beyond appearance, cotton's washability and durability contribute to its long-term value; however, these virtues are tempered by its propensity to wrinkle and its vulnerability to gradual fading when exposed to sustained sunlight. Unlined cotton panels, in particular, struggle to achieve the depth of light control provided by synthetic or blackout alternatives, which may be a consideration for users seeking heightened privacy or darkness. Nonetheless, the pleasant, cozy feel to the touch, visual softness, and ecological appeal of cotton make it a sophisticated option for homeowners who prioritize comfort, natural materials, and a gentle way light and fabric surface work together.",
+      "persona": "sruti",
+      "title": "Café Experience",
+      "original_text": "This café instantly <sf>felt cozy</sf>, with a <sf>warm ambience</sf> and the <nf>comforting aroma of freshly ground coffee</nf> filling the space. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a <f>rich</f>, smooth flavor with a <sf>delightful hint of cinnamon</sf> that elevated the entire experience. <nf>The aroma alone was irresistible</nf>. I also picked up their special candle, and it now <f>fills my home with a soothing</f>, calming scent. Overall, this place offers more than just great coffee—it’s an experience. I’d definitely recommend it to anyone looking for comfort, flavor, and a touch of warmth.",
+      "gentle_rewrite": "This café instantly felt cozy, with <u>soft lighting and warm interior colors creating a relaxing space</u>. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a <u>full-bodied, well-balanced taste with a noticeable cinnamon flavor</u> that elevated the experience. <u>The drink stood out for its comforting and familiar flavor.</u> I also picked up their special candle, and it <u>creates a cozy atmosphere at home with its soft glow and calming presence</u>. Overall, this place offers more than just great coffee—it’s an experience. I’d definitely recommend it.",
+      "full_rewrite": "This café feels welcoming through its <u>soft lighting, warm colors, and calm indoor setting</u>, making it an easy place to relax and spend time. Sitting inside feels comfortable and unhurried. I tried their signature Cinnamon Latte, which is <u>full-bodied and pleasantly balanced, with a clear cinnamon flavor that many regulars enjoy</u>. It’s a drink that feels <u>familiar and satisfying rather than overwhelming</u>. I also bought their special candle, which <u>adds to the atmosphere at home with gentle light and a calming presence</u>. Overall, the café focuses on <u>comfort, thoughtful details, and quality</u>. I would strongly recommend it to anyone looking for a <u>relaxed and enjoyable café experience</u>.",
       "tagged_phrases": [
         {
-          "phrase": "ambience",
-          "tag": "somewhat_familiar",
-          "start_index": 302,
-          "end_index": 310,
-          "explanation": "This word may still be unfamiliar to some readers.",
-          "rephrased_versions": [
-            {
-              "replacement": "atmosphere",
-              "length": 10
-            },
-            {
-              "replacement": "mood",
-              "length": 4
-            }
-          ]
-        },
-        {
-          "phrase": "organic texture",
-          "tag": "somewhat_familiar",
-          "start_index": 362,
-          "end_index": 377,
-          "explanation": "This phrase can be made more concrete.",
-          "rephrased_versions": [
-            {
-              "replacement": "natural look",
-              "length": 12
-            },
-            {
-              "replacement": "fabric feel",
-              "length": 11
-            }
-          ]
-        },
-        {
-          "phrase": "propensity to wrinkle",
-          "tag": "somewhat_familiar",
-          "start_index": 616,
-          "end_index": 637,
-          "explanation": "The word 'propensity' can be simplified.",
-          "rephrased_versions": [
-            {
-              "replacement": "tendency to wrinkle",
-              "length": 19
-            },
-            {
-              "replacement": "easily wrinkles",
-              "length": 15
-            }
-          ]
-        },
-        {
-          "phrase": "vulnerability to gradual fading",
+          "phrase": "comforting aroma of freshly ground coffee",
           "tag": "not_familiar",
-          "start_index": 646,
-          "end_index": 677,
-          "explanation": "This complex phrase can be stated more simply.",
-          "rephrased_versions": [
-            {
-              "replacement": "may fade over time",
-              "length": 18
-            },
-            {
-              "replacement": "can lose color slowly",
-              "length": 21
-            }
-          ]
+          "explanation": "Smell-based description is inaccessible; replaced with sound and environment cues.",
+          "simpler": "the sound of coffee being prepared and the calm atmosphere inside"
         },
         {
-          "phrase": "synthetic or blackout alternatives",
-          "tag": "somewhat_familiar",
-          "start_index": 811,
-          "end_index": 845,
-          "explanation": "Technical terms that benefit from clarification.",
-          "rephrased_versions": [
-            {
-              "replacement": "man-made or darkening curtains",
-              "length": 31
-            },
-            {
-              "replacement": "other curtain types",
-              "length": 19
-            }
-          ]
+          "phrase": "The aroma alone was irresistible",
+          "tag": "not_familiar",
+          "explanation": "Explains appeal without relying on smell.",
+          "simpler": "the drink stood out because of its balanced and comforting taste"
         },
         {
-          "phrase": "ecological appeal",
+          "phrase": "fills my home with a soothing",
+          "tag": "calming_scent\"",
+          "explanation": "creates a cozy atmosphere with its soft glow and calming presence",
+          "simpler": "NOT_FAMILIAR"
+        },
+        {
+          "phrase": "warm ambience",
           "tag": "somewhat_familiar",
-          "start_index": 998,
-          "end_index": 1015,
-          "explanation": "Environmental terminology that can be simpler.",
-          "rephrased_versions": [
-            {
-              "replacement": "eco-friendly nature",
-              "length": 19
-            },
-            {
-              "replacement": "environmental benefit",
-              "length": 21
-            }
-          ]
+          "explanation": "Makes ambience concrete and visually clear.",
+          "simpler": "soft lighting and warm interior colors"
+        },
+        {
+          "phrase": "felt cozy",
+          "tag": "somewhat_familiar",
+          "explanation": "Clarifies the feeling without sensory assumptions.",
+          "simpler": "felt relaxing and comfortable to spend time in"
+        },
+        {
+          "phrase": "rich",
+          "tag": "smooth_flavor\"",
+          "explanation": "full-bodied and well-balanced taste",
+          "simpler": "SOMEWHAT_FAMILIAR"
+        },
+        {
+          "phrase": "delightful hint of cinnamon",
+          "tag": "somewhat_familiar",
+          "explanation": "Grounded in taste rather than smell.",
+          "simpler": "a noticeable cinnamon flavor that adds warmth to the drink"
         }
       ]
     },
     {
       "id": 4,
-      "original_text": "Cotton curtains, while seemingly simple, offer a careful mix of usefulness in everyday life and very neat and stylish look that makes them an enduring choice in how the inside of a room is arranged and decorated. Their natural fibers create a lets air pass through, layer that helps keep the room not too hot or cold that subtly filters light, softening a room's overall feeling in the room without fully obscuring outdoor illumination. This natural feel of the fabric lends a simple but classy look that integrates seamlessly into both contemporary and traditional spaces. Beyond appearance, cotton's easy to wash and long-lasting contribute to its long-term value; however, these virtues are tempered by its tends to get creased easily and its can slowly lose its color over time when exposed to sustained sunlight. Unlined cotton panels, in particular, struggle to achieve the depth of light control provided by other curtains made from man-made or blackout fabrics, which may be a consideration for users seeking heightened privacy or darkness. Nonetheless, the pleasant, cozy feel to the touch, visual softness, and good for the environment of cotton make it a sophisticated option for homeowners who prioritize comfort, natural materials, and a gentle way light and fabric surface work together.",
+      "persona": "george",
+      "title": "Evening Reflections",
+      "original_text": "<sf>Leaves rustled in the evening breeze</sf>, <nf>a dry whisper like secrets the day was done confessing</nf>. Inside the hall, <sf>his voice thundered across the room</sf>, <nf>not loud so much as inevitable</nf>, <nf>a storm that demanded everyone stand still and listen</nf>. Later, when <nf>the house exhaled into quiet</nf>, <sf>raindrops drummed against the window</sf>, steady and patient, <nf>counting time the way a heart counts hope</nf>. <sf>The alarm blared at dawn</sf>, a rude insistence that <nf>dreams were no longer valid currency</nf>. Outside, <sf>the crowd roared in approval</sf> <nf>as if joy itself had found lungs</nf>. In the kitchen, the kettle whistled on the stove, <nf>sharp and pleading</nf>, while <sf>the phone chimed cheerfully</sf>, <nf>pretending urgency could be friendly</nf>. By nightfall, <sf>the wind howled through the dark streets</sf>, <nf>a feral choir circling the walls</nf>, reminding him that <nf>sound was never just noise</nf>. <f>It was warning</f>, comfort, memory, and proof that <f>the world was still awake</f>, even when he wanted to be anything but.",
+      "gentle_rewrite": "Leaves <u>moved gently</u> in the evening breeze, <u>creating a quiet feeling as the day ended</u>. Inside the hall, <u>he spoke with great force and authority</u>, <u>making it impossible to ignore</u>, <u>and everyone paid attention</u>. Later, when the house <u>became calm and still</u>, <u>raindrops hit steadily against the window</u>, <u>as time passed slowly and thoughtfully</u>. <u>The alarm signaled the start of the day</u>, a rude reminder that dreams were over. Outside, <u>the crowd showed great enthusiasm and excitement</u>, <u>as if happiness was clearly visible</u>. In the kitchen, <u>the kettle signaled it was ready</u>, <u>strongly demanding attention</u>, while <u>the phone gave a clear signal for attention</u>, <u>trying to seem important but polite</u>. By nightfall, <u>the wind blew strongly through the dark streets</u>, <u>moving wildly around the buildings</u>, reminding him that <u>events were never meaningless</u>. <u>They could show danger, safety, or memories</u>, and <u>life continued around him</u>, even when he wanted to rest.",
+      "full_rewrite": "In the evening, <u>the leaves moved gently in the breeze</u>, showing that the day was ending. Inside the hall, <u>the man spoke with strong authority</u>, and <u>everyone focused on him immediately</u>. Later, <u>the house became quiet and calm</u>, and <u>raindrops hit the window at a steady pace</u>, marking the slow passing of time. At dawn, <u>the alarm showed it was time to wake up</u>, ending his dreams. Outside, <u>a large group of people showed excitement and approval through their actions</u>. In the kitchen, <u>the kettle showed it was ready</u>, while <u>the phone gave a clear alert that needed attention</u>. At night, <u>strong wind moved through the empty streets</u>, <u>surrounding the buildings</u>. It reminded him that <u>what happens around us always has meaning</u>. <u>These moments can warn us, comfort us, or remind us of the past</u>, and <u>the world keeps going</u>, even when he feels tired and wants everything to stop.",
       "tagged_phrases": [
         {
-          "phrase": "enduring choice",
-          "tag": "not_familiar",
-          "start_index": 142,
-          "end_index": 157,
-          "explanation": "This phrase might be unclear to some readers.",
-          "rephrased_versions": [
-            {
-              "replacement": "lasting option",
-              "length": 14
-            },
-            {
-              "replacement": "popular choice",
-              "length": 14
-            }
-          ]
-        },
-        {
-          "phrase": "contemporary",
+          "phrase": "Leaves rustled in the evening breeze",
           "tag": "somewhat_familiar",
-          "start_index": 537,
-          "end_index": 549,
-          "explanation": "A formal word that can be simplified.",
-          "rephrased_versions": [
-            {
-              "replacement": "modern",
-              "length": 6
-            },
-            {
-              "replacement": "current",
-              "length": 7
-            }
-          ]
+          "explanation": "Original relies on sound imagery; simpler version focuses on visible movement.",
+          "simpler": "Leaves moved gently in the evening breeze"
         },
         {
-          "phrase": "virtues",
+          "phrase": "a dry whisper like secrets the day was done confessing",
           "tag": "not_familiar",
-          "start_index": 682,
-          "end_index": 689,
-          "explanation": "This formal word can be made simpler.",
-          "rephrased_versions": [
-            {
-              "replacement": "benefits",
-              "length": 8
-            },
-            {
-              "replacement": "good points",
-              "length": 11
-            }
-          ]
+          "explanation": "Metaphor depends on sound and abstract ideas like secrets.",
+          "simpler": "A quiet feeling as the day ended"
         },
         {
-          "phrase": "tempered by",
-          "tag": "not_familiar",
-          "start_index": 694,
-          "end_index": 705,
-          "explanation": "This phrase is abstract and can be clearer.",
-          "rephrased_versions": [
-            {
-              "replacement": "balanced by",
-              "length": 11
-            },
-            {
-              "replacement": "offset by",
-              "length": 9
-            }
-          ]
-        },
-        {
-          "phrase": "heightened privacy",
+          "phrase": "his voice thundered across the room",
           "tag": "somewhat_familiar",
-          "start_index": 1017,
-          "end_index": 1035,
-          "explanation": "Can be stated more simply.",
-          "rephrased_versions": [
-            {
-              "replacement": "more privacy",
-              "length": 12
-            },
-            {
-              "replacement": "better privacy",
-              "length": 14
-            }
-          ]
+          "explanation": "Thunder is sound-based; alternative explains meaning clearly.",
+          "simpler": "He spoke with great force and authority"
         },
         {
-          "phrase": "sophisticated option",
+          "phrase": "not loud so much as inevitable",
           "tag": "not_familiar",
-          "start_index": 1166,
-          "end_index": 1186,
-          "explanation": "This formal phrase can be simplified.",
-          "rephrased_versions": [
-            {
-              "replacement": "smart choice",
-              "length": 12
-            },
-            {
-              "replacement": "refined choice",
-              "length": 14
-            }
-          ]
+          "explanation": "Abstract wording may feel unclear.",
+          "simpler": "Impossible to ignore"
+        },
+        {
+          "phrase": "a storm that demanded everyone stand still and listen",
+          "tag": "not_familiar",
+          "explanation": "Metaphor relies on sound and emotion.",
+          "simpler": "His presence made everyone pay attention"
+        },
+        {
+          "phrase": "the house exhaled into quiet",
+          "tag": "not_familiar",
+          "explanation": "Figurative and abstract; “exhaled” is unclear visually.",
+          "simpler": "The house became calm and still"
+        },
+        {
+          "phrase": "raindrops drummed against the window",
+          "tag": "somewhat_familiar",
+          "explanation": "Sound-based verb replaced with visible action.",
+          "simpler": "Raindrops hit steadily against the window"
+        },
+        {
+          "phrase": "counting time the way a heart counts hope",
+          "tag": "not_familiar",
+          "explanation": "Highly abstract metaphor.",
+          "simpler": "Time passed slowly and meaningfully"
+        },
+        {
+          "phrase": "The alarm blared at dawn",
+          "tag": "somewhat_familiar",
+          "explanation": "Sound-based; alternative removes noise reference.",
+          "simpler": "The alarm signaled the start of the day"
+        },
+        {
+          "phrase": "dreams were no longer valid currency",
+          "tag": "not_familiar",
+          "explanation": "Metaphorical and abstract phrase.",
+          "simpler": "Dreams were over and it was time to wake up"
+        },
+        {
+          "phrase": "the crowd roared in approval",
+          "tag": "somewhat_familiar",
+          "explanation": "Sound imagery replaced with emotional meaning.",
+          "simpler": "The crowd showed great enthusiasm and excitement"
+        },
+        {
+          "phrase": "as if joy itself had found lungs",
+          "tag": "not_familiar",
+          "explanation": "Abstract metaphor tied to sound.",
+          "simpler": "People expressed strong happiness"
+        },
+        {
+          "phrase": "sharp and pleading",
+          "tag": "not_familiar",
+          "explanation": "Emotional sound description is abstract.",
+          "simpler": "Strong and demanding attention"
+        },
+        {
+          "phrase": "the phone chimed cheerfully",
+          "tag": "somewhat_familiar",
+          "explanation": "Removes emotional tone tied to sound.",
+          "simpler": "The phone gave a clear signal for attention"
+        },
+        {
+          "phrase": "pretending urgency could be friendly",
+          "tag": "not_familiar",
+          "explanation": "Abstract personification.",
+          "simpler": "Trying to seem important but polite"
+        },
+        {
+          "phrase": "the wind howled through the dark streets",
+          "tag": "somewhat_familiar",
+          "explanation": "Sound metaphor simplified to physical action.",
+          "simpler": "The wind blew strongly through the night"
+        },
+        {
+          "phrase": "a feral choir circling the walls",
+          "tag": "not_familiar",
+          "explanation": "Highly figurative and sound-dependent.",
+          "simpler": "Wild wind moved around the buildings"
+        },
+        {
+          "phrase": "sound was never just noise",
+          "tag": "not_familiar",
+          "explanation": "Abstract reflection.",
+          "simpler": "Events always had meaning"
+        },
+        {
+          "phrase": "It was warning",
+          "tag": "comfort",
+          "explanation": "and proof",
+          "simpler": "memory"
+        },
+        {
+          "phrase": "the world was still awake",
+          "tag": "even_when_he_wanted_to_be_anything_but",
+          "explanation": "Life continued even when he was tired or overwhelmed",
+          "simpler": "Not familiar"
         }
       ]
-    },
-    {
-      "id": 5,
-      "original_text": "Cotton curtains are a simple yet effective choice for home decoration. They create a breathable layer that keeps rooms comfortable and filters light nicely. The natural fabric has a clean look that works well in both modern and traditional rooms. Cotton is easy to wash and durable, though it can wrinkle and may fade in bright sunlight. For light blocking, cotton panels aren't as effective as synthetic curtains, which matters if you need privacy or darkness. Still, cotton's soft texture and environmental benefits make it a good choice for those who value comfort and natural materials.",
-      "tagged_phrases": [
-        {
-          "phrase": "effective choice",
-          "tag": "somewhat_familiar",
-          "start_index": 28,
-          "end_index": 44,
-          "explanation": "This phrase could be simplified further.",
-          "rephrased_versions": [
-            {
-              "replacement": "good option",
-              "length": 11
-            },
-            {
-              "replacement": "smart pick",
-              "length": 10
-            }
-          ]
-        },
-        {
-          "phrase": "home decoration",
-          "tag": "somewhat_familiar",
-          "start_index": 49,
-          "end_index": 64,
-          "explanation": "Can be stated more simply.",
-          "rephrased_versions": [
-            {
-              "replacement": "decorating your home",
-              "length": 20
-            },
-            {
-              "replacement": "house decor",
-              "length": 11
-            }
-          ]
-        },
-        {
-          "phrase": "natural fabric",
-          "tag": "not_familiar",
-          "start_index": 150,
-          "end_index": 164,
-          "explanation": "This term might need clarification.",
-          "rephrased_versions": [
-            {
-              "replacement": "cotton material",
-              "length": 15
-            },
-            {
-              "replacement": "fabric from plants",
-              "length": 18
-            }
-          ]
-        },
-        {
-          "phrase": "durable",
-          "tag": "somewhat_familiar",
-          "start_index": 249,
-          "end_index": 256,
-          "explanation": "A word that can be made simpler.",
-          "rephrased_versions": [
-            {
-              "replacement": "long-lasting",
-              "length": 12
-            },
-            {
-              "replacement": "sturdy",
-              "length": 6
-            }
-          ]
-        },
-        {
-          "phrase": "synthetic curtains",
-          "tag": "not_familiar",
-          "start_index": 350,
-          "end_index": 368,
-          "explanation": "Technical term that needs simplification.",
-          "rephrased_versions": [
-            {
-              "replacement": "man-made curtains",
-              "length": 17
-            },
-            {
-              "replacement": "plastic-based curtains",
-              "length": 22
-            }
-          ]
-        }
-      ]
-    },
-      {
-    "id": 6,
-    "original_text": "The Haneto costume worn at Aomori’s Nebuta Matsuri is one of Japan’s most recognizable festival outfits. It is the traditional clothing for dancers in the Aomori festival and includes a white yukata with blue patterns, a triangular straw hat decorated with flowers called a hanagasa, a yellow waistband, and a sash called a tasuki. Dancers also wear tabi socks and zōri sandals, and they may attach small bells to their costume. Japanese festivals often feature popular foods such as sushi, ramen, and takoyaki that are now popular worldwide. Aomori, where Nebuta Matsuri takes place, is also known for its natural landscapes and coastal views, making it a well-known travel destination in Japan.",
-    "gentle_rewrite": "The Haneto costume worn at Aomori’s Nebuta Matsuri is one of Japan’s most recognizable festival outfits, with bright colors and clear patterns. It is the traditional clothing for dancers in the Aomori festival and includes a white yukata (a light summer kimono) with blue patterns, a triangular straw hat decorated with flowers called a hanagasa, a yellow waistband, and a sleeve-tying sash called a tasuki. Dancers also wear tabi socks, which are Japanese split-toe socks, and zōri sandals, simple traditional Japanese flat sandals, and they may attach small bells to their costume so they jingle as they move. Japanese festivals often feature foods such as sushi, ramen, and takoyaki, a popular Japanese street snack that can feel a bit like enjoying chaat at Indian festivals. Aomori, where Nebuta Matsuri takes place, is also known for its green hills, natural landscapes, and coastal views, making it a well-known travel destination in Japan.",
-    "full_rewrite": "The Haneto costume worn at Aomori’s Nebuta Matsuri is a bright and eye-catching festival outfit that many people in Japan recognize. It is the traditional clothing for dancers in this summer festival in Aomori and includes a white yukata, which is a light summer kimono, with blue patterns. The costume also has a triangular straw hat decorated with colorful flowers called a hanagasa, a yellow waistband, and a tasuki, a sash that ties back the sleeves so dancers can move freely. Dancers also wear tabi, traditional Japanese split-toe socks, and zōri, simple traditional Japanese flat sandals, and they sometimes attach small bells to their costume so the sound matches the rhythm of the music. Japanese festivals often include food stalls that sell sushi, ramen, and takoyaki, a popular Japanese street snack that, for some people, feels similar to enjoying chaat at Indian festivals. Aomori, the city where Nebuta Matsuri takes place, is also famous for its green mountains, apple orchards, natural landscapes, and wide coastal views, which make it a popular travel destination in Japan.",
-    "tagged_phrases": [
-      {
-        "phrase": "Haneto costume",
-        "tag": "not_familiar",
-        "start_index": 4,
-        "end_index": 18,
-        "explanation": "This specific festival costume name may be new to many readers who are not familiar with Japanese culture.",
-        "rephrased_versions": [
-          {
-            "replacement": "Haneto festival outfit",
-            "length": 22
-          },
-          {
-            "replacement": "special Nebuta festival costume",
-            "length": 31
-          }
-        ]
-      },
-      {
-        "phrase": "Nebuta Matsuri",
-        "tag": "not_familiar",
-        "start_index": 36,
-        "end_index": 50,
-        "explanation": "This is the name of a Japanese summer festival and may need a short explanation.",
-        "rephrased_versions": [
-          {
-            "replacement": "Nebuta summer festival",
-            "length": 22
-          },
-          {
-            "replacement": "Nebuta Matsuri festival in Aomori",
-            "length": 33
-          }
-        ]
-      },
-      {
-        "phrase": "Aomori",
-        "tag": "somewhat_familiar",
-        "start_index": 27,
-        "end_index": 33,
-        "explanation": "This is a place name in Japan and may benefit from extra context for some readers.",
-        "rephrased_versions": [
-          {
-            "replacement": "Aomori city in northern Japan",
-            "length": 30
-          },
-          {
-            "replacement": "Aomori, a city in the Tohoku region",
-            "length": 35
-          }
-        ]
-      },
-      {
-        "phrase": "yukata",
-        "tag": "not_familiar",
-        "start_index": 192,
-        "end_index": 198,
-        "explanation": "A traditional clothing term that many readers may not recognize without explanation.",
-        "rephrased_versions": [
-          {
-            "replacement": "light summer kimono",
-            "length": 20
-          },
-          {
-            "replacement": "casual cotton kimono worn in summer",
-            "length": 36
-          }
-        ]
-      },
-      {
-        "phrase": "tasuki",
-        "tag": "not_familiar",
-        "start_index": 324,
-        "end_index": 330,
-        "explanation": "A specific accessory name that may be unfamiliar to most readers.",
-        "rephrased_versions": [
-          {
-            "replacement": "sleeve-tying sash",
-            "length": 18
-          },
-          {
-            "replacement": "sash used to tie back the sleeves",
-            "length": 34
-          }
-        ]
-      },
-      {
-        "phrase": "tabi",
-        "tag": "not_familiar",
-        "start_index": 350,
-        "end_index": 354,
-        "explanation": "A traditional clothing item that may be unknown to readers outside Japan.",
-        "rephrased_versions": [
-          {
-            "replacement": "Japanese split-toe socks",
-            "length": 25
-          },
-          {
-            "replacement": "traditional Japanese split-toe socks",
-            "length": 37
-          }
-        ]
-      },
-      {
-        "phrase": "zōri",
-        "tag": "not_familiar",
-        "start_index": 365,
-        "end_index": 369,
-        "explanation": "A traditional type of footwear that many readers may not know.",
-        "rephrased_versions": [
-          {
-            "replacement": "traditional Japanese flat sandals",
-            "length": 32
-          },
-          {
-            "replacement": "simple Japanese straw or plastic sandals",
-            "length": 41
-          }
-        ]
-      },
-      {
-        "phrase": "takoyaki",
-        "tag": "not_familiar",
-        "start_index": 502,
-        "end_index": 510,
-        "explanation": "A Japanese food word that may need a brief explanation.",
-        "rephrased_versions": [
-          {
-            "replacement": "popular Japanese street snack",
-            "length": 29
-          },
-          {
-            "replacement": "ball-shaped snack made with batter and pieces of octopus",
-            "length": 63
-          }
-        ]
-      },
-      {
-        "phrase": "natural landscapes",
-        "tag": "somewhat_familiar",
-        "start_index": 607,
-        "end_index": 625,
-        "explanation": "This phrase is a bit abstract and can be described more concretely.",
-        "rephrased_versions": [
-          {
-            "replacement": "scenery with mountains, forests, and fields",
-            "length": 47
-          },
-          {
-            "replacement": "beautiful views of nature like hills and trees",
-            "length": 50
-          }
-        ]
-      },
-      {
-        "phrase": "coastal views",
-        "tag": "somewhat_familiar",
-        "start_index": 630,
-        "end_index": 643,
-        "explanation": "This phrase may be clearer if expressed in simpler words.",
-        "rephrased_versions": [
-          {
-            "replacement": "views of the sea and shoreline",
-            "length": 30
-          },
-          {
-            "replacement": "scenery looking out over the ocean",
-            "length": 35
-          }
-        ]
-      },
-      {
-        "phrase": "travel destination",
-        "tag": "somewhat_familiar",
-        "start_index": 668,
-        "end_index": 686,
-        "explanation": "A slightly formal phrase that could be simplified.",
-        "rephrased_versions": [
-          {
-            "replacement": "place people visit for trips",
-            "length": 28
-          },
-          {
-            "replacement": "popular place for tourists to visit",
-            "length": 35
-          }
-        ]
-      },
-      {
-        "phrase": "popular foods such as sushi, ramen, and takoyaki that are now popular worldwide",
-        "tag": "somewhat_familiar",
-        "start_index": 462,
-        "end_index": 541,
-        "explanation": "This phrase repeats the word 'popular' and can be smoothed out for better style.",
-        "rephrased_versions": [
-          {
-            "replacement": "well-known foods such as sushi, ramen, and takoyaki enjoyed around the world",
-            "length": 76
-          },
-          {
-            "replacement": "famous dishes like sushi, ramen, and takoyaki that many people worldwide enjoy",
-            "length": 78
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "original_text": "The Haneto costume worn at Aomori’s Nebuta Matsuri is one of Japan’s most recognizable festival outfits, with bright colors and clear patterns. It is the traditional clothing for dancers in the Aomori festival and includes a white yukata (a light summer kimono) with blue patterns, a triangular straw hat decorated with flowers called a hanagasa, a yellow waistband, and a sleeve-tying sash called a tasuki. Dancers also wear tabi socks, which are Japanese split-toe socks, and zōri sandals, simple traditional Japanese flat sandals, and they may attach small bells to their costume so they jingle as they move. Japanese festivals often feature foods such as sushi, ramen, and takoyaki, a popular Japanese street snack that can feel a bit like enjoying chaat at Indian festivals. Aomori, where Nebuta Matsuri takes place, is also known for its green hills, natural landscapes, and coastal views, making it a well-known travel destination in Japan.",
-    "tagged_phrases": [
-      {
-        "phrase": "Haneto costume",
-        "tag": "not_familiar",
-        "start_index": 4,
-        "end_index": 18,
-        "explanation": "This festival costume name may still be unfamiliar even in the simpler version.",
-        "rephrased_versions": [
-          {
-            "replacement": "Haneto festival outfit",
-            "length": 22
-          },
-          {
-            "replacement": "special costume worn in the Nebuta festival",
-            "length": 45
-          }
-        ]
-      },
-      {
-        "phrase": "Nebuta Matsuri",
-        "tag": "not_familiar",
-        "start_index": 36,
-        "end_index": 50,
-        "explanation": "The festival name can be briefly described to help readers understand it.",
-        "rephrased_versions": [
-          {
-            "replacement": "Nebuta summer festival",
-            "length": 22
-          },
-          {
-            "replacement": "Nebuta lantern festival in Aomori",
-            "length": 34
-          }
-        ]
-      },
-      {
-        "phrase": "hanagasa",
-        "tag": "not_familiar",
-        "start_index": 337,
-        "end_index": 345,
-        "explanation": "A specific Japanese word for a flower-decorated straw hat.",
-        "rephrased_versions": [
-          {
-            "replacement": "flower-decorated straw hat",
-            "length": 29
-          },
-          {
-            "replacement": "straw hat with colorful flowers",
-            "length": 32
-          }
-        ]
-      },
-      {
-        "phrase": "Japanese split-toe socks",
-        "tag": "somewhat_familiar",
-        "start_index": 448,
-        "end_index": 472,
-        "explanation": "This phrase might be clearer if shortened.",
-        "rephrased_versions": [
-          {
-            "replacement": "Japanese tabi socks",
-            "length": 20
-          },
-          {
-            "replacement": "traditional split-toe socks",
-            "length": 27
-          }
-        ]
-      },
-      {
-        "phrase": "traditional Japanese flat sandals",
-        "tag": "somewhat_familiar",
-        "start_index": 499,
-        "end_index": 532,
-        "explanation": "This longer description can be shortened while keeping the meaning.",
-        "rephrased_versions": [
-          {
-            "replacement": "traditional zōri sandals",
-            "length": 24
-          },
-          {
-            "replacement": "simple flat Japanese sandals",
-            "length": 28
-          }
-        ]
-      },
-      {
-        "phrase": "popular Japanese street snack",
-        "tag": "somewhat_familiar",
-        "start_index": 689,
-        "end_index": 718,
-        "explanation": "This phrase can be simplified further for young readers.",
-        "rephrased_versions": [
-          {
-            "replacement": "well-loved Japanese snack sold at stalls",
-            "length": 44
-          },
-          {
-            "replacement": "snack often sold at Japanese street food stalls",
-            "length": 53
-          }
-        ]
-      },
-      {
-        "phrase": "natural landscapes",
-        "tag": "somewhat_familiar",
-        "start_index": 857,
-        "end_index": 875,
-        "explanation": "The phrase is a bit general and can be made more concrete.",
-        "rephrased_versions": [
-          {
-            "replacement": "views of hills, forests, and fields",
-            "length": 37
-          },
-          {
-            "replacement": "scenery with nature like trees and mountains",
-            "length": 47
-          }
-        ]
-      },
-      {
-        "phrase": "coastal views",
-        "tag": "somewhat_familiar",
-        "start_index": 881,
-        "end_index": 894,
-        "explanation": "This can be rephrased for clarity.",
-        "rephrased_versions": [
-          {
-            "replacement": "views of the sea and shore",
-            "length": 28
-          },
-          {
-            "replacement": "scenery looking out over the ocean",
-            "length": 35
-          }
-        ]
-      },
-      {
-        "phrase": "travel destination",
-        "tag": "somewhat_familiar",
-        "start_index": 919,
-        "end_index": 937,
-        "explanation": "A slightly formal expression that can be simplified.",
-        "rephrased_versions": [
-          {
-            "replacement": "place people travel to for holidays",
-            "length": 36
-          },
-          {
-            "replacement": "popular place for tourists to visit",
-            "length": 35
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "original_text": "The Haneto costume worn at Aomori’s Nebuta Matsuri is a bright and eye-catching festival outfit that many people in Japan recognize. It is the traditional clothing for dancers in this summer festival in Aomori and includes a white yukata, which is a light summer kimono, with blue patterns. The costume also has a triangular straw hat decorated with colorful flowers called a hanagasa, a yellow waistband, and a tasuki, a sash that ties back the sleeves so dancers can move freely. Dancers also wear tabi, traditional Japanese split-toe socks, and zōri, simple traditional Japanese flat sandals, and they sometimes attach small bells to their costume so the sound matches the rhythm of the music. Japanese festivals often include food stalls that sell sushi, ramen, and takoyaki, a popular Japanese street snack that, for some people, feels similar to enjoying chaat at Indian festivals. Aomori, the city where Nebuta Matsuri takes place, is also famous for its green mountains, apple orchards, natural landscapes, and wide coastal views, which make it a popular travel destination in Japan.",
-    "tagged_phrases": [
-      {
-        "phrase": "Haneto costume",
-        "tag": "not_familiar",
-        "start_index": 4,
-        "end_index": 18,
-        "explanation": "Even with extra explanation, this costume name itself may not be clear to all readers.",
-        "rephrased_versions": [
-          {
-            "replacement": "Haneto festival outfit",
-            "length": 22
-          },
-          {
-            "replacement": "special costume for the Nebuta festival dancers",
-            "length": 50
-          }
-        ]
-      },
-      {
-        "phrase": "Nebuta Matsuri",
-        "tag": "not_familiar",
-        "start_index": 36,
-        "end_index": 50,
-        "explanation": "The name of the festival may need a brief meaning.",
-        "rephrased_versions": [
-          {
-            "replacement": "Nebuta summer festival",
-            "length": 22
-          },
-          {
-            "replacement": "Nebuta lantern parade festival",
-            "length": 30
-          }
-        ]
-      },
-      {
-        "phrase": "hanagasa",
-        "tag": "not_familiar",
-        "start_index": 376,
-        "end_index": 384,
-        "explanation": "A Japanese word that benefits from a short explanation.",
-        "rephrased_versions": [
-          {
-            "replacement": "flower-decorated straw hat",
-            "length": 29
-          },
-          {
-            "replacement": "straw hat covered with bright flowers",
-            "length": 38
-          }
-        ]
-      },
-      {
-        "phrase": "a sash that ties back the sleeves so dancers can move freely",
-        "tag": "somewhat_familiar",
-        "start_index": 420,
-        "end_index": 480,
-        "explanation": "This long description can be shortened while keeping the idea.",
-        "rephrased_versions": [
-          {
-            "replacement": "sash that ties back the sleeves",
-            "length": 32
-          },
-          {
-            "replacement": "sleeve-tying sash for dancers",
-            "length": 31
-          }
-        ]
-      },
-      {
-        "phrase": "traditional Japanese split-toe socks",
-        "tag": "somewhat_familiar",
-        "start_index": 506,
-        "end_index": 542,
-        "explanation": "This phrase can be shortened and connected to the word 'tabi'.",
-        "rephrased_versions": [
-          {
-            "replacement": "Japanese tabi socks",
-            "length": 20
-          },
-          {
-            "replacement": "traditional split-toe socks",
-            "length": 27
-          }
-        ]
-      },
-      {
-        "phrase": "simple traditional Japanese flat sandals",
-        "tag": "somewhat_familiar",
-        "start_index": 554,
-        "end_index": 594,
-        "explanation": "A long descriptive phrase that could be made shorter.",
-        "rephrased_versions": [
-          {
-            "replacement": "simple zōri sandals",
-            "length": 20
-          },
-          {
-            "replacement": "flat traditional Japanese sandals",
-            "length": 32
-          }
-        ]
-      },
-      {
-        "phrase": "popular Japanese street snack",
-        "tag": "somewhat_familiar",
-        "start_index": 782,
-        "end_index": 811,
-        "explanation": "This phrase can be simplified for very young readers.",
-        "rephrased_versions": [
-          {
-            "replacement": "well-known snack sold at Japanese street stalls",
-            "length": 49
-          },
-          {
-            "replacement": "street snack many people in Japan enjoy",
-            "length": 43
-          }
-        ]
-      },
-      {
-        "phrase": "chaat at Indian festivals",
-        "tag": "somewhat_familiar",
-        "start_index": 861,
-        "end_index": 886,
-        "explanation": "The comparison may be unfamiliar to readers outside India and can use a bit more context.",
-        "rephrased_versions": [
-          {
-            "replacement": "Indian festival snack called chaat",
-            "length": 34
-          },
-          {
-            "replacement": "savory Indian snack often eaten at festivals",
-            "length": 46
-          }
-        ]
-      },
-      {
-        "phrase": "apple orchards",
-        "tag": "somewhat_familiar",
-        "start_index": 979,
-        "end_index": 993,
-        "explanation": "Some readers may not know the word 'orchards'.",
-        "rephrased_versions": [
-          {
-            "replacement": "areas of land with many apple trees",
-            "length": 38
-          },
-          {
-            "replacement": "fields where many apple trees are grown",
-            "length": 41
-          }
-        ]
-      },
-      {
-        "phrase": "travel destination",
-        "tag": "somewhat_familiar",
-        "start_index": 1063,
-        "end_index": 1081,
-        "explanation": "A formal phrase that can be simplified.",
-        "rephrased_versions": [
-          {
-            "replacement": "place people go on trips",
-            "length": 24
-          },
-          {
-            "replacement": "popular place for tourists to visit",
-            "length": 35
-          }
-        ]
-      }
-    ]
-  }
+    }
   ]
 }

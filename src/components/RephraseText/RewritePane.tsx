@@ -6,6 +6,8 @@ import { TextHighlight } from '../../types';
 interface RewritePaneProps {
   gentleRewrite: string;
   fullRewrite: string;
+  gentleUnderlines?: Array<{start_index: number, end_index: number}>;
+  fullUnderlines?: Array<{start_index: number, end_index: number}>;
   originalText: string;
   highlights: TextHighlight[];
   onAccept: (version: 'gentle' | 'full', text: string) => void;
@@ -14,6 +16,8 @@ interface RewritePaneProps {
 const RewritePane: React.FC<RewritePaneProps> = ({
   gentleRewrite,
   fullRewrite,
+  gentleUnderlines,
+  fullUnderlines,
   originalText,
   highlights,
   onAccept,
@@ -115,52 +119,95 @@ const RewritePane: React.FC<RewritePaneProps> = ({
     }
   };
 
-  // Render text with underlined rephrased phrases (only tagged phrases that were changed)
-  const renderHighlightedText = (text: string) => {
-    const rephrasedPhrases = findRephrasedTaggedPhrases(text);
+  // Render text with underlined rephrased phrases by parsing <u> tags
+  const renderHighlightedText = (text: string, underlines?: Array<{start_index: number, end_index: number}>) => {
     const underlineClass = getUnderlineStyle();
-    
-    if (rephrasedPhrases.length === 0) {
-      return <span>{text}</span>;
-    }
 
-    // Sort by start position
-    const sortedPhrases = [...rephrasedPhrases].sort((a, b) => a.start - b.start);
-    
-    const parts: JSX.Element[] = [];
-    let lastIndex = 0;
-    
-    // Build text with underlines only for rephrased tagged phrases
-    sortedPhrases.forEach((phrase, idx) => {
-      // Add text before this phrase
-      if (phrase.start > lastIndex) {
+    // Check if text has <u> tags
+    if (text.includes('<u>')) {
+      // Parse and render tags directly
+      const parts: JSX.Element[] = [];
+      const tagPattern = /<u>(.*?)<\/u>/g;
+      let lastIndex = 0;
+      let match;
+      let idx = 0;
+
+      while ((match = tagPattern.exec(text)) !== null) {
+        // Add text before this tag
+        if (match.index > lastIndex) {
+          parts.push(
+            <React.Fragment key={`text-${idx}`}>
+              {text.substring(lastIndex, match.index)}
+            </React.Fragment>
+          );
+        }
+
+        // Add underlined text
         parts.push(
-          <React.Fragment key={`text-${idx}`}>
-            {text.substring(lastIndex, phrase.start)}
+          <span key={`u-${idx}`} className={`underline ${underlineClass}`}>
+            {match[1]}
+          </span>
+        );
+
+        lastIndex = match.index + match[0].length;
+        idx++;
+      }
+
+      // Add remaining text
+      if (lastIndex < text.length) {
+        parts.push(
+          <React.Fragment key="text-end">
+            {text.substring(lastIndex)}
           </React.Fragment>
         );
       }
-      
-      // Add the underlined rephrased phrase
-      parts.push(
-        <span key={`phrase-${idx}`} className={`underline ${underlineClass}`}>
-          {phrase.text}
-        </span>
-      );
-      
-      lastIndex = phrase.end;
-    });
-    
-    // Add remaining text after last phrase
-    if (lastIndex < text.length) {
-      parts.push(
-        <React.Fragment key="text-end">
-          {text.substring(lastIndex)}
-        </React.Fragment>
-      );
+
+      return <>{parts}</>;
     }
-    
-    return <>{parts}</>;
+
+    // Fallback: use index-based underlines if provided
+    if (underlines && underlines.length > 0) {
+      const phrasesToUnderline = underlines.map(u => ({
+        start: u.start_index,
+        end: u.end_index,
+        text: text.substring(u.start_index, u.end_index)
+      }));
+
+      const sortedPhrases = [...phrasesToUnderline].sort((a, b) => a.start - b.start);
+      const parts: JSX.Element[] = [];
+      let lastIndex = 0;
+
+      sortedPhrases.forEach((phrase, idx) => {
+        if (phrase.start > lastIndex) {
+          parts.push(
+            <React.Fragment key={`text-${idx}`}>
+              {text.substring(lastIndex, phrase.start)}
+            </React.Fragment>
+          );
+        }
+
+        parts.push(
+          <span key={`phrase-${idx}`} className={`underline ${underlineClass}`}>
+            {phrase.text}
+          </span>
+        );
+
+        lastIndex = phrase.end;
+      });
+
+      if (lastIndex < text.length) {
+        parts.push(
+          <React.Fragment key="text-end">
+            {text.substring(lastIndex)}
+          </React.Fragment>
+        );
+      }
+
+      return <>{parts}</>;
+    }
+
+    // No underlines - return plain text
+    return <span>{text}</span>;
   };
 
   const handleAccept = () => {
@@ -222,7 +269,10 @@ const RewritePane: React.FC<RewritePaneProps> = ({
       <div className="min-h-[300px] p-3 bg-gray-50 rounded-lg mb-3">
         <div className="prose max-w-none">
           <div className="text-base leading-relaxed">
-            {renderHighlightedText(activeVersion === 'gentle' ? gentleRewrite : fullRewrite)}
+            {renderHighlightedText(
+              activeVersion === 'gentle' ? gentleRewrite : fullRewrite,
+              activeVersion === 'gentle' ? gentleUnderlines : fullUnderlines
+            )}
           </div>
         </div>
       </div>
