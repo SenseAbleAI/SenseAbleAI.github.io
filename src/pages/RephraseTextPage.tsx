@@ -204,7 +204,7 @@ const RephraseTextPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100">
       <Header />
 
       <div className="container mx-auto px-4 py-8">
@@ -214,13 +214,13 @@ const RephraseTextPage: React.FC = () => {
             {/* Text Input/Editor */}
             <div className="bg-white rounded-lg shadow p-4">
               <div className="flex justify-between items-center mb-3">
-                <h2 className="text-base font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-gray-800">
                   {isAnalyzed ? 'Analyzed Text' : 'Original Text'}
                 </h2>
                 {isAnalyzed && (
                   <button
                     onClick={handleReset}
-                    className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 border border-gray-300 rounded-lg transition-colors"
+                    className="px-3 py-1.5 text-base text-gray-600 hover:text-gray-800 hover:bg-gray-100 border border-gray-300 rounded-lg transition-colors"
                   >
                     ↻ Start Over
                   </button>
@@ -231,9 +231,9 @@ const RephraseTextPage: React.FC = () => {
               {!isAnalyzed && (
                 <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
                   <div className="flex items-start gap-2 mb-3">
-                    <span className="text-amber-600 text-sm">⚠️</span>
-                    <p className="text-xs text-amber-800 leading-relaxed">
-                      Please use the example texts provided to explore this demo. Due to internal security requirements, we're unable to host the models and resources needed for a fully interactive or live experience.
+                    <span className="text-amber-600 text-base">⚠️</span>
+                    <p className="text-sm text-amber-800 leading-relaxed">
+                      Please use the example texts provided to explore this demo. Due to internal security requirements, we're unable to host the models and resources needed for a fully interactive experience.
                     </p>
                   </div>
                   <div className="flex gap-2 flex-wrap">
@@ -244,7 +244,7 @@ const RephraseTextPage: React.FC = () => {
                           setOriginalText(exampleData.original_text);
                         }
                       }}
-                      className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
+                      className="px-4 py-2 text-base font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
                     >
                       Example 1: Japanese Festival
                     </button>
@@ -255,7 +255,7 @@ const RephraseTextPage: React.FC = () => {
                           setOriginalText(exampleData.original_text);
                         }
                       }}
-                      className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
+                      className="px-4 py-2 text-base font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
                     >
                       Example 2: Cotton Curtains
                     </button>
@@ -268,7 +268,7 @@ const RephraseTextPage: React.FC = () => {
                   value={originalText}
                   onChange={(e) => setOriginalText(e.target.value)}
                   placeholder="Paste or type the text you want to analyze and rephrase..."
-                  className="w-full min-h-[300px] p-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none resize-none text-sm leading-relaxed"
+                  className="w-full min-h-[300px] p-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none resize-none text-base leading-relaxed"
                 />
               ) : (
                 <TextEditor
@@ -298,7 +298,7 @@ const RephraseTextPage: React.FC = () => {
 
               {isAnalyzed && (
                 <div className="mt-3 p-2 bg-blue-50 rounded-lg">
-                  <p className="text-xs text-blue-600">
+                  <p className="text-sm text-blue-600">
                     💡 <strong>Tip:</strong> Check the Tags panel to see alternatives for each tagged phrase, or click Rewrite to see full rewritten versions.
                   </p>
                 </div>
@@ -310,6 +310,8 @@ const RephraseTextPage: React.FC = () => {
               <RewritePane
                 gentleRewrite={gentleRewrite}
                 fullRewrite={fullRewrite}
+                originalText={originalText}
+                highlights={highlights}
                 onAccept={handleAcceptRewrite}
               />
             )}
@@ -324,7 +326,7 @@ const RephraseTextPage: React.FC = () => {
                 <button
                   onClick={() => isAnalyzed && setActiveTab('tags')}
                   disabled={!isAnalyzed}
-                  className={`flex-1 px-3 py-2 text-xs font-medium transition ${activeTab === 'tags'
+                  className={`flex-1 px-3 py-2 text-sm font-medium transition ${activeTab === 'tags'
                     ? 'text-primary border-b-2 border-primary'
                     : !isAnalyzed
                       ? 'text-gray-400 cursor-not-allowed'
@@ -336,7 +338,7 @@ const RephraseTextPage: React.FC = () => {
                 <button
                   onClick={() => originalText.trim() && setActiveTab('chat')}
                   disabled={!originalText.trim()}
-                  className={`flex-1 px-3 py-2 text-xs font-medium transition ${activeTab === 'chat'
+                  className={`flex-1 px-3 py-2 text-sm font-medium transition ${activeTab === 'chat'
                     ? 'text-primary border-b-2 border-primary'
                     : !originalText.trim()
                       ? 'text-gray-400 cursor-not-allowed'
@@ -347,7 +349,7 @@ const RephraseTextPage: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setActiveTab('profile')}
-                  className={`flex-1 px-3 py-2 text-xs font-medium transition ${activeTab === 'profile'
+                  className={`flex-1 px-3 py-2 text-sm font-medium transition ${activeTab === 'profile'
                     ? 'text-primary border-b-2 border-primary'
                     : 'text-gray-600 hover:text-gray-800'
                     }`}
@@ -364,16 +366,16 @@ const RephraseTextPage: React.FC = () => {
                   {/* Tag Summary - Compact version at top */}
                   {isAnalyzed && (
                     <div className="bg-white rounded-lg shadow p-2 lg:sticky lg:top-0 lg:z-10">
-                      <h3 className="text-xs font-semibold text-gray-800 mb-1.5">Tag Summary</h3>
+                      <h3 className="text-sm font-semibold text-gray-800 mb-1.5">Tag Summary</h3>
                       <div className="space-y-1">
                         <div className="flex items-center justify-between p-1.5 rounded"
                           style={{ backgroundColor: `${colorPalette['not-familiar']}10` }}>
                           <div className="flex items-center gap-1.5">
                             <div className="w-2 h-2 rounded"
                               style={{ backgroundColor: colorPalette['not-familiar'] }}></div>
-                            <span className="text-xs font-medium">Not Familiar</span>
+                            <span className="text-sm font-medium">Not Familiar</span>
                           </div>
-                          <span className="text-xs font-bold">{tagCounts['not-familiar'] || 0}</span>
+                          <span className="text-sm font-bold">{tagCounts['not-familiar'] || 0}</span>
                         </div>
 
                         <div className="flex items-center justify-between p-1.5 rounded"
@@ -381,16 +383,16 @@ const RephraseTextPage: React.FC = () => {
                           <div className="flex items-center gap-1.5">
                             <div className="w-2 h-2 rounded"
                               style={{ backgroundColor: colorPalette['somewhat-familiar'] }}></div>
-                            <span className="text-xs font-medium">Somewhat Familiar</span>
+                            <span className="text-sm font-medium">Somewhat Familiar</span>
                           </div>
-                          <span className="text-xs font-bold">{tagCounts['somewhat-familiar'] || 0}</span>
+                          <span className="text-sm font-bold">{tagCounts['somewhat-familiar'] || 0}</span>
                         </div>
                       </div>
 
                       <div className="mt-1.5 pt-1.5 border-t border-gray-200">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-semibold text-gray-700">Total Tagged</span>
-                          <span className="text-sm font-bold text-primary">{highlights.length}</span>
+                          <span className="text-sm font-semibold text-gray-700">Total Tagged</span>
+                          <span className="text-base font-bold text-primary">{highlights.length}</span>
                         </div>
                       </div>
                     </div>
@@ -399,7 +401,7 @@ const RephraseTextPage: React.FC = () => {
                   {/* Individual Tag Suggestions - Below summary */}
                   {suggestions.length > 0 && (
                     <div className="bg-white rounded-lg shadow p-3">
-                      <h3 className="text-xs font-semibold text-gray-800 mb-2">
+                      <h3 className="text-sm font-semibold text-gray-800 mb-2">
                         Tagged Phrases & Alternatives
                       </h3>
                       <SuggestionsPanel

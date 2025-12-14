@@ -10,6 +10,20 @@ interface UserAccountFormProps {
   isLoginMode?: boolean;
 }
 
+interface Persona {
+  id: string;
+  name: string;
+  ageRange: string;
+  gender: string;
+  country: string;
+  languagePreference: string;
+  accessibilityCategory: string;
+  accessibilitySubOption: string;
+  additionalSupport: string;
+  color: string;
+  bgColor: string;
+}
+
 const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }) => {
   const { user, preferences, setUser, setPreferences } = useUser();
   const navigate = useNavigate();
@@ -37,16 +51,73 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
     preferredComplexity: preferences?.preferred_complexity || 'moderate' as ComplexityLevel,
   });
 
+  // Predefined personas
+  const personas: Persona[] = [
+    {
+      id: 'arun',
+      name: 'Arun',
+      ageRange: '25-34',
+      gender: 'male',
+      country: 'india',
+      languagePreference: 'english',
+      accessibilityCategory: 'vision',
+      accessibilitySubOption: 'Colorblind',
+      additionalSupport: 'I\'d prefer examples with Indian context',
+      color: '#6366f1',
+      bgColor: '#e0e7ff',
+    },
+    {
+      id: 'maria',
+      name: 'Maria',
+      ageRange: '35-44',
+      gender: 'female',
+      country: 'usa',
+      languagePreference: 'english',
+      accessibilityCategory: 'cognitive',
+      accessibilitySubOption: 'Dyslexia',
+      additionalSupport: 'I love knowing about other cultures',
+      color: '#ec4899',
+      bgColor: '#fce7f3',
+    },
+    {
+      id: 'sruti',
+      name: 'Sruti',
+      ageRange: '18-24',
+      gender: 'female',
+      country: 'india',
+      languagePreference: 'english',
+      accessibilityCategory: 'smell',
+      accessibilitySubOption: 'Anosmia',
+      additionalSupport: 'I born anosmic',
+      color: '#8b5cf6',
+      bgColor: '#ede9fe',
+    },
+    {
+      id: 'george',
+      name: 'George',
+      ageRange: '45-54',
+      gender: 'male',
+      country: 'uk',
+      languagePreference: 'english',
+      accessibilityCategory: 'hearing',
+      accessibilitySubOption: 'Hard of hearing',
+      additionalSupport: '',
+      color: '#06b6d4',
+      bgColor: '#cffafe',
+    },
+  ];
+
   // Accessibility options structure
   const accessibilityOptions = [
     { id: 'none', label: 'None', options: [] },
-    { id: 'vision', label: 'Vision', options: ['Normal vision', 'Colorblind', 'Low vision'] },
-    { id: 'hearing', label: 'Hearing', options: ['Normal hearing', 'Mild hearing loss', 'Hard of hearing', 'Deaf'] },
-    { id: 'smell', label: 'Smell (Olfactory)', options: ['Normal smell', 'Anosmia', 'Hyposmia'] },
-    { id: 'taste', label: 'Taste (Gustatory)', options: ['Normal taste', 'Ageusia', 'Hypogeusia'] },
-    { id: 'others', label: 'Others', options: ['ADHD', 'Dyslexia', 'Other cognitive'] },
+    { id: 'vision', label: 'Vision', options: ['Colorblind', 'Low vision'] },
+    { id: 'hearing', label: 'Hearing', options: ['Mild hearing loss', 'Hard of hearing', 'Deaf'] },
+    { id: 'smell', label: 'Smell (Olfactory)', options: ['Anosmia', 'Hyposmia'] },
+    { id: 'cognitive', label: 'Cognitive', options: ['Dyslexia', 'ADHD'] },
+    { id: 'others', label: 'Others', options: [] },
   ];
 
+  const [selectedPersona, setSelectedPersona] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -70,6 +141,23 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
       ...formData,
       accessibilityCategory: category,
       accessibilitySubOption: '', // Reset sub-option
+    });
+  };
+
+  // Handler for persona selection
+  const handlePersonaSelect = (persona: Persona) => {
+    setSelectedPersona(persona.id);
+    setFormData({
+      ...formData,
+      name: persona.name,
+      ageRange: persona.ageRange,
+      gender: persona.gender,
+      country: persona.country,
+      languagePreference: persona.languagePreference,
+      accessibilityCategory: persona.accessibilityCategory,
+      accessibilitySubOption: persona.accessibilitySubOption,
+      additionalSupport: persona.additionalSupport,
+      consentGiven: true, // Auto-check consent when persona is selected
     });
   };
 
@@ -247,219 +335,330 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="bg-white shadow-lg rounded-lg p-8">
-          <h2 className="text-3xl font-bold mb-2" style={{ color: isLoginMode ? '#4F46E5' : '#111827' }}>
-            {isLoginMode ? 'Welcome to SenseAble' : 'Update Your Profile'}
-          </h2>
-          <p className="text-gray-600 mb-8">
-            {isLoginMode ? 'Empowering every user with personalized accessibility' : 'Tell us about yourself to personalize your experience'}
-          </p>
-
-          {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-600">{error}</p>
+    <div className="min-h-screen bg-gray-50">
+      {isLoginMode ? (
+        // Login Mode: Two-column layout with personas
+        <div className="min-h-screen flex">
+          {/* Left Side - Personas */}
+          <div className="w-1/2 bg-gradient-to-br from-blue-50 to-indigo-100 p-12 flex flex-col">
+            <div className="mb-12">
+              <h1 className="text-4xl font-bold text-blue-600 mb-3">
+                SenseAble
+              </h1>
+              <p className="text-base text-gray-700">
+                Empowering every user with personalized accessibility
+              </p>
             </div>
-          )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {isLoginMode ? (
-              <>
-                {/* We'd love to know more about you */}
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-gray-800">We'd love to know more about you</h3>
+            {/* Persona Cards - Centered */}
+            <div className="flex-1 flex items-center justify-center">
+              <div className="max-w-lg">
+                <div className="mb-6">
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Get started with these user personas
+                  </h2>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {personas.map((persona) => (
+                    <button
+                      key={persona.id}
+                      type="button"
+                      onClick={() => handlePersonaSelect(persona)}
+                      className={`bg-white rounded-2xl p-8 w-full aspect-square flex flex-col items-center justify-center transition-all duration-200 hover:shadow-lg ${
+                        selectedPersona === persona.id
+                          ? 'ring-4 shadow-xl'
+                          : 'hover:scale-105'
+                      }`}
+                      style={
+                        selectedPersona === persona.id
+                          ? { borderColor: persona.color }
+                          : {}
+                      }
+                    >
+                      <div
+                        className="rounded-full flex items-center justify-center mb-4 transition-colors"
+                        style={{
+                          width: '4.5rem',
+                          height: '4.5rem',
+                          backgroundColor: selectedPersona === persona.id ? persona.color : persona.bgColor,
+                        }}
+                      >
+                        <svg
+                          className="w-10 h-10"
+                          style={{
+                            color: selectedPersona === persona.id ? '#ffffff' : persona.color,
+                          }}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-lg font-semibold text-gray-900">{persona.name}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Warning Alert */}
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex gap-3">
+                  <span className="text-yellow-600 text-lg flex-shrink-0">⚠️</span>
+                  <p className="text-sm text-gray-700">
+                    Please use the provided example personas to explore this demo. Due to internal security requirements, we're unable to host the models needed for a fully interactive experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Form */}
+          <div className="w-1/2 bg-white p-12 overflow-y-auto flex items-center justify-center">
+            <div className="max-w-md w-full">
+              <h2 className="text-2xl font-semibold text-blue-600 mb-8">
+                We'd love to know more about you
+              </h2>
+
+              {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-600 text-sm">{error}</p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g., Ali"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                    required
+                  />
+                </div>
+
+                {/* Age Range and Gender */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="ageRange" className="block text-sm font-medium text-gray-700 mb-2">
+                      Age Range <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="ageRange"
+                      value={formData.ageRange}
+                      onChange={(e) => setFormData({ ...formData, ageRange: e.target.value })}
+                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      required
+                    >
+                      <option value="">Select</option>
+                      <option value="18-24">18–24</option>
+                      <option value="25-34">25–34</option>
+                      <option value="35-44">35–44</option>
+                      <option value="45-54">45–54</option>
+                      <option value="55+">55+</option>
+                    </select>
+                  </div>
 
                   <div>
-                    <label htmlFor="name" className="block text-xs font-medium text-gray-700 mb-1">
-                      Name <span className="text-red-500">*</span>
+                    <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-2">
+                      Gender <span className="text-red-500">*</span>
                     </label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Enter your name"
-                      className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    <select
+                      id="gender"
+                      value={formData.gender}
+                      onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label htmlFor="ageRange" className="block text-xs font-medium text-gray-700 mb-1">
-                        Age Range <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="ageRange"
-                        value={formData.ageRange}
-                        onChange={(e) => setFormData({ ...formData, ageRange: e.target.value })}
-                        className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select age range</option>
-                        <option value="18-24">18–24</option>
-                        <option value="25-34">25–34</option>
-                        <option value="35-44">35–44</option>
-                        <option value="45-54">45–54</option>
-                        <option value="55+">55+</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="gender" className="block text-xs font-medium text-gray-700 mb-1">
-                        Gender <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="gender"
-                        value={formData.gender}
-                        onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                        className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="others">Others</option>
-                        <option value="prefer-not-to-say">Prefer not to say</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label htmlFor="country" className="block text-xs font-medium text-gray-700 mb-1">
-                        Country <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="country"
-                        value={formData.country}
-                        onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                        className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select country</option>
-                        <option value="india">India</option>
-                        <option value="usa">United States</option>
-                        <option value="uk">United Kingdom</option>
-                        <option value="canada">Canada</option>
-                        <option value="australia">Australia</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="languagePreference" className="block text-xs font-medium text-gray-700 mb-1">
-                        Language Preference <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="languagePreference"
-                        value={formData.languagePreference}
-                        onChange={(e) => setFormData({ ...formData, languagePreference: e.target.value })}
-                        className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select language</option>
-                        <option value="english">English</option>
-                        <option value="hindi">Hindi</option>
-                        <option value="bengali">Bengali</option>
-                      </select>
-                    </div>
+                    >
+                      <option value="">Select</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="others">Others</option>
+                      <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
                   </div>
                 </div>
 
-                {/* Accessibility Needs - Label selection with dropdown */}
-                <div className="space-y-2">
+                {/* Country and Language */}
+                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1.5">
-                      Do you have any accessibility needs? <span className="text-red-500">*</span>
+                    <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+                      Country <span className="text-red-500">*</span>
                     </label>
-                    <div className="flex flex-wrap gap-1.5">
-                      {accessibilityOptions.map(option => (
-                        <button
-                          key={option.id}
-                          type="button"
-                          onClick={() => handleCategoryChange(option.id)}
-                          className={`px-3 py-1.5 text-xs rounded-lg transition ${
-                            formData.accessibilityCategory === option.id
-                              ? 'bg-primary text-white'
-                              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                          }`}
-                        >
-                          {option.label}
-                        </button>
-                      ))}
-                    </div>
+                    <select
+                      id="country"
+                      value={formData.country}
+                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      required
+                    >
+                      <option value="">Select</option>
+                      <option value="india">India</option>
+                      <option value="usa">United States</option>
+                      <option value="uk">United Kingdom</option>
+                      <option value="canada">Canada</option>
+                      <option value="australia">Australia</option>
+                      <option value="other">Other</option>
+                    </select>
                   </div>
 
-                  {/* Sub-option dropdown - only show if category is selected and not 'none' */}
-                  {formData.accessibilityCategory && formData.accessibilityCategory !== 'none' && (
-                    <div>
-                      <label htmlFor="accessibilitySubOption" className="block text-xs font-medium text-gray-700 mb-1">
-                        Please specify <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="accessibilitySubOption"
-                        value={formData.accessibilitySubOption}
-                        onChange={(e) => setFormData({ ...formData, accessibilitySubOption: e.target.value })}
-                        className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
+                  <div>
+                    <label htmlFor="languagePreference" className="block text-sm font-medium text-gray-700 mb-2">
+                      Language Preference <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="languagePreference"
+                      value={formData.languagePreference}
+                      onChange={(e) => setFormData({ ...formData, languagePreference: e.target.value })}
+                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      required
+                    >
+                      <option value="">Select</option>
+                      <option value="english">English</option>
+                      <option value="hindi">Hindi</option>
+                      <option value="bengali">Bengali</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Accessibility Needs */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Do you have any accessibility needs? <span className="text-red-500">*</span>
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {accessibilityOptions.map((option) => (
+                      <button
+                        key={option.id}
+                        type="button"
+                        onClick={() => handleCategoryChange(option.id)}
+                        className={`px-4 py-2 text-sm rounded-full transition-all ${
+                          formData.accessibilityCategory === option.id
+                            ? 'bg-blue-600 text-white shadow-md'
+                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        }`}
                       >
-                        <option value="">Select option</option>
-                        {accessibilityOptions
-                          .find(opt => opt.id === formData.accessibilityCategory)
-                          ?.options.map(subOption => (
-                            <option key={subOption} value={subOption}>{subOption}</option>
-                          ))}
-                      </select>
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Sub-option dropdown or text input */}
+                  {formData.accessibilityCategory && formData.accessibilityCategory !== 'none' && (
+                    <div className="mt-3">
+                      {formData.accessibilityCategory === 'others' ? (
+                        <input
+                          type="text"
+                          id="accessibilitySubOption"
+                          value={formData.accessibilitySubOption}
+                          onChange={(e) => setFormData({ ...formData, accessibilitySubOption: e.target.value })}
+                          placeholder="Please specify..."
+                          className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                          required
+                        />
+                      ) : (
+                        <select
+                          id="accessibilitySubOption"
+                          value={formData.accessibilitySubOption}
+                          onChange={(e) => setFormData({ ...formData, accessibilitySubOption: e.target.value })}
+                          className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                          required
+                        >
+                          <option value="">Select option</option>
+                          {accessibilityOptions
+                            .find((opt) => opt.id === formData.accessibilityCategory)
+                            ?.options.map((subOption) => (
+                              <option key={subOption} value={subOption}>
+                                {subOption}
+                              </option>
+                            ))}
+                        </select>
+                      )}
                     </div>
                   )}
                 </div>
 
-                {/* Additional support */}
+                {/* Additional Information */}
                 <div>
-                  <label htmlFor="additionalSupport" className="block text-xs font-medium text-gray-700 mb-1">
-                    Anything else we should know to support you? <span className="text-gray-500">(Optional)</span>
+                  <label htmlFor="additionalSupport" className="block text-sm font-medium text-gray-700 mb-2">
+                    Anything else we should know? <span className="text-gray-500">(Optional)</span>
                   </label>
                   <textarea
                     id="additionalSupport"
                     value={formData.additionalSupport}
                     onChange={(e) => setFormData({ ...formData, additionalSupport: e.target.value })}
                     placeholder="Share any additional information..."
-                    rows={2}
-                    className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                    rows={3}
+                    className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 resize-none"
                   />
                 </div>
 
                 {/* Consent */}
-                <div className="pt-4 border-t border-gray-200">
+                <div className="pt-2">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formData.consentGiven}
                       onChange={(e) => setFormData({ ...formData, consentGiven: e.target.checked })}
-                      className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+                      className="mt-0.5 h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                       required
                     />
                     <span className="text-sm text-gray-700">
-                      I consent to my information being stored and used to enhance the system <span className="text-red-500">*</span>
+                      I consent to my information being stored and used to enhance the system{' '}
+                      <span className="text-red-500">*</span>
                     </span>
                   </label>
                 </div>
 
                 {/* Proceed Button */}
-                <div className="pt-6 flex justify-center">
-                  <Button
+                <div className="pt-3">
+                  <button
                     type="submit"
                     disabled={loading || !isFormValid()}
-                    className="px-12"
+                    className={`w-full py-3 px-6 rounded-lg font-medium text-white transition-all ${
+                      loading || !isFormValid()
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg'
+                    }`}
                   >
                     {loading ? 'Processing...' : 'Proceed'}
-                  </Button>
+                  </button>
                 </div>
-              </>
-            ) : (
-              <>
+              </form>
+            </div>
+          </div>
+        </div>
+      ) : (
+        // Profile Edit Mode: Original centered layout
+        <div className="py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white shadow-lg rounded-lg p-8">
+              <h2 className="text-3xl font-bold mb-2 text-gray-900">
+                Update Your Profile
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Tell us about yourself to personalize your experience
+              </p>
+
+              {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-600">{error}</p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+
                 {/* Profile Edit Mode - Full Form with All Fields */}
                 {/* User Profile Section */}
                 <div className="space-y-4">
@@ -639,11 +838,11 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     {loading ? 'Saving...' : 'Save Changes'}
                   </Button>
                 </div>
-              </>
-            )}
-          </form>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
