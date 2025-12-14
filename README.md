@@ -15,3 +15,5 @@ An intelligent text rephrasing tool that adapts content based on individual acce
 
 ![SenseAble Flowchart](assets/flowchart.jpg)
 
+- recheck the file assets/examples/sruti.md and add the appropriate tagging into the mock json. sruti example doesnt seem to have all the familiar and not familiar tags. Verify after modification
+- the color of the button "Example: Title" should be the same as Senseable main logo (same color of blue)
