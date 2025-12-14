@@ -15,15 +15,20 @@ const Header: React.FC = () => {
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <div 
-            className="flex items-center space-x-2 cursor-pointer"
+          <div
+            className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate('/rephrase')}
           >
             <h1 className="text-2xl font-bold text-primary hover:text-primary/80 transition">
               SenseAble
             </h1>
+            {user && (
+              <span className="text-base text-gray-500">
+                Hello {user.name}
+              </span>
+            )}
           </div>
-          
+
           {user && (
             <button
               onClick={handleLogout}

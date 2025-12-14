@@ -100,7 +100,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
       country: 'uk',
       languagePreference: 'english',
       accessibilityCategory: 'hearing',
-      accessibilitySubOption: 'Hard of hearing',
+      accessibilitySubOption: 'Deaf',
       additionalSupport: '',
       color: '#06b6d4',
       bgColor: '#cffafe',
@@ -405,7 +405,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                 </div>
 
                 {/* Warning Alert */}
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex gap-3">
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex gap-3 max-w-md">
                   <span className="text-yellow-600 text-lg flex-shrink-0">⚠️</span>
                   <p className="text-sm text-gray-700">
                     Please use the provided example personas to explore this demo. Due to internal security requirements, we're unable to host the models needed for a fully interactive experience.
@@ -442,6 +442,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     placeholder="e.g., Ali"
                     className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                     required
+                    disabled
                   />
                 </div>
 
@@ -457,6 +458,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, ageRange: e.target.value })}
                       className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
+                      disabled
                     >
                       <option value="">Select</option>
                       <option value="18-24">18–24</option>
@@ -477,6 +479,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
                       className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
+                      disabled
                     >
                       <option value="">Select</option>
                       <option value="male">Male</option>
@@ -499,6 +502,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                       className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
+                      disabled
                     >
                       <option value="">Select</option>
                       <option value="india">India</option>
@@ -520,6 +524,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, languagePreference: e.target.value })}
                       className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
+                      disabled
                     >
                       <option value="">Select</option>
                       <option value="english">English</option>
@@ -545,6 +550,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                             ? 'bg-blue-600 text-white shadow-md'
                             : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                         }`}
+                        disabled
                       >
                         {option.label}
                       </button>
@@ -563,6 +569,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           placeholder="Please specify..."
                           className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                           required
+                          disabled
                         />
                       ) : (
                         <select
@@ -571,6 +578,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           onChange={(e) => setFormData({ ...formData, accessibilitySubOption: e.target.value })}
                           className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                           required
+                          disabled
                         >
                           <option value="">Select option</option>
                           {accessibilityOptions
@@ -596,8 +604,9 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     value={formData.additionalSupport}
                     onChange={(e) => setFormData({ ...formData, additionalSupport: e.target.value })}
                     placeholder="Share any additional information..."
-                    rows={3}
+                    rows={1}
                     className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 resize-none"
+                    disabled
                   />
                 </div>
 

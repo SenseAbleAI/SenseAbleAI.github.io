@@ -129,8 +129,9 @@ const RephraseTextPage: React.FC = () => {
   };
 
   const handleAcceptRewrite = (version: 'gentle' | 'full', text: string) => {
-    // Replace original text with accepted version
-    setOriginalText(text);
+    // Clean tags from the rewrite before setting as original text
+    const cleanText = cleanTaggedText(text);
+    setOriginalText(cleanText);
     // Reset states to allow iteration
     setHighlights([]);
     setIsAnalyzed(false);
@@ -432,7 +433,6 @@ const RephraseTextPage: React.FC = () => {
 
               {activeTab === 'profile' && (
                 <div className="bg-white rounded-lg shadow p-3">
-                  <h3 className="text-xs font-semibold text-gray-800 mb-3">Update Profile</h3>
                   <ProfileEdit />
                 </div>
               )}

@@ -101,13 +101,14 @@ const ProfileEdit: React.FC = () => {
   };
 
   return (
-    <div className="space-y-4">
+    <div>
       {/* Header with Edit Icon */}
-      <div className="flex justify-end items-center mb-2">
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-sm font-semibold text-gray-800">Update Profile</h3>
         <button
           type="button"
           onClick={() => setIsEditing(!isEditing)}
-          className="p-2 hover:bg-gray-100 rounded-full transition"
+          className="p-1 hover:bg-gray-100 rounded-full transition"
           aria-label={isEditing ? 'Cancel editing' : 'Edit profile'}
         >
           {isEditing ? (

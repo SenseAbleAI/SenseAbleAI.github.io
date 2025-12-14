@@ -10,7 +10,6 @@ import exampleTextsData from './exampleTexts.json';
 const tagMapping: Record<string, FamiliarityLevel> = {
   'not_familiar': 'not-familiar',
   'somewhat_familiar': 'somewhat-familiar',
-  'familiar': 'familiar',
 };
 
 /**
@@ -63,7 +62,7 @@ export const getSuggestionsFromExample = (exampleId: number = 1): Suggestion[] =
  * Remove all tags from text
  */
 export const cleanTaggedText = (taggedText: string): string => {
-  return taggedText.replace(/<(nf|sf|f|u)>(.*?)<\/\1>/g, '$2');
+  return taggedText.replace(/<(nf|sf|u)>(.*?)<\/\1>/g, '$2');
 };
 
 /**
@@ -74,8 +73,8 @@ const parseTaggedText = (taggedText: string): { cleanText: string, highlights: T
   let cleanText = taggedText;
   let offset = 0;
 
-  // Regular expression to match tags: <nf>text</nf>, <sf>text</sf>, <f>text</f>
-  const tagPattern = /<(nf|sf|f)>(.*?)<\/\1>/g;
+  // Regular expression to match tags: <nf>text</nf>, <sf>text</sf>
+  const tagPattern = /<(nf|sf)>(.*?)<\/\1>/g;
   let match;
   let idCounter = 0;
 
@@ -84,7 +83,7 @@ const parseTaggedText = (taggedText: string): { cleanText: string, highlights: T
 
   while ((match = tagPattern.exec(textForMatching)) !== null) {
     const [fullMatch, tag, content] = match;
-    const tagType = tag === 'nf' ? 'not-familiar' : tag === 'sf' ? 'somewhat-familiar' : 'familiar';
+    const tagType = tag === 'nf' ? 'not-familiar' : 'somewhat-familiar';
 
     // Calculate position in clean text (accounting for already removed tags)
     const matchStart = match.index - offset;
@@ -104,7 +103,7 @@ const parseTaggedText = (taggedText: string): { cleanText: string, highlights: T
   }
 
   // Remove all tags from text
-  cleanText = taggedText.replace(/<(nf|sf|f)>(.*?)<\/\1>/g, '$2');
+  cleanText = taggedText.replace(/<(nf|sf)>(.*?)<\/\1>/g, '$2');
 
   return { cleanText, highlights };
 };
@@ -115,7 +114,7 @@ const parseTaggedText = (taggedText: string): { cleanText: string, highlights: T
  */
 export const mockAnalyzeText = (text: string): TextHighlight[] => {
   // Check if this text contains tags (from JSON)
-  if (text.includes('<nf>') || text.includes('<sf>') || text.includes('<f>')) {
+  if (text.includes('<nf>') || text.includes('<sf>')) {
     const { highlights } = parseTaggedText(text);
     return highlights;
   }
@@ -140,15 +139,18 @@ export const mockAnalyzeText = (text: string): TextHighlight[] => {
  * Generates rephrase suggestions for highlighted phrases
  */
 export const mockGetSuggestions = (highlights: TextHighlight[], text: string): Suggestion[] => {
-  // Check if this text matches any example
+  // Check if this text matches any example (compare clean text)
   const matchingExample = exampleTextsData.examples.find(
-    ex => ex.original_text.trim() === text.trim()
+    ex => {
+      const cleanText = cleanTaggedText(ex.original_text);
+      return cleanText.trim() === text.trim();
+    }
   );
-  
+
   if (matchingExample) {
     return getSuggestionsFromExample(matchingExample.id);
   }
-  
+
   // Fallback: generate generic suggestions
   return highlights.map(h => ({
     phrase: h.text,

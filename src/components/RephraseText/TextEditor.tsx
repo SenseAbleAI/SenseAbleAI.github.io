@@ -201,12 +201,13 @@ const TextEditor: React.FC<TextEditorProps> = ({
       const backgroundStyle: React.CSSProperties = {
         backgroundColor: isHovered ? '#BFDBFE' : backgroundColor, // Blue on hover
         color: textColor || 'inherit',
-        padding: '2px 4px',
-        borderRadius: '3px',
+        padding: '0px 3px',
+        borderRadius: '2px',
         cursor: 'pointer',
         position: 'relative',
         display: 'inline-block',
         border: isHovered ? '2px solid #3B82F6' : 'none',
+        lineHeight: '1.3',
       };
 
       // Add pattern as background image if defined

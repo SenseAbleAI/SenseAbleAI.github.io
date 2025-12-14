@@ -104,7 +104,7 @@
       "id": 2,
       "persona": "maria",
       "title": "Indian Breakfast",
-      "original_text": "<sf>South Indian breakfasts</sf> are a <sf>celebration of comfort and flavour</sf>. The iconic <nf>masala dosa</nf>, <f>golden and crispy</f>, is a must-try—best enjoyed <sf>piping hot</sf> with a <f>strong cup of tea</f>, an <sf>unbeatable combination</sf> for any food lover. The accompanying <nf>chutney</nf> is <sf>spot on</sf>: spicy, fresh, and <sf>bursting with flavour</sf>, elevating every bite of the dosa. Equally popular is <nf>filter coffee</nf>, famous for its <sf>rich aroma and bold taste</sf>, making mornings instantly better. For those who prefer softer textures, <nf>idly</nf> is a <sf>wholesome and healthy choice</sf>, often praised as one of the lightest breakfasts. Steamed to perfection, it pairs beautifully with <nf>red and green chutneys</nf>. Don’t miss the <sf>indulgent</sf> <nf>Mangalore bun</nf> either—slightly sweet, fluffy, and perfect with chutney. Served very hot, these South Indian classics offer a <sf>satisfying and memorable breakfast experience</sf>.",
+      "original_text": "<sf>South Indian breakfasts</sf> are a <sf>celebration of comfort and flavour</sf>. The iconic <nf>masala dosa</nf>, golden and crispy, is a must-try—best enjoyed <sf>piping hot</sf> with a strong cup of tea, an <sf>unbeatable combination</sf> for any food lover. The accompanying <nf>chutney</nf> is <sf>spot on</sf>: spicy, fresh, and <sf>bursting with flavour</sf>, elevating every bite of the dosa. Equally popular is <nf>filter coffee</nf>, famous for its <sf>rich aroma and bold taste</sf>, making mornings instantly better. For those who prefer softer textures, <nf>idly</nf> is a <sf>wholesome and healthy choice</sf>, often praised as one of the lightest breakfasts. Steamed to perfection, it pairs beautifully with <nf>red and green chutneys</nf>. Don't miss the <sf>indulgent</sf> <nf>Mangalore bun</nf> either—slightly sweet, fluffy, and perfect with chutney. Served very hot, these South Indian classics offer a <sf>satisfying and memorable breakfast experience</sf>.",
       "gentle_rewrite": "South Indian breakfasts are known for being <u>very tasty and comforting</u>. The famous <u>masala dosa, a thin Indian crepe filled with spiced potatoes</u>, is golden and crispy. It tastes best when served <u>very hot and fresh</u>, along with a <u>strong cup of tea</u>, which makes a great food pairing. The side sauce, called <u>chutney (a spicy Indian sauce)</u>, is fresh and spicy and adds a lot of flavour to each bite. Another popular drink is <u>filter coffee, a traditional Indian coffee</u>, known for its strong smell and bold taste. If you like soft foods, <u>idly, soft steamed rice cakes</u>, are a healthy and light option. They are steamed until soft and eaten with <u>red and green spicy sauces</u>. You can also try <u>Mangalore bun, a soft and slightly sweet fried bread</u>, which tastes best when served very hot. Together, these dishes make a <u>filling and enjoyable breakfast</u>.",
       "full_rewrite": "South Indian breakfast foods are <u>warm, comforting, and full of flavour</u>. One of the most popular dishes is <u>masala dosa, a thin Indian crepe filled with gently spiced mashed potatoes</u>. It is crispy on the outside and soft inside. People enjoy it best when it is <u>served very hot</u>, often with <u>a strong cup of tea</u>. Dosa is eaten with <u>chutney, a spicy Indian dipping sauce</u>. The chutney is fresh and adds strong flavour to every bite. Many people also drink <u>filter coffee, a traditional Indian coffee made using a metal filter</u>, which has a deep smell and strong taste. If you prefer soft and light foods, <u>idly are a great choice</u>. <u>Idly are soft, steamed rice cakes</u> that are easy to eat and gentle on the stomach. They are usually served with <u>red and green spicy sauces</u>. Another popular item is <u>Mangalore bun</u>, which is <u>a fluffy, slightly sweet fried bread</u>. It feels rich and filling and is best eaten hot. These foods together create <u>a simple, filling, and enjoyable breakfast</u> that many people love.",
       "tagged_phrases": [
@@ -127,22 +127,10 @@
           "simpler": "Indian crepe filled with spiced potatoes"
         },
         {
-          "phrase": "golden and crispy",
-          "tag": "familiar",
-          "explanation": "Simple food description already clear",
-          "simpler": "Golden and crispy"
-        },
-        {
           "phrase": "piping hot",
           "tag": "somewhat_familiar",
           "explanation": "Idiomatic phrase may cause confusion",
           "simpler": "Very hot and fresh"
-        },
-        {
-          "phrase": "strong cup of tea",
-          "tag": "familiar",
-          "explanation": "Common phrase in English",
-          "simpler": "Strong tea"
         },
         {
           "phrase": "unbeatable combination",
@@ -221,8 +209,8 @@
     {
       "id": 3,
       "persona": "sruti",
-      "title": "Café Experience",
-      "original_text": "This café instantly <sf>felt cozy</sf>, with a <sf>warm ambience</sf> and the <nf>comforting aroma of freshly ground coffee</nf> filling the space. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a <f>rich</f>, smooth flavor with a <sf>delightful hint of cinnamon</sf> that elevated the entire experience. <nf>The aroma alone was irresistible</nf>. I also picked up their special candle, and it now <f>fills my home with a soothing</f>, calming scent. Overall, this place offers more than just great coffee—it’s an experience. I’d definitely recommend it to anyone looking for comfort, flavor, and a touch of warmth.",
+      "title": "Cafe Review",
+      "original_text": "This café instantly <sf>felt cozy</sf>, with a <sf>warm ambience</sf> and the <nf>comforting aroma of freshly ground coffee</nf> filling the space. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a rich, smooth flavor with a <sf>delightful hint of cinnamon</sf> that elevated the entire experience. <nf>The aroma alone was irresistible</nf>. I also picked up their special candle, and it now fills my home with a soothing, calming scent. Overall, this place offers more than just great coffee—it's an experience. I'd definitely recommend it to anyone looking for comfort, flavor, and a touch of warmth.",
       "gentle_rewrite": "This café instantly felt cozy, with <u>soft lighting and warm interior colors creating a relaxing space</u>. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a <u>full-bodied, well-balanced taste with a noticeable cinnamon flavor</u> that elevated the experience. <u>The drink stood out for its comforting and familiar flavor.</u> I also picked up their special candle, and it <u>creates a cozy atmosphere at home with its soft glow and calming presence</u>. Overall, this place offers more than just great coffee—it’s an experience. I’d definitely recommend it.",
       "full_rewrite": "This café feels welcoming through its <u>soft lighting, warm colors, and calm indoor setting</u>, making it an easy place to relax and spend time. Sitting inside feels comfortable and unhurried. I tried their signature Cinnamon Latte, which is <u>full-bodied and pleasantly balanced, with a clear cinnamon flavor that many regulars enjoy</u>. It’s a drink that feels <u>familiar and satisfying rather than overwhelming</u>. I also bought their special candle, which <u>adds to the atmosphere at home with gentle light and a calming presence</u>. Overall, the café focuses on <u>comfort, thoughtful details, and quality</u>. I would strongly recommend it to anyone looking for a <u>relaxed and enjoyable café experience</u>.",
       "tagged_phrases": [
@@ -239,12 +227,6 @@
           "simpler": "the drink stood out because of its balanced and comforting taste"
         },
         {
-          "phrase": "fills my home with a soothing",
-          "tag": "calming_scent\"",
-          "explanation": "creates a cozy atmosphere with its soft glow and calming presence",
-          "simpler": "NOT_FAMILIAR"
-        },
-        {
           "phrase": "warm ambience",
           "tag": "somewhat_familiar",
           "explanation": "Makes ambience concrete and visually clear.",
@@ -257,12 +239,6 @@
           "simpler": "felt relaxing and comfortable to spend time in"
         },
         {
-          "phrase": "rich",
-          "tag": "smooth_flavor\"",
-          "explanation": "full-bodied and well-balanced taste",
-          "simpler": "SOMEWHAT_FAMILIAR"
-        },
-        {
           "phrase": "delightful hint of cinnamon",
           "tag": "somewhat_familiar",
           "explanation": "Grounded in taste rather than smell.",
@@ -273,8 +249,8 @@
     {
       "id": 4,
       "persona": "george",
-      "title": "Evening Reflections",
-      "original_text": "<sf>Leaves rustled in the evening breeze</sf>, <nf>a dry whisper like secrets the day was done confessing</nf>. Inside the hall, <sf>his voice thundered across the room</sf>, <nf>not loud so much as inevitable</nf>, <nf>a storm that demanded everyone stand still and listen</nf>. Later, when <nf>the house exhaled into quiet</nf>, <sf>raindrops drummed against the window</sf>, steady and patient, <nf>counting time the way a heart counts hope</nf>. <sf>The alarm blared at dawn</sf>, a rude insistence that <nf>dreams were no longer valid currency</nf>. Outside, <sf>the crowd roared in approval</sf> <nf>as if joy itself had found lungs</nf>. In the kitchen, the kettle whistled on the stove, <nf>sharp and pleading</nf>, while <sf>the phone chimed cheerfully</sf>, <nf>pretending urgency could be friendly</nf>. By nightfall, <sf>the wind howled through the dark streets</sf>, <nf>a feral choir circling the walls</nf>, reminding him that <nf>sound was never just noise</nf>. <f>It was warning</f>, comfort, memory, and proof that <f>the world was still awake</f>, even when he wanted to be anything but.",
+      "title": "Story Excerpt",
+      "original_text": "<sf>Leaves rustled in the evening breeze</sf>, <nf>a dry whisper like secrets the day was done confessing</nf>. Inside the hall, <sf>his voice thundered across the room</sf>, <nf>not loud so much as inevitable</nf>, <nf>a storm that demanded everyone stand still and listen</nf>. Later, when <nf>the house exhaled into quiet</nf>, <sf>raindrops drummed against the window</sf>, steady and patient, <nf>counting time the way a heart counts hope</nf>. <sf>The alarm blared at dawn</sf>, a rude insistence that <nf>dreams were no longer valid currency</nf>. Outside, <sf>the crowd roared in approval</sf> <nf>as if joy itself had found lungs</nf>. In the kitchen, the kettle whistled on the stove, <nf>sharp and pleading</nf>, while <sf>the phone chimed cheerfully</sf>, <nf>pretending urgency could be friendly</nf>. By nightfall, <sf>the wind howled through the dark streets</sf>, <nf>a feral choir circling the walls</nf>, reminding him that <nf>sound was never just noise</nf>. It was warning, comfort, memory, and proof that the world was still awake, even when he wanted to be anything but.",
       "gentle_rewrite": "Leaves <u>moved gently</u> in the evening breeze, <u>creating a quiet feeling as the day ended</u>. Inside the hall, <u>he spoke with great force and authority</u>, <u>making it impossible to ignore</u>, <u>and everyone paid attention</u>. Later, when the house <u>became calm and still</u>, <u>raindrops hit steadily against the window</u>, <u>as time passed slowly and thoughtfully</u>. <u>The alarm signaled the start of the day</u>, a rude reminder that dreams were over. Outside, <u>the crowd showed great enthusiasm and excitement</u>, <u>as if happiness was clearly visible</u>. In the kitchen, <u>the kettle signaled it was ready</u>, <u>strongly demanding attention</u>, while <u>the phone gave a clear signal for attention</u>, <u>trying to seem important but polite</u>. By nightfall, <u>the wind blew strongly through the dark streets</u>, <u>moving wildly around the buildings</u>, reminding him that <u>events were never meaningless</u>. <u>They could show danger, safety, or memories</u>, and <u>life continued around him</u>, even when he wanted to rest.",
       "full_rewrite": "In the evening, <u>the leaves moved gently in the breeze</u>, showing that the day was ending. Inside the hall, <u>the man spoke with strong authority</u>, and <u>everyone focused on him immediately</u>. Later, <u>the house became quiet and calm</u>, and <u>raindrops hit the window at a steady pace</u>, marking the slow passing of time. At dawn, <u>the alarm showed it was time to wake up</u>, ending his dreams. Outside, <u>a large group of people showed excitement and approval through their actions</u>. In the kitchen, <u>the kettle showed it was ready</u>, while <u>the phone gave a clear alert that needed attention</u>. At night, <u>strong wind moved through the empty streets</u>, <u>surrounding the buildings</u>. It reminded him that <u>what happens around us always has meaning</u>. <u>These moments can warn us, comfort us, or remind us of the past</u>, and <u>the world keeps going</u>, even when he feels tired and wants everything to stop.",
       "tagged_phrases": [
@@ -385,18 +361,6 @@
           "tag": "not_familiar",
           "explanation": "Abstract reflection.",
           "simpler": "Events always had meaning"
-        },
-        {
-          "phrase": "It was warning",
-          "tag": "comfort",
-          "explanation": "and proof",
-          "simpler": "memory"
-        },
-        {
-          "phrase": "the world was still awake",
-          "tag": "even_when_he_wanted_to_be_anything_but",
-          "explanation": "Life continued even when he was tired or overwhelmed",
-          "simpler": "Not familiar"
         }
       ]
     }

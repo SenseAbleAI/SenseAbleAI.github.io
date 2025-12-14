@@ -1,10 +1,9 @@
-Original text: 
+Original text:
 Leaves rustled in the evening breeze, a dry whisper like secrets the day was done confessing. Inside the hall, his voice thundered across the room, not loud so much as inevitable, a storm that demanded everyone stand still and listen. Later, when the house exhaled into quiet, raindrops drummed against the window, steady and patient, counting time the way a heart counts hope.
 The alarm blared at dawn, a rude insistence that dreams were no longer valid currency. Outside, the crowd roared in approval as if joy itself had found lungs. In the kitchen, the kettle whistled on the stove, sharp and pleading, while the phone chimed cheerfully, pretending urgency could be friendly.
 By nightfall, the wind howled through the dark streets, a feral choir circling the walls, reminding him that sound was never just noise. It was warning, comfort, memory, and proof that the world was still awake, even when he wanted to be anything but.
 
 Tagging:
-Original Phrase,Familiarity Tag,Simpler Alternative,Explanation
 Original Phrase,Familiarity Tag,Simpler Alternative,Explanation
 Leaves rustled in the evening breeze,Somewhat familiar,Leaves moved gently in the evening breeze,Original relies on sound imagery; simpler version focuses on visible movement.
 a dry whisper like secrets the day was done confessing,Not familiar,A quiet feeling as the day ended,Metaphor depends on sound and abstract ideas like secrets.
