@@ -210,7 +210,7 @@
       "id": 3,
       "persona": "sruti",
       "title": "Cafe Review",
-      "original_text": "This café instantly <sf>felt cozy</sf>, with a <sf>warm ambience</sf> and the <nf>comforting aroma of freshly ground coffee</nf> filling the space. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a rich, smooth flavor with a <sf>delightful hint of cinnamon</sf> that elevated the entire experience. <nf>The aroma alone was irresistible</nf>. I also picked up their special candle, and it now fills my home with a soothing, calming scent. Overall, this place offers more than just great coffee—it's an experience. I'd definitely recommend it to anyone looking for comfort, flavor, and a touch of warmth.",
+      "original_text": "This café instantly <sf>felt cozy</sf>, with a <sf>warm ambience</sf> and the <nf>comforting aroma of freshly ground coffee</nf> filling the space. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a <sf>rich, smooth flavor</sf> with a <sf>delightful hint of cinnamon</sf> that elevated the entire experience. <nf>The aroma alone was irresistible</nf>. I also picked up their special candle, and it now <nf>fills my home with a soothing, calming scent</nf>. Overall, this place offers more than just great coffee—it's an experience. I'd definitely recommend it to anyone looking for comfort, flavor, and a touch of warmth.",
       "gentle_rewrite": "This café instantly felt cozy, with <u>soft lighting and warm interior colors creating a relaxing space</u>. Sitting inside was especially inviting, making it a perfect spot to slow down and enjoy the moment. I tried their signature Cinnamon Latte, which had a <u>full-bodied, well-balanced taste with a noticeable cinnamon flavor</u> that elevated the experience. <u>The drink stood out for its comforting and familiar flavor.</u> I also picked up their special candle, and it <u>creates a cozy atmosphere at home with its soft glow and calming presence</u>. Overall, this place offers more than just great coffee—it’s an experience. I’d definitely recommend it.",
       "full_rewrite": "This café feels welcoming through its <u>soft lighting, warm colors, and calm indoor setting</u>, making it an easy place to relax and spend time. Sitting inside feels comfortable and unhurried. I tried their signature Cinnamon Latte, which is <u>full-bodied and pleasantly balanced, with a clear cinnamon flavor that many regulars enjoy</u>. It’s a drink that feels <u>familiar and satisfying rather than overwhelming</u>. I also bought their special candle, which <u>adds to the atmosphere at home with gentle light and a calming presence</u>. Overall, the café focuses on <u>comfort, thoughtful details, and quality</u>. I would strongly recommend it to anyone looking for a <u>relaxed and enjoyable café experience</u>.",
       "tagged_phrases": [
@@ -227,6 +227,12 @@
           "simpler": "the drink stood out because of its balanced and comforting taste"
         },
         {
+          "phrase": "fills my home with a soothing, calming scent",
+          "tag": "not_familiar",
+          "explanation": "Shifts from scent to visual and emotional cues.",
+          "simpler": "creates a cozy atmosphere with its soft glow and calming presence"
+        },
+        {
           "phrase": "warm ambience",
           "tag": "somewhat_familiar",
           "explanation": "Makes ambience concrete and visually clear.",
@@ -237,6 +243,12 @@
           "tag": "somewhat_familiar",
           "explanation": "Clarifies the feeling without sensory assumptions.",
           "simpler": "felt relaxing and comfortable to spend time in"
+        },
+        {
+          "phrase": "rich, smooth flavor",
+          "tag": "somewhat_familiar",
+          "explanation": "Simplifies taste description into familiar terms.",
+          "simpler": "full-bodied and well-balanced taste"
         },
         {
           "phrase": "delightful hint of cinnamon",

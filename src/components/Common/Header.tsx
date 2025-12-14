@@ -22,11 +22,6 @@ const Header: React.FC = () => {
             <h1 className="text-2xl font-bold text-primary hover:text-primary/80 transition">
               SenseAble
             </h1>
-            {user && (
-              <span className="text-base text-gray-500">
-                Hello {user.name}
-              </span>
-            )}
           </div>
 
           {user && (
