@@ -11,6 +11,7 @@ interface RewritePaneProps {
   originalText: string;
   highlights: TextHighlight[];
   onAccept: (version: 'gentle' | 'full', text: string) => void;
+  textSize?: number;
 }
 
 const RewritePane: React.FC<RewritePaneProps> = ({
@@ -21,6 +22,7 @@ const RewritePane: React.FC<RewritePaneProps> = ({
   originalText,
   highlights,
   onAccept,
+  textSize = 16,
 }) => {
   const [activeVersion, setActiveVersion] = useState<'gentle' | 'full'>('gentle');
   const [showFeedback, setShowFeedback] = useState(true);
@@ -100,20 +102,21 @@ const RewritePane: React.FC<RewritePaneProps> = ({
   // Get underline style based on accessibility need
   const getUnderlineStyle = () => {
     // Check if cognitive with ADHD or Dyslexia sub-option
-    if (accessibilityNeed === 'cognitive' && 
+    // This covers when accessibilityNeed is 'cognitive' OR 'dyslexia' (since Dyslexia gets converted to 'dyslexia' by getAccessibilityNeed)
+    if ((accessibilityNeed === 'cognitive' || accessibilityNeed === 'dyslexia') && 
         (accessibilitySubOption === 'ADHD' || accessibilitySubOption === 'Dyslexia')) {
-      return 'decoration-purple-500 decoration-dotted decoration-[3px]';
+      return 'decoration-green-600 decoration-solid decoration-2';
     }
     
     switch (accessibilityNeed) {
       case 'colorblind':
         return 'decoration-blue-600 decoration-dotted decoration-[3px]';
       case 'dyslexia':
-        return 'decoration-purple-500 decoration-dotted decoration-[3px]';
+        return 'decoration-green-600 decoration-solid decoration-2';
       case 'low-vision':
         return 'decoration-black decoration-solid decoration-[3px]';
       case 'cognitive':
-        return 'decoration-orange-500 decoration-double decoration-2';
+        return 'decoration-green-600 decoration-solid decoration-2';
       default:
         return 'decoration-green-600 decoration-solid decoration-2';
     }
@@ -268,7 +271,7 @@ const RewritePane: React.FC<RewritePaneProps> = ({
       {/* Rewritten Text Display */}
       <div className="min-h-[300px] p-3 bg-gray-50 rounded-lg mb-3">
         <div className="prose max-w-none">
-          <div className="text-base leading-relaxed">
+          <div className="leading-relaxed" style={{ fontSize: `${textSize}px` }}>
             {renderHighlightedText(
               activeVersion === 'gentle' ? gentleRewrite : fullRewrite,
               activeVersion === 'gentle' ? gentleUnderlines : fullUnderlines

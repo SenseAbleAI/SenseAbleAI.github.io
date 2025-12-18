@@ -120,6 +120,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
   const [selectedPersona, setSelectedPersona] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isWarningExpanded, setIsWarningExpanded] = useState(false);
 
   // Helper to convert category/sub-option to AccessibilityNeed type
   const getAccessibilityNeed = (): AccessibilityNeed => {
@@ -338,31 +339,31 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
     <div className="min-h-screen bg-gray-50">
       {isLoginMode ? (
         // Login Mode: Two-column layout with personas
-        <div className="min-h-screen flex">
+        <div className="min-h-screen flex flex-col lg:flex-row">
           {/* Left Side - Personas */}
-          <div className="w-1/2 bg-gradient-to-br from-blue-50 to-indigo-100 p-12 flex flex-col">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col">
             {/* Persona Cards - Centered */}
-            <div className="flex-1 flex items-center justify-center">
-              <div className="max-w-lg">
-                <div className="mb-8">
-                  <h1 className="text-4xl font-bold text-blue-600 mb-3">
+            <div className="flex-1 flex items-center justify-center py-4">
+              <div className="max-w-lg w-full">
+                <div className="mb-4 md:mb-6 lg:mb-8">
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3" style={{ color: '#1e3a8a' }}>
                     SenseAble
                   </h1>
-                  <p className="text-base text-gray-700 mb-6">
+                  <p className="text-sm md:text-base mb-3 md:mb-4 lg:mb-6" style={{ color: '#2563eb' }}>
                     Empowering every user with personalized accessibility
                   </p>
-                  <h2 className="text-xl font-semibold text-gray-900">
+                  <h2 className="text-base md:text-lg lg:text-xl font-semibold" style={{ color: '#1e3a8a' }}>
                     Get started with these user personas
                   </h2>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-3 mb-6 max-w-md">
+                <div className="grid grid-cols-2 gap-2 md:gap-3 mb-4 md:mb-6 max-w-md">
                   {personas.map((persona) => (
                     <button
                       key={persona.id}
                       type="button"
                       onClick={() => handlePersonaSelect(persona)}
-                      className={`bg-white rounded-xl p-4 w-full aspect-square flex flex-col items-center justify-center transition-all duration-200 hover:shadow-lg ${
+                      className={`bg-white rounded-lg md:rounded-xl p-2 md:p-3 lg:p-4 w-full aspect-square flex flex-col items-center justify-center transition-all duration-200 hover:shadow-lg ${
                         selectedPersona === persona.id
                           ? 'ring-4 shadow-xl'
                           : 'hover:scale-105'
@@ -374,15 +375,15 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       }
                     >
                       <div
-                        className="rounded-full flex items-center justify-center mb-2 transition-colors"
+                        className="rounded-full flex items-center justify-center mb-1 md:mb-2 transition-colors"
                         style={{
-                          width: '4rem',
-                          height: '4rem',
+                          width: 'clamp(2.5rem, 5vw, 4rem)',
+                          height: 'clamp(2.5rem, 5vw, 4rem)',
                           backgroundColor: selectedPersona === persona.id ? persona.color : persona.bgColor,
                         }}
                       >
                         <svg
-                          className="w-8 h-8"
+                          className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8"
                           style={{
                             color: selectedPersona === persona.id ? '#ffffff' : persona.color,
                           }}
@@ -399,39 +400,58 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           />
                         </svg>
                       </div>
-                      <span className="text-base font-semibold text-gray-900">{persona.name}</span>
+                      <span className="text-sm md:text-base font-semibold text-gray-900">{persona.name}</span>
                     </button>
                   ))}
                 </div>
 
                 {/* Warning Alert */}
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex gap-3 max-w-md">
-                  <span className="text-yellow-600 text-lg flex-shrink-0">⚠️</span>
-                  <p className="text-sm text-gray-700">
-                    Please use the provided example personas to explore this demo. Due to internal security requirements, we're unable to host the models needed for a fully interactive experience.
-                  </p>
+                <div 
+                  className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 md:p-4 max-w-md cursor-pointer hover:bg-yellow-100 transition-colors"
+                  onClick={() => setIsWarningExpanded(!isWarningExpanded)}
+                >
+                  <div className="flex gap-2 md:gap-3">
+                    <span className="text-yellow-600 text-base md:text-lg flex-shrink-0">⚠️</span>
+                    <div className="flex-1">
+                      <p className={`text-xs md:text-sm text-gray-700 ${
+                        isWarningExpanded ? '' : 'line-clamp-3'
+                      }`}>
+                        Please use the provided example personas to explore this demo. Due to organizational security, compliance, and data-governance constraints, the backend models used in this system (enterprise Azure deployments of GPT-5 and Agentic-Copilot services) cannot be exposed via a public interactive interface at this moment. The demo therefore uses representative personas and precomputed interactions that faithfully reflect the system's operational behavior.
+                      </p>
+                      <button 
+                        className="text-blue-600 text-xs md:text-sm font-medium mt-1 md:mt-2 hover:underline"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setIsWarningExpanded(!isWarningExpanded);
+                        }}
+                      >
+                        {isWarningExpanded ? 'Show less' : 'Read more'}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Side - Form */}
-          <div className="w-1/2 bg-white p-12 overflow-y-auto flex items-center justify-center">
-            <div className="max-w-md w-full">
-              <h2 className="text-2xl font-semibold text-blue-600 mb-8">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-slate-50 to-purple-50">
+            <div className="flex items-center justify-center p-4 md:p-6 lg:p-8">
+              <div className="max-w-md w-full bg-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl p-4 md:p-6 lg:p-8 my-4">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 lg:mb-8" style={{ color: '#2563eb' }}>
                 We'd love to know more about you
               </h2>
 
               {error && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-600 text-sm">{error}</p>
+                <div className="mb-4 md:mb-6 p-3 md:p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-600 text-xs md:text-sm">{error}</p>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 lg:space-y-5">
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
                     Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -440,23 +460,23 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g., Ali"
-                    className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                    className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                     required
                     disabled
                   />
                 </div>
 
                 {/* Age Range and Gender */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2 md:gap-3 lg:gap-4">
                   <div>
-                    <label htmlFor="ageRange" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="ageRange" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
                       Age Range <span className="text-red-500">*</span>
                     </label>
                     <select
                       id="ageRange"
                       value={formData.ageRange}
                       onChange={(e) => setFormData({ ...formData, ageRange: e.target.value })}
-                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
                       disabled
                     >
@@ -470,14 +490,14 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                   </div>
 
                   <div>
-                    <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="gender" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
                       Gender <span className="text-red-500">*</span>
                     </label>
                     <select
                       id="gender"
                       value={formData.gender}
                       onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
                       disabled
                     >
@@ -491,16 +511,16 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                 </div>
 
                 {/* Country and Language */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2 md:gap-3 lg:gap-4">
                   <div>
-                    <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="country" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
                       Country <span className="text-red-500">*</span>
                     </label>
                     <select
                       id="country"
                       value={formData.country}
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
                       disabled
                     >
@@ -515,14 +535,14 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                   </div>
 
                   <div>
-                    <label htmlFor="languagePreference" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="languagePreference" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
                       Language Preference <span className="text-red-500">*</span>
                     </label>
                     <select
                       id="languagePreference"
                       value={formData.languagePreference}
                       onChange={(e) => setFormData({ ...formData, languagePreference: e.target.value })}
-                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
                       disabled
                     >
@@ -536,16 +556,16 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
 
                 {/* Accessibility Needs */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2 md:mb-3">
                     Do you have any accessibility needs? <span className="text-red-500">*</span>
                   </label>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 md:gap-2">
                     {accessibilityOptions.map((option) => (
                       <button
                         key={option.id}
                         type="button"
                         onClick={() => handleCategoryChange(option.id)}
-                        className={`px-4 py-2 text-sm rounded-full transition-all ${
+                        className={`px-2.5 md:px-3 lg:px-4 py-1.5 md:py-2 text-xs md:text-sm rounded-full transition-all ${
                           formData.accessibilityCategory === option.id
                             ? 'bg-blue-600 text-white shadow-md'
                             : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -559,7 +579,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
 
                   {/* Sub-option dropdown or text input */}
                   {formData.accessibilityCategory && formData.accessibilityCategory !== 'none' && (
-                    <div className="mt-3">
+                    <div className="mt-2 md:mt-3">
                       {formData.accessibilityCategory === 'others' ? (
                         <input
                           type="text"
@@ -567,7 +587,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           value={formData.accessibilitySubOption}
                           onChange={(e) => setFormData({ ...formData, accessibilitySubOption: e.target.value })}
                           placeholder="Please specify..."
-                          className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                          className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                           required
                           disabled
                         />
@@ -576,7 +596,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           id="accessibilitySubOption"
                           value={formData.accessibilitySubOption}
                           onChange={(e) => setFormData({ ...formData, accessibilitySubOption: e.target.value })}
-                          className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                          className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                           required
                           disabled
                         >
@@ -596,7 +616,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
 
                 {/* Additional Information */}
                 <div>
-                  <label htmlFor="additionalSupport" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="additionalSupport" className="block text-xs md:text-sm font-medium text-gray-700 mb-1 md:mb-2">
                     Anything else we should know? <span className="text-gray-500">(Optional)</span>
                   </label>
                   <textarea
@@ -605,22 +625,22 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     onChange={(e) => setFormData({ ...formData, additionalSupport: e.target.value })}
                     placeholder="Share any additional information..."
                     rows={1}
-                    className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 resize-none"
+                    className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 resize-none"
                     disabled
                   />
                 </div>
 
                 {/* Consent */}
-                <div className="pt-2">
-                  <label className="flex items-start gap-3 cursor-pointer">
+                <div className="pt-1 md:pt-2">
+                  <label className="flex items-start gap-2 md:gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formData.consentGiven}
                       onChange={(e) => setFormData({ ...formData, consentGiven: e.target.checked })}
-                      className="mt-0.5 h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      className="mt-0.5 h-4 w-4 md:h-5 md:w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                       required
                     />
-                    <span className="text-sm text-gray-700">
+                    <span className="text-xs md:text-sm text-gray-700">
                       I consent to my information being stored and used to enhance the system{' '}
                       <span className="text-red-500">*</span>
                     </span>
@@ -628,11 +648,11 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                 </div>
 
                 {/* Proceed Button */}
-                <div className="pt-3">
+                <div className="pt-2 md:pt-3">
                   <button
                     type="submit"
                     disabled={loading || !isFormValid()}
-                    className={`w-full py-3 px-6 rounded-lg font-medium text-white transition-all ${
+                    className={`w-full py-2.5 md:py-3 px-4 md:px-6 rounded-lg font-medium text-sm md:text-base text-white transition-all ${
                       loading || !isFormValid()
                         ? 'bg-gray-400 cursor-not-allowed'
                         : 'bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg'
@@ -642,6 +662,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                   </button>
                 </div>
               </form>
+              </div>
             </div>
           </div>
         </div>

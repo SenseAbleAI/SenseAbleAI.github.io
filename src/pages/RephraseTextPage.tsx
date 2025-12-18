@@ -31,6 +31,7 @@ const RephraseTextPage: React.FC = () => {
   const [hoveredHighlightId, setHoveredHighlightId] = useState<string | null>(null);
   const [acceptedReplacements, setAcceptedReplacements] = useState<Map<number, string>>(new Map());
   const [activeTab, setActiveTab] = useState<'tags' | 'profile' | 'chat'>('profile');
+  const [textSize, setTextSize] = useState(16); // Base text size in pixels
 
   const suggestionsPanelRef = useRef<SuggestionsPanelRef>(null);
 
@@ -224,14 +225,31 @@ const RephraseTextPage: React.FC = () => {
                 <h2 className="text-lg font-semibold text-gray-800">
                   {isAnalyzed ? 'Analyzed Text' : 'Original Text'}
                 </h2>
-                {isAnalyzed && (
-                  <button
-                    onClick={handleReset}
-                    className="px-3 py-1.5 text-base text-gray-600 hover:text-gray-800 hover:bg-gray-100 border border-gray-300 rounded-lg transition-colors"
-                  >
-                    ↻ Start Over
-                  </button>
-                )}
+                <div className="flex items-center gap-4">
+                  {/* Text Size Slider */}
+                  <div className="flex items-center gap-2">
+                    <label htmlFor="textSizeSlider" className="text-sm font-medium text-gray-700 whitespace-nowrap">
+                      Text Size:
+                    </label>
+                    <input
+                      id="textSizeSlider"
+                      type="range"
+                      min="12"
+                      max="24"
+                      value={textSize}
+                      onChange={(e) => setTextSize(Number(e.target.value))}
+                      className="w-24 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    />
+                  </div>
+                  {isAnalyzed && (
+                    <button
+                      onClick={handleReset}
+                      className="px-3 py-1.5 text-base text-gray-600 hover:text-gray-800 hover:bg-gray-100 border border-gray-300 rounded-lg transition-colors"
+                    >
+                      ↻ Start Over
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* Example Text Buttons and Note - Only show when not analyzed */}
@@ -278,7 +296,8 @@ const RephraseTextPage: React.FC = () => {
                   value={originalText}
                   onChange={(e) => setOriginalText(e.target.value)}
                   placeholder="Paste or type the text you want to analyze and rephrase..."
-                  className="w-full min-h-[300px] p-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none resize-none text-base leading-relaxed"
+                  className="w-full min-h-[300px] p-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none resize-none leading-relaxed"
+                  style={{ fontSize: `${textSize}px` }}
                 />
               ) : (
                 <TextEditor
@@ -293,6 +312,7 @@ const RephraseTextPage: React.FC = () => {
                   onHighlightHover={setHoveredHighlightId}
                   acceptedReplacements={acceptedReplacements}
                   onHighlightClick={handleHighlightClick}
+                  textSize={textSize}
                 />
               )}
 
@@ -309,7 +329,7 @@ const RephraseTextPage: React.FC = () => {
               {isAnalyzed && (
                 <div className="mt-3 p-2 bg-blue-50 rounded-lg">
                   <p className="text-sm text-blue-600">
-                    💡 <strong>Tip:</strong> Check the Tags panel to see alternatives for each tagged phrase, or click Rewrite to see full rewritten versions.
+                    💡 <strong>Tip:</strong> Click any text to modify tags, view the explanations in the Tags panel, or select Rewrite to see full rewritten versions.
                   </p>
                 </div>
               )}
@@ -325,6 +345,7 @@ const RephraseTextPage: React.FC = () => {
                 originalText={originalText}
                 highlights={highlights}
                 onAccept={handleAcceptRewrite}
+                textSize={textSize}
               />
             )}
 

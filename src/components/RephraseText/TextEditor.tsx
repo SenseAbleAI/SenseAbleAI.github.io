@@ -13,6 +13,7 @@ interface TextEditorProps {
   onHighlightHover?: (id: string | null) => void;
   acceptedReplacements?: Map<number, string>;
   onHighlightClick?: (highlightId: string) => void;
+  textSize?: number;
 }
 
 // SVG Pattern definitions for accessibility
@@ -56,6 +57,7 @@ const TextEditor: React.FC<TextEditorProps> = ({
   onHighlightHover,
   acceptedReplacements = new Map(),
   onHighlightClick,
+  textSize = 16,
 }) => {
   const [selectedText, setSelectedText] = useState<{ text: string; start: number; end: number } | null>(null);
   const [showTagMenu, setShowTagMenu] = useState(false);
@@ -283,9 +285,9 @@ const TextEditor: React.FC<TextEditorProps> = ({
     <div className="relative" ref={editorRef}>
       <PatternDefs />
       <div
-        className="w-full min-h-[300px] p-3 border-2 border-gray-300 rounded-lg focus-within:border-primary transition bg-white text-sm leading-relaxed"
+        className="w-full min-h-[300px] p-3 border-2 border-gray-300 rounded-lg focus-within:border-primary transition bg-white leading-relaxed"
         onMouseUp={handleTextSelect}
-        style={{ userSelect: 'text', cursor: 'text' }}
+        style={{ userSelect: 'text', cursor: 'text', fontSize: `${textSize}px` }}
       >
         {renderTextWithHighlights()}
       </div>
