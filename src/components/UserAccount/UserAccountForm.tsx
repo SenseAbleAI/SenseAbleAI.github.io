@@ -22,6 +22,7 @@ interface Persona {
   additionalSupport: string;
   color: string;
   bgColor: string;
+  description: string;
 }
 
 const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }) => {
@@ -65,6 +66,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
       additionalSupport: 'I\'d prefer examples with Indian context',
       color: '#6366f1',
       bgColor: '#e0e7ff',
+      description: 'Arun is a young professional from India. He is colorblind, so he benefits from clear, color-safe visuals. He prefers examples with Indian context.',
     },
     {
       id: 'maria',
@@ -78,6 +80,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
       additionalSupport: 'I love knowing about other cultures',
       color: '#ec4899',
       bgColor: '#fce7f3',
+      description: 'Maria is a mid-career professional from the U.S. She has dyslexia and finds clear, readable content helpful. She loves learning about other cultures.',
     },
     {
       id: 'sruti',
@@ -91,6 +94,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
       additionalSupport: 'I born anosmic',
       color: '#8b5cf6',
       bgColor: '#ede9fe',
+      description: 'Sruti is a college-aged student from India. She was born without a sense of smell, so scent-based references don\'t work for her.',
     },
     {
       id: 'george',
@@ -104,6 +108,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
       additionalSupport: '',
       color: '#06b6d4',
       bgColor: '#cffafe',
+      description: 'George is an experienced professional from the U.K. He is hard of hearing and prefers information that doesn\'t rely on audio alone.',
     },
   ];
 
@@ -363,7 +368,8 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       key={persona.id}
                       type="button"
                       onClick={() => handlePersonaSelect(persona)}
-                      className={`bg-white rounded-lg md:rounded-xl p-2 md:p-3 lg:p-4 w-full aspect-square flex flex-col items-center justify-center transition-all duration-200 hover:shadow-lg ${
+                      title={persona.description}
+                      className={`bg-white rounded-lg md:rounded-xl p-2 md:p-3 lg:p-4 w-full aspect-square flex flex-col items-center justify-center transition-all duration-200 hover:shadow-lg relative group ${
                         selectedPersona === persona.id
                           ? 'ring-4 shadow-xl'
                           : 'hover:scale-105'
@@ -374,6 +380,14 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           : {}
                       }
                     >
+                      {/* Custom Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-normal w-64 z-10 shadow-lg" style={{ backgroundColor: '#1E3A8A' }}>
+                        <div className="text-center">{persona.description}</div>
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
+                          <div className="border-4 border-transparent" style={{ borderTopColor: '#1E3A8A' }}></div>
+                        </div>
+                      </div>
+                      
                       <div
                         className="rounded-full flex items-center justify-center mb-1 md:mb-2 transition-colors"
                         style={{
