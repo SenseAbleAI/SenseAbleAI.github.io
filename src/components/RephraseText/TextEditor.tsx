@@ -79,11 +79,13 @@ const TextEditor = forwardRef<TextEditorRef, TextEditorProps>(({
       const highlightElements = editorRef.current.querySelectorAll('mark');
       let targetElement: Element | null = null;
       
-      highlightElements.forEach((el) => {
+      for (let i = 0; i < highlightElements.length; i++) {
+        const el = highlightElements[i];
         if (el.getAttribute('data-highlight-id') === highlightId) {
           targetElement = el;
+          break;
         }
-      });
+      }
 
       if (targetElement) {
         const rect = targetElement.getBoundingClientRect();
