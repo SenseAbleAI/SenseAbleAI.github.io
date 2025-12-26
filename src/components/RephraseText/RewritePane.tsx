@@ -110,7 +110,7 @@ const RewritePane: React.FC<RewritePaneProps> = ({
     
     switch (accessibilityNeed) {
       case 'colorblind':
-        return 'decoration-blue-600 decoration-dotted decoration-[3px]';
+        return 'decoration-blue-600 decoration-solid decoration-[3px]';
       case 'dyslexia':
         return 'decoration-green-600 decoration-solid decoration-2';
       case 'low-vision':

@@ -11,91 +11,91 @@
         {
           "phrase": "Haneto costume",
           "tag": "not_familiar",
-          "explanation": "A specific Japanese name; describing its function makes it clearer.",
+          "explanation": "A traditional outfit worn by dancers at the Nebuta Matsuri festival in northern Japan.",
           "simpler": "traditional festival dancer outfit"
         },
         {
           "phrase": "Nebuta Matsuri",
           "tag": "not_familiar",
-          "explanation": "Festival names are unfamiliar without location or context.",
+          "explanation": "A Japanese summer festival featuring giant illuminated floats paraded through the streets, similar in festive scale to Indian cultural processions.",
           "simpler": "a famous festival in northern Japan"
         },
         {
           "phrase": "yukata",
           "tag": "not_familiar",
-          "explanation": "Traditional clothing term; needs description (similar to a simple kurta worn at home).",
+          "explanation": "A light cotton robe worn in summer, similar to a simple kurta worn at home.",
           "simpler": "light cotton robe worn in summer"
         },
         {
           "phrase": "hanagasa",
           "tag": "not_familiar",
-          "explanation": "The Japanese name hides the actual meaning.",
+          "explanation": "A decorative straw hat adorned with colorful flowers, worn during traditional Japanese festivals.",
           "simpler": "straw hat decorated with flowers"
         },
         {
           "phrase": "tasuki",
           "tag": "not_familiar",
-          "explanation": "Very specific accessory; function-based explanation helps.",
+          "explanation": "A cloth band tied across the chest to hold sleeves back, allowing dancers to move freely.",
           "simpler": "cloth band used to tie sleeves"
         },
         {
           "phrase": "tabi socks",
           "tag": "not_familiar",
-          "explanation": "Uncommon clothing item outside Japan.",
+          "explanation": "Traditional Japanese socks with a split toe, designed to be worn with sandals.",
           "simpler": "split-toe socks worn with sandals"
         },
         {
           "phrase": "zōri sandals",
           "tag": "not_familiar",
-          "explanation": "Can be related to simple Indian chappals.",
+          "explanation": "Flat traditional Japanese sandals, similar to simple Indian chappals.",
           "simpler": "flat traditional sandals"
         },
         {
           "phrase": "festival outfits",
           "tag": "somewhat_familiar",
-          "explanation": "Clarifies purpose for general readers.",
+          "explanation": "Special clothing worn during cultural celebrations and festivals.",
           "simpler": "special clothes worn during festivals"
         },
         {
           "phrase": "traditional clothing",
           "tag": "somewhat_familiar",
-          "explanation": "Makes the idea more concrete.",
+          "explanation": "Garments passed down through generations, worn for cultural events and ceremonies.",
           "simpler": "clothes worn for cultural events"
         },
         {
           "phrase": "Japanese festivals",
           "tag": "somewhat_familiar",
-          "explanation": "Adds context for readers outside Japan.",
+          "explanation": "Traditional cultural celebrations in Japan featuring food, music, and performances.",
           "simpler": "cultural celebrations in Japan"
         },
         {
           "phrase": "sushi",
           "tag": "somewhat_familiar",
-          "explanation": "Many know the word but not the details.",
+          "explanation": "A Japanese dish of vinegared rice typically topped with fish or vegetables.",
           "simpler": "rice rolls with fish or vegetables"
         },
         {
           "phrase": "ramen",
           "tag": "somewhat_familiar",
-          "explanation": "Clarifies what kind of food it is.",
+          "explanation": "A popular Japanese noodle soup dish served hot in a flavorful broth.",
           "simpler": "noodle soup dish"
         },
         {
           "phrase": "takoyaki",
           "tag": "somewhat_familiar",
-          "explanation": "The name is known",
+          "explanation": "Round fried snack balls from Japan, similar to paniyaram from South India.",
           "simpler": "fried snack balls"
         },
         {
           "phrase": "natural landscapes",
           "tag": "somewhat_familiar",
-          "explanation": "forests",
-          "simpler": "mountains"
+          "explanation": "Outdoor areas featuring mountains, forests, and other natural scenery.",
+          "simpler": "mountains and forests"
         },
         {
           "phrase": "coastal views",
           "tag": "somewhat_familiar",
-          "explanation": "Simpler wording improves clarity.",
+          "explanation": "Scenic areas along the ocean or sea, including beaches and shorelines.",
           "simpler": "views of the sea and beaches"
         }
       ]
@@ -111,97 +111,97 @@
         {
           "phrase": "South Indian breakfasts",
           "tag": "somewhat_familiar",
-          "explanation": "User may know India",
+          "explanation": "Traditional morning meals from the southern region of India, known for rice-based dishes.",
           "simpler": "Breakfast foods from South India"
         },
         {
           "phrase": "celebration of comfort and flavour",
           "tag": "somewhat_familiar",
-          "explanation": "Abstract phrase that may feel vague or figurative",
+          "explanation": "Abstract phrasing that describes food as both comforting and tasty.",
           "simpler": "Very tasty and comforting food"
         },
         {
           "phrase": "masala dosa",
           "tag": "not_familiar",
-          "explanation": "Specific cultural food item unfamiliar to many US users",
+          "explanation": "A thin, crispy Indian crepe filled with spiced mashed potatoes, a popular breakfast item.",
           "simpler": "Indian crepe filled with spiced potatoes"
         },
         {
           "phrase": "piping hot",
           "tag": "somewhat_familiar",
-          "explanation": "Idiomatic phrase may cause confusion",
+          "explanation": "An idiom meaning extremely hot, typically used to describe freshly prepared food.",
           "simpler": "Very hot and fresh"
         },
         {
           "phrase": "unbeatable combination",
           "tag": "somewhat_familiar",
-          "explanation": "Figurative language may be unclear",
+          "explanation": "A phrase meaning an excellent pairing that works perfectly together.",
           "simpler": "Very good match"
         },
         {
           "phrase": "chutney",
           "tag": "not_familiar",
-          "explanation": "Food term unfamiliar outside Indian cuisine",
+          "explanation": "A spicy Indian sauce or condiment made from herbs, spices, and vegetables, served as a side.",
           "simpler": "Spicy Indian sauce"
         },
         {
           "phrase": "spot on",
           "tag": "somewhat_familiar",
-          "explanation": "Idiomatic phrase",
+          "explanation": "An idiom meaning exactly right or perfect.",
           "simpler": "Perfect"
         },
         {
           "phrase": "bursting with flavour",
           "tag": "somewhat_familiar",
-          "explanation": "Figurative expression",
+          "explanation": "Figurative language describing food with intense, strong taste.",
           "simpler": "Full of strong taste"
         },
         {
           "phrase": "filter coffee",
           "tag": "not_familiar",
-          "explanation": "Specific preparation style unfamiliar",
+          "explanation": "Traditional South Indian coffee made by filtering hot water through coffee grounds using a metal filter.",
           "simpler": "Traditional Indian coffee made with a filter"
         },
         {
           "phrase": "rich aroma and bold taste",
           "tag": "somewhat_familiar",
-          "explanation": "Descriptive but abstract wording",
+          "explanation": "Descriptive terms for coffee with a strong smell and intense flavor.",
           "simpler": "Strong smell and strong taste"
         },
         {
           "phrase": "idly",
           "tag": "not_familiar",
-          "explanation": "Unknown food name",
+          "explanation": "Soft, steamed rice cakes that are light and easy to digest, a popular breakfast item.",
           "simpler": "Soft steamed rice cakes"
         },
         {
           "phrase": "wholesome and healthy choice",
           "tag": "somewhat_familiar",
-          "explanation": "Abstract health wording",
+          "explanation": "Abstract phrase describing nutritious and filling food.",
           "simpler": "Healthy and filling food"
         },
         {
           "phrase": "red and green chutneys",
           "tag": "not_familiar",
-          "explanation": "Plural and color-based food terms unfamiliar",
+          "explanation": "Two types of spicy sauces, typically made from tomatoes (red) and coriander or mint (green).",
           "simpler": "Red and green spicy sauces"
         },
         {
           "phrase": "Mangalore bun",
           "tag": "not_familiar",
-          "explanation": "slightly sweet fried bread",
-          "simpler": "Soft"
+          "explanation": "A soft, fluffy fried bread with a slightly sweet taste, from the Mangalore region.",
+          "simpler": "Soft, slightly sweet fried bread"
         },
         {
           "phrase": "indulgent",
           "tag": "somewhat_familiar",
-          "explanation": "Abstract adjective",
+          "explanation": "Describing food that feels rich, special, or like a treat.",
           "simpler": "Rich and treats-like"
         },
         {
           "phrase": "satisfying and memorable breakfast experience",
           "tag": "somewhat_familiar",
-          "explanation": "Long abstract phrase",
+          "explanation": "Abstract phrase describing a meal that is both filling and leaves a positive impression.",
           "simpler": "Very filling and enjoyable breakfast"
         }
       ]
@@ -217,43 +217,43 @@
         {
           "phrase": "comforting aroma of freshly ground coffee",
           "tag": "not_familiar",
-          "explanation": "Smell-based description is inaccessible; replaced with sound and environment cues.",
+          "explanation": "Describes the smell of coffee. Tagged as inaccessible for users with reduced or absent sense of smell.",
           "simpler": "the sound of coffee being prepared and the calm atmosphere inside"
         },
         {
           "phrase": "The aroma alone was irresistible",
           "tag": "not_familiar",
-          "explanation": "Explains appeal without relying on smell.",
+          "explanation": "Focuses on smell as the main appeal. Tagged because it excludes users who cannot perceive scents.",
           "simpler": "the drink stood out because of its balanced and comforting taste"
         },
         {
           "phrase": "fills my home with a soothing, calming scent",
           "tag": "not_familiar",
-          "explanation": "Shifts from scent to visual and emotional cues.",
+          "explanation": "Describes candle appeal through scent. Tagged as inaccessible; rephrased to visual and emotional cues.",
           "simpler": "creates a cozy atmosphere with its soft glow and calming presence"
         },
         {
           "phrase": "warm ambience",
           "tag": "somewhat_familiar",
-          "explanation": "Makes ambience concrete and visually clear.",
+          "explanation": "Abstract description of atmosphere. Made more concrete with visual details like lighting and colors.",
           "simpler": "soft lighting and warm interior colors"
         },
         {
           "phrase": "felt cozy",
           "tag": "somewhat_familiar",
-          "explanation": "Clarifies the feeling without sensory assumptions.",
+          "explanation": "Vague emotional descriptor. Clarified with more specific details about the space.",
           "simpler": "felt relaxing and comfortable to spend time in"
         },
         {
           "phrase": "rich, smooth flavor",
           "tag": "somewhat_familiar",
-          "explanation": "Simplifies taste description into familiar terms.",
+          "explanation": "Abstract taste description. Simplified to familiar culinary terms.",
           "simpler": "full-bodied and well-balanced taste"
         },
         {
           "phrase": "delightful hint of cinnamon",
           "tag": "somewhat_familiar",
-          "explanation": "Grounded in taste rather than smell.",
+          "explanation": "Combines taste and smell. Refocused on taste to be more accessible.",
           "simpler": "a noticeable cinnamon flavor that adds warmth to the drink"
         }
       ]
@@ -269,37 +269,37 @@
         {
           "phrase": "Leaves rustled in the evening breeze",
           "tag": "somewhat_familiar",
-          "explanation": "Original relies on sound imagery; simpler version focuses on visible movement.",
+          "explanation": "Relies on sound imagery. Simplified to focus on visible movement instead.",
           "simpler": "Leaves moved gently in the evening breeze"
         },
         {
           "phrase": "a dry whisper like secrets the day was done confessing",
           "tag": "not_familiar",
-          "explanation": "Metaphor depends on sound and abstract ideas like secrets.",
+          "explanation": "Complex metaphor using sound. Tagged as inaccessible for users who are deaf or hard of hearing.",
           "simpler": "A quiet feeling as the day ended"
         },
         {
           "phrase": "his voice thundered across the room",
           "tag": "somewhat_familiar",
-          "explanation": "Thunder is sound-based; alternative explains meaning clearly.",
+          "explanation": "Uses sound metaphor ('thundered'). Rephrased to describe impact rather than volume.",
           "simpler": "He spoke with great force and authority"
         },
         {
           "phrase": "not loud so much as inevitable",
           "tag": "not_familiar",
-          "explanation": "Abstract wording may feel unclear.",
+          "explanation": "Abstract comparison that's difficult to visualize. Tagged for clarity.",
           "simpler": "Impossible to ignore"
         },
         {
           "phrase": "a storm that demanded everyone stand still and listen",
           "tag": "not_familiar",
-          "explanation": "Metaphor relies on sound and emotion.",
+          "explanation": "Metaphor relies on sound ('listen'). Tagged as inaccessible; rephrased to focus on attention.",
           "simpler": "His presence made everyone pay attention"
         },
         {
           "phrase": "the house exhaled into quiet",
           "tag": "not_familiar",
-          "explanation": "Figurative and abstract; “exhaled” is unclear visually.",
+          "explanation": "Figurative language combining sound and abstraction. Tagged for being unclear and inaccessible.",
           "simpler": "The house became calm and still"
         },
         {

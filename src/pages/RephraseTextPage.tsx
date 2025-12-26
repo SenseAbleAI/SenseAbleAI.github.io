@@ -6,7 +6,7 @@ import Chat from '../components/RephraseText/Chat';
 import ProfileEdit from '../components/RephraseText/ProfileEdit';
 import RewritePane from '../components/RephraseText/RewritePane';
 import SuggestionsPanel, { SuggestionsPanelRef } from '../components/RephraseText/SuggestionsPanel';
-import TextEditor from '../components/RephraseText/TextEditor';
+import TextEditor, { TextEditorRef } from '../components/RephraseText/TextEditor';
 import { useUser } from '../context/UserContext';
 import { mockAnalyzeText, mockCustomRephrase, mockGetFullRewrite, mockGetGentleRewrite, mockGetSuggestions, cleanTaggedText } from '../mocks/analyzeData';
 import { FamiliarityLevel, Suggestion, TextHighlight } from '../types';
@@ -34,6 +34,7 @@ const RephraseTextPage: React.FC = () => {
   const [textSize, setTextSize] = useState(16); // Base text size in pixels
 
   const suggestionsPanelRef = useRef<SuggestionsPanelRef>(null);
+  const textEditorRef = useRef<TextEditorRef>(null);
 
   const colorPalette = preferences?.color_palette || defaultColorPalette;
 
@@ -105,9 +106,18 @@ const RephraseTextPage: React.FC = () => {
   };
 
   const handleUpdateHighlight = (id: string, level: FamiliarityLevel) => {
+    const highlight = highlights.find(h => h.id === id);
+    
     setHighlights(highlights.map(h =>
       h.id === id ? { ...h, familiarityLevel: level } : h
     ));
+
+    // Also update the corresponding suggestion
+    if (highlight) {
+      setSuggestions(suggestions.map(s =>
+        s.phrase === highlight.text ? { ...s, tag: level } : s
+      ));
+    }
   };
 
   const handleRemoveHighlight = (id: string) => {
@@ -207,6 +217,11 @@ const RephraseTextPage: React.FC = () => {
     }, 500);
   };
 
+  const handleChangeTagClick = (highlightId: string) => {
+    // Trigger the TextEditor's edit menu for this highlight
+    textEditorRef.current?.showEditMenuForHighlight(highlightId);
+  };
+
   if (!user) {
     return null;
   }
@@ -301,6 +316,7 @@ const RephraseTextPage: React.FC = () => {
                 />
               ) : (
                 <TextEditor
+                  ref={textEditorRef}
                   text={originalText}
                   onTextChange={setOriginalText}
                   highlights={highlights}
@@ -329,7 +345,7 @@ const RephraseTextPage: React.FC = () => {
               {isAnalyzed && (
                 <div className="mt-3 p-2 bg-blue-50 rounded-lg">
                   <p className="text-sm text-blue-600">
-                    💡 <strong>Tip:</strong> Click any text to modify tags, view the explanations in the Tags panel, or select Rewrite to see full rewritten versions.
+                    💡 <strong>Tip:</strong> To personalize your results, click any text to modify tags, view explanations in the Tags panel, or select Rewrite to see full rewritten versions.
                   </p>
                 </div>
               )}
@@ -435,7 +451,7 @@ const RephraseTextPage: React.FC = () => {
                   {suggestions.length > 0 && (
                     <div className="bg-white rounded-lg shadow p-3">
                       <h3 className="text-sm font-semibold text-gray-800 mb-2">
-                        Tagged Phrases & Alternatives
+                        Tagged Phrases and Explanations
                       </h3>
                       <SuggestionsPanel
                         ref={suggestionsPanelRef}
@@ -446,6 +462,7 @@ const RephraseTextPage: React.FC = () => {
                         onHover={setHoveredHighlightId}
                         hoveredId={hoveredHighlightId}
                         colorPalette={colorPalette}
+                        onChangeTag={handleChangeTagClick}
                       />
                     </div>
                   )}

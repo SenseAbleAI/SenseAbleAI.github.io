@@ -9,6 +9,7 @@ interface SuggestionsPanelProps {
   onHover: (highlightId: string | null) => void;
   hoveredId: string | null;
   colorPalette: any;
+  onChangeTag?: (highlightId: string) => void;
 }
 
 export interface SuggestionsPanelRef {
@@ -22,8 +23,7 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
   onIgnore,
   onHover,
   hoveredId,
-  colorPalette,
-}, ref) => {
+  colorPalette,  onChangeTag,}, ref) => {
   const suggestionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const [expandedSuggestions, setExpandedSuggestions] = useState<Set<number>>(new Set());
 
@@ -79,7 +79,7 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
             onMouseEnter={() => highlight && onHover(highlight.id)}
             onMouseLeave={() => onHover(null)}
           >
-            {/* Phrase -> Simpler format */}
+            {/* Tagged Phrase with Tag Badge */}
             <div className="flex items-center gap-2 flex-wrap">
               <span
                 className="text-sm font-medium px-2 py-1 rounded"
@@ -91,38 +91,26 @@ const SuggestionsPanel = forwardRef<SuggestionsPanelRef, SuggestionsPanelProps>(
                 {icon && <span style={{ marginRight: '4px', fontWeight: 'bold' }}>{icon}</span>}
                 {suggestion.phrase}
               </span>
-              <span className="text-gray-400 text-sm">→</span>
-              <span className="text-sm font-medium text-gray-800">
-                {firstAlternative}
-              </span>
             </div>
 
-            {/* Explanation */}
+            {/* Explanation - Why this tag was applied */}
             {suggestion.explanation && (
-              <div className="text-sm text-gray-600 leading-relaxed">
+              <div className="text-sm text-gray-600 leading-relaxed italic">
                 {suggestion.explanation}
               </div>
             )}
 
-            {/* Icon buttons - smaller with thinner rounded borders */}
-            <div className="flex gap-2 justify-center">
+            {/* Change Tag Button */}
+            <div className="flex gap-2 justify-center mt-2">
               <button
-                onClick={() => onAccept(suggestion.phrase, firstAlternative)}
-                className="px-2 py-1.5 text-green-600 bg-white hover:bg-green-50 border border-green-500 rounded-md transition-all duration-200 flex items-center justify-center gap-1 group"
-                title="Accept"
+                onClick={() => onChangeTag && highlight && onChangeTag(highlight.id)}
+                className="px-3 py-1.5 text-sm text-blue-600 bg-white hover:bg-blue-50 border border-blue-500 rounded-md transition-all duration-200 flex items-center justify-center gap-1 group"
+                title="Change Tag"
               >
                 <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                 </svg>
-              </button>
-              <button
-                onClick={() => onIgnore(suggestion.phrase)}
-                className="px-2 py-1.5 text-red-400 bg-white hover:bg-red-50 border border-red-400 rounded-md transition-all duration-200 flex items-center justify-center gap-1 group"
-                title="Ignore"
-              >
-                <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <span>Change Tag</span>
               </button>
             </div>
           </div>

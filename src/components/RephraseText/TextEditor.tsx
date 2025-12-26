@@ -1,5 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { TextHighlight, FamiliarityLevel } from '../../types';
+
+export interface TextEditorRef {
+  showEditMenuForHighlight: (highlightId: string) => void;
+}
 
 interface TextEditorProps {
   text: string;
@@ -45,7 +49,7 @@ const PatternDefs: React.FC = () => (
   </svg>
 );
 
-const TextEditor: React.FC<TextEditorProps> = ({
+const TextEditor = forwardRef<TextEditorRef, TextEditorProps>(({
   text,
   onTextChange,
   highlights,
@@ -58,13 +62,44 @@ const TextEditor: React.FC<TextEditorProps> = ({
   acceptedReplacements = new Map(),
   onHighlightClick,
   textSize = 16,
-}) => {
+}, ref) => {
   const [selectedText, setSelectedText] = useState<{ text: string; start: number; end: number } | null>(null);
   const [showTagMenu, setShowTagMenu] = useState(false);
   const [showEditMenu, setShowEditMenu] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [editingHighlight, setEditingHighlight] = useState<TextHighlight | null>(null);
   const editorRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    showEditMenuForHighlight: (highlightId: string) => {
+      const highlight = highlights.find(h => h.id === highlightId);
+      if (!highlight || !editorRef.current) return;
+
+      // Find the DOM element for this highlight
+      const highlightElements = editorRef.current.querySelectorAll('mark');
+      let targetElement: Element | null = null;
+      
+      highlightElements.forEach((el) => {
+        if (el.getAttribute('data-highlight-id') === highlightId) {
+          targetElement = el;
+        }
+      });
+
+      if (targetElement) {
+        const rect = targetElement.getBoundingClientRect();
+        setEditingHighlight(highlight);
+        setMenuPosition({
+          x: rect.left + rect.width / 2,
+          y: rect.top - 10,
+        });
+        setShowEditMenu(true);
+        setShowTagMenu(false);
+
+        // Scroll to the element
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }));
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -222,6 +257,7 @@ const TextEditor: React.FC<TextEditorProps> = ({
       parts.push(
         <mark
           key={highlight.id}
+          data-highlight-id={highlight.id}
           onClick={(e) => handleHighlightClick(e, highlight)}
           onMouseEnter={() => onHighlightHover?.(highlight.id)}
           onMouseLeave={() => onHighlightHover?.(null)}
@@ -368,6 +404,8 @@ const TextEditor: React.FC<TextEditorProps> = ({
       )}
     </div>
   );
-};
+});
+
+TextEditor.displayName = 'TextEditor';
 
 export default TextEditor;

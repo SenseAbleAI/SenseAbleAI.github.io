@@ -39,6 +39,7 @@ export const getHighlightsFromExample = (exampleId: number = 1): TextHighlight[]
 
 /**
  * Get suggestions from JSON example data
+ * Generates concise explanations focused on describing the phrase and context
  */
 export const getSuggestionsFromExample = (exampleId: number = 1): Suggestion[] => {
   const example = getExampleById(exampleId);
@@ -47,13 +48,17 @@ export const getSuggestionsFromExample = (exampleId: number = 1): Suggestion[] =
   return example.tagged_phrases.map((phrase, index) => {
     // Find the corresponding highlight to get position
     const highlight = highlights.find(h => h.text === phrase.phrase);
+    const tag = tagMapping[phrase.tag];
+
+    // Use the explanation from JSON as-is (already formatted appropriately)
+    let explanation = phrase.explanation;
 
     return {
       phrase: phrase.phrase,
       alternatives: [phrase.simpler],
       position: highlight ? { start: highlight.start, end: highlight.end } : { start: 0, end: 0 },
-      tag: tagMapping[phrase.tag],
-      explanation: phrase.explanation || 'Consider using simpler language for better clarity.',
+      tag: tag,
+      explanation: explanation,
     };
   });
 };
