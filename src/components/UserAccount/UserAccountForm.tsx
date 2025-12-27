@@ -5,6 +5,7 @@ import { userService } from '../../services/userService';
 import { AccessibilityNeed, ReadingLevel, ComplexityLevel } from '../../types';
 import { getColorPalette } from '../../utils/colorPalettes';
 import Button from '../Common/Button';
+import AboutProject from '../Common/AboutProject';
 
 interface UserAccountFormProps {
   isLoginMode?: boolean;
@@ -126,6 +127,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [isWarningExpanded, setIsWarningExpanded] = useState(false);
+  const [showAboutModal, setShowAboutModal] = useState(false);
 
   // Helper to convert category/sub-option to AccessibilityNeed type
   const getAccessibilityNeed = (): AccessibilityNeed => {
@@ -351,9 +353,21 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
             <div className="flex-1 flex items-center justify-center py-4">
               <div className="max-w-lg w-full">
                 <div className="mb-4 md:mb-6 lg:mb-8">
-                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3" style={{ color: '#1e3a8a' }}>
-                    SenseAble
-                  </h1>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold" style={{ color: '#1e3a8a' }}>
+                      SenseAble
+                    </h1>
+                    <button
+                      onClick={() => setShowAboutModal(true)}
+                      className="text-blue-600 hover:text-blue-700 transition-colors focus:outline-none"
+                      aria-label="About SenseAble"
+                      title="Learn more about SenseAble"
+                    >
+                      <svg className="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                      </svg>
+                    </button>
+                  </div>
                   <p className="text-sm md:text-base mb-3 md:mb-4 lg:mb-6" style={{ color: '#2563eb' }}>
                     Empowering every user with personalized accessibility
                   </p>
@@ -472,6 +486,11 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                 </div>
               </div>
             </div>
+
+            {/* About Modal */}
+            {showAboutModal && (
+              <AboutProject isModal={true} onClose={() => setShowAboutModal(false)} />
+            )}
           </div>
 
           {/* Right Side - Form */}
