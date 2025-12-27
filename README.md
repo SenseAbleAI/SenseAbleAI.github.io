@@ -2,7 +2,9 @@
 
 SenseAble is a research-driven system for **personalized, culturally aware, and multisensory text accessibility**. Many everyday texts rely on sensory descriptions such as color, sound, smell, taste, touch, or metaphor, which can unintentionally exclude readers with sensory impairments, neurodivergent processing styles, or unfamiliar cultural backgrounds. SenseAble detects these sensory-dependent phrases, explains them, and rewrites them when needed in a **meaning-preserving and personalized** way to improve clarity and inclusion. 
 
-🌐 **Check out the demo:** https://senseableai.github.io/login
+🌐 <a href="https://senseableai.github.io/login" target="_blank" rel="noopener noreferrer">
+Check out the demo
+</a>
 
 ## How SenseAble Works
 
@@ -17,7 +19,7 @@ SenseAble is a research-driven system for **personalized, culturally aware, and 
 
 Below is the high-level flow of the SenseAble system:
 
-![SenseAble System Flow](assets/senseable_flowchart.png)
+![SenseAble System Flow](assets/flowchart.jpg)
 
 > _End-to-end pipeline showing user profile acquisition, sensory detection, cultural reasoning, personalized rewriting, and interactive refinement._
 
@@ -43,6 +45,7 @@ Below is the high-level flow of the SenseAble system:
 - Dyslexia-friendly tag styling and formatting  
 - One-page UI to reduce cognitive load  
 - Editable user profile for updating preferences anytime  
+
 
 
 
