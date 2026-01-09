@@ -1,4 +1,5 @@
 import React from 'react';
+import flowchartImage from '../../../assets/flowchart.png';
 
 interface AboutProjectProps {
   isModal?: boolean;
@@ -27,7 +28,7 @@ const AboutProject: React.FC<AboutProjectProps> = ({ isModal = false, onClose })
 
       <div className="flex justify-center">
         <img 
-          src="/assets/flowchart.png" 
+          src={flowchartImage} 
           alt="SenseAble Flowchart showing the workflow from text input through sensory phrase detection to personalized rewrites" 
           className="w-4/5 rounded-lg shadow-md mb-6"
         />
