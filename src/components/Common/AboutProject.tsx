@@ -25,6 +25,14 @@ const AboutProject: React.FC<AboutProjectProps> = ({ isModal = false, onClose })
         </div>
       )}
 
+      <div className="flex justify-center">
+        <img 
+          src="/assets/flowchart.png" 
+          alt="SenseAble Flowchart showing the workflow from text input through sensory phrase detection to personalized rewrites" 
+          className="w-4/5 rounded-lg shadow-md mb-6"
+        />
+      </div>
+
       <div>
         <h3 className="text-xl font-bold text-gray-900 mb-3">How SenseAble Works</h3>
         <ol className="list-decimal list-inside space-y-2 text-base text-gray-700">
