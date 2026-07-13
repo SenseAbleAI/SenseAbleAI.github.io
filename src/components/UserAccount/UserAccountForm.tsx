@@ -445,8 +445,6 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     </button>
                   ))}
                 </div>
-
-              </div>
               </div>
             </div>
 
