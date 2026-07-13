@@ -261,7 +261,7 @@ const RephraseTextPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <Header />
 
       <div className="container mx-auto px-4 py-8">
@@ -269,9 +269,9 @@ const RephraseTextPage: React.FC = () => {
           {/* Main Content Area */}
           <div className="lg:col-span-2 space-y-6">
             {/* Text Input/Editor */}
-            <div className="bg-white rounded-lg shadow p-4">
+            <div className="bg-white rounded-xl shadow-sm ring-1 ring-gray-100 p-5">
               <div className="flex justify-between items-center mb-3">
-                <h2 className="text-lg font-semibold text-gray-800">
+                <h2 className="text-lg font-semibold text-gray-900">
                   {isAnalyzed ? 'Analyzed Text' : 'Original Text'}
                 </h2>
                 <div className="flex items-center gap-4">
@@ -377,8 +377,8 @@ const RephraseTextPage: React.FC = () => {
               </div>
 
               {isAnalyzed && (
-                <div className="mt-3 p-2 bg-blue-50 rounded-lg">
-                  <p className="text-sm text-blue-600">
+                <div className="mt-3 p-3 bg-blue-50/70 border border-blue-100 rounded-xl">
+                  <p className="text-sm text-blue-700">
                     💡 <strong>Tip:</strong> To personalize your results, click any text to modify tags, view explanations in the Tags panel, or select Rewrite to see full rewritten versions.
                   </p>
                 </div>
@@ -404,8 +404,8 @@ const RephraseTextPage: React.FC = () => {
           {/* Sidebar */}
           <div className="space-y-4 lg:sticky lg:top-8 lg:max-h-[calc(100vh-6rem)] lg:flex lg:flex-col">
             {/* Tabs */}
-            <div className="bg-white rounded-lg shadow">
-              <div className="flex border-b">
+            <div className="bg-white rounded-xl shadow-sm ring-1 ring-gray-100 overflow-hidden">
+              <div className="flex border-b border-gray-100">
                 <button
                   onClick={() => isAnalyzed && setActiveTab('tags')}
                   disabled={!isAnalyzed}

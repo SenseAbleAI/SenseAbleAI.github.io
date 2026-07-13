@@ -571,10 +571,15 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
           {/* Right Side - Form */}
           <div className="w-full lg:w-1/2 bg-gradient-to-br from-slate-50 to-purple-50">
             <div className="flex items-center justify-center p-4 md:p-6 lg:p-8">
-              <div className="max-w-md w-full bg-blue-50 rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl p-4 md:p-6 lg:p-8 my-4">
-              <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 lg:mb-8" style={{ color: '#2563eb' }}>
-                We'd love to know more about you
-              </h2>
+              <div className="max-w-md w-full bg-white rounded-2xl shadow-xl ring-1 ring-gray-100 p-5 md:p-7 lg:p-8 my-4">
+              <div className="mb-5 md:mb-7">
+                <h2 className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-2xl font-bold text-transparent">
+                  Tell us about yourself
+                </h2>
+                <p className="mt-1 text-sm text-gray-500">
+                  We use this to personalize how your text is adapted. Fields marked * are required.
+                </p>
+              </div>
 
               {error && (
                 <div className="mb-4 md:mb-6 p-3 md:p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -786,10 +791,10 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                   <button
                     type="submit"
                     disabled={loading || !isFormValid()}
-                    className={`w-full py-2.5 md:py-3 px-4 md:px-6 rounded-lg font-medium text-sm md:text-base text-white transition-all ${
+                    className={`w-full py-2.5 md:py-3 px-4 md:px-6 rounded-lg font-semibold text-sm md:text-base text-white transition-all ${
                       loading || !isFormValid()
                         ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg'
+                        : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md hover:shadow-lg'
                     }`}
                   >
                     {loading ? 'Processing...' : 'Proceed'}
