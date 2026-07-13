@@ -9,6 +9,8 @@ import SuggestionsPanel, { SuggestionsPanelRef } from '../components/RephraseTex
 import TextEditor, { TextEditorRef } from '../components/RephraseText/TextEditor';
 import { useUser } from '../context/UserContext';
 import { mockAnalyzeText, mockCustomRephrase, mockGetFullRewrite, mockGetGentleRewrite, mockGetSuggestions, cleanTaggedText } from '../mocks/analyzeData';
+import { analyzeService } from '../services/analyzeService';
+import { IS_DEMO_MODE } from '../config';
 import { FamiliarityLevel, Suggestion, TextHighlight } from '../types';
 import { defaultColorPalette } from '../utils/colorPalettes';
 import exampleTexts from '../mocks/exampleTexts.json';
@@ -62,43 +64,75 @@ const RephraseTextPage: React.FC = () => {
     return acc;
   }, {} as Record<string, number>);
 
-  const handleAnalyze = () => {
+  const buildProfile = (): Record<string, unknown> => ({
+    accessibility_need: preferences?.accessibility_need,
+    reading_level: preferences?.reading_level,
+    country: preferences?.other_preferences?.country,
+    culture: preferences?.other_preferences?.country,
+    language: preferences?.other_preferences?.languagePreference,
+    impairments: preferences?.other_preferences?.accessibilityNeeds,
+  });
+
+  const handleAnalyze = async () => {
     if (!originalText.trim()) return;
 
     setLoading(true);
     setShowRewritePane(false);
 
-    // Simulate API call with mock data - analyze and show tags + suggestions immediately
-    setTimeout(() => {
-      const analyzed = mockAnalyzeText(originalText);
+    try {
+      let analyzed: TextHighlight[];
+      let newSuggestions: Suggestion[];
+      if (IS_DEMO_MODE) {
+        analyzed = mockAnalyzeText(originalText);
+        newSuggestions = mockGetSuggestions(analyzed, originalText);
+      } else {
+        const res = await analyzeService.analyze(originalText, buildProfile());
+        analyzed = res.highlights;
+        newSuggestions = res.suggestions;
+      }
       setHighlights(analyzed);
-
-      // Generate suggestions immediately for each tagged phrase
-      const newSuggestions = mockGetSuggestions(analyzed, originalText);
       setSuggestions(newSuggestions);
-
       setIsAnalyzed(true);
       setActiveTab('tags'); // Switch to tags tab after analyze
+    } catch (err) {
+      console.error('Analyze failed', err);
+      alert('Analysis failed. Please try again in a moment.');
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   };
 
-  const handleRewrite = () => {
+  const handleRewrite = async () => {
     if (!isAnalyzed) return;
 
     setLoading(true);
 
-    // Generate gentle and full rewrites
-    setTimeout(() => {
-      const gentle = mockGetGentleRewrite(originalText, highlights);
-      const full = mockGetFullRewrite(originalText, highlights);
+    try {
+      let gentle: { text: string; underlines?: Array<{ start_index: number; end_index: number }> };
+      let full: { text: string; underlines?: Array<{ start_index: number; end_index: number }> };
+      if (IS_DEMO_MODE) {
+        gentle = mockGetGentleRewrite(originalText, highlights);
+        full = mockGetFullRewrite(originalText, highlights);
+      } else {
+        const res = await analyzeService.rewrite(
+          originalText,
+          buildProfile(),
+          highlights.map(h => h.text)
+        );
+        gentle = res.gentle;
+        full = res.full;
+      }
       setGentleRewrite(gentle.text);
       setFullRewrite(full.text);
       setGentleUnderlines(gentle.underlines || []);
       setFullUnderlines(full.underlines || []);
       setShowRewritePane(true);
+    } catch (err) {
+      console.error('Rewrite failed', err);
+      alert('Rewrite failed. Please try again in a moment.');
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   };
 
   const handleAddHighlight = (highlight: TextHighlight) => {
@@ -267,8 +301,8 @@ const RephraseTextPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Example Text Buttons and Note - Only show when not analyzed */}
-              {!isAnalyzed && (
+              {/* Example Text Buttons and Note - demo (static) mode only */}
+              {!isAnalyzed && IS_DEMO_MODE && (
                 <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
                   <div className="flex items-start gap-2 mb-3">
                     <span className="text-amber-600 text-base">⚠️</span>

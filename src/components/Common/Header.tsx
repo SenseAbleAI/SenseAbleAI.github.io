@@ -15,16 +15,27 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4">
+      <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/85 backdrop-blur">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             <div
-              className="flex items-center gap-3 cursor-pointer"
+              className="flex items-center gap-2.5 cursor-pointer"
               onClick={() => navigate('/rephrase')}
             >
-              <h1 className="text-2xl font-bold text-primary hover:text-primary/80 transition">
-                SenseAble
-              </h1>
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-sm">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+              </div>
+              <div className="leading-none">
+                <h1 className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-xl font-bold text-transparent">
+                  SenseAble
+                </h1>
+                <span className="hidden text-[11px] font-medium text-gray-400 sm:block">
+                  Accessible, meaning-preserving text
+                </span>
+              </div>
             </div>
 
             {user && (

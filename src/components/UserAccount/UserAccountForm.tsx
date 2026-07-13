@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useUser } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { userService } from '../../services/userService';
+import { IS_DEMO_MODE } from '../../config';
 import { AccessibilityNeed, ReadingLevel, ComplexityLevel } from '../../types';
 import { getColorPalette } from '../../utils/colorPalettes';
 import Button from '../Common/Button';
@@ -347,7 +348,8 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
       {isLoginMode ? (
         // Login Mode: Two-column layout with personas
         <div className="min-h-screen flex flex-col lg:flex-row">
-          {/* Left Side - Personas */}
+          {/* Left Side - Personas (demo only) */}
+          {IS_DEMO_MODE && (
           <div className="w-full lg:w-1/2 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col">
             {/* Persona Cards - Centered */}
             <div className="flex-1 flex items-center justify-center py-4">
@@ -444,7 +446,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       <p className={`text-xs md:text-sm text-gray-700 ${
                         isWarningExpanded ? '' : 'line-clamp-3'
                       }`}>
-                        Please use the provided example personas to explore this demo. Due to organizational security, compliance, and data-governance constraints, the backend models used in this system (enterprise Azure deployments of GPT-5 and Agentic-Copilot services) cannot be exposed via a public interactive interface at this moment. The demo therefore uses representative personas and precomputed interactions that faithfully reflect the system's operational behavior.
+                        Please use the provided example personas to explore this demo. Due to organizational security, compliance, and data-governance constraints, the enterprise backend models used in this system cannot be exposed via a public interactive interface at this moment. The demo therefore uses representative personas and precomputed interactions that faithfully reflect the system's operational behavior.
                       </p>
                       <button 
                         className="text-blue-600 text-xs md:text-sm font-medium mt-1 md:mt-2 hover:underline"
@@ -492,6 +494,79 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
               <AboutProject isModal={true} onClose={() => setShowAboutModal(false)} />
             )}
           </div>
+          )}
+
+          {/* Left Side - Brand panel (webapp) */}
+          {!IS_DEMO_MODE && (
+          <div className="relative w-full lg:w-1/2 overflow-hidden bg-slate-950 text-slate-100 flex flex-col justify-center p-8 md:p-12 lg:p-16">
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -top-24 -left-16 h-80 w-80 rounded-full bg-blue-600/30 blur-3xl" />
+              <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-violet-600/25 blur-3xl" />
+            </div>
+            <div className="relative z-10 max-w-md">
+              <div className="flex items-center gap-2">
+                <h1 className="bg-gradient-to-r from-sky-300 via-indigo-300 to-violet-300 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl">
+                  SenseAble
+                </h1>
+                <button
+                  type="button"
+                  onClick={() => setShowAboutModal(true)}
+                  className="text-slate-400 transition-colors hover:text-slate-200 focus:outline-none"
+                  aria-label="About SenseAble"
+                  title="Learn more about SenseAble"
+                >
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                  </svg>
+                </button>
+              </div>
+              <p className="mt-3 text-lg text-slate-300">
+                Adapting, not deleting, sensory-rich text for diverse readers.
+              </p>
+
+              <div className="mt-8 space-y-5">
+                {[
+                  {
+                    title: 'Sensory-aware detection',
+                    body: 'Finds sight, sound, smell, taste, touch and cross-sensory phrases in your text.',
+                    d: 'M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
+                  },
+                  {
+                    title: 'Cultural grounding',
+                    body: 'Explains unfamiliar references and bridges them to your background.',
+                    d: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488M3.049 8.5h17.902M3.049 15.5h13.902M12 3c2.5 2.5 3 6 3 9s-.5 6.5-3 9c-2.5-2.5-3-6-3-9s.5-6.5 3-9Z',
+                  },
+                  {
+                    title: 'Adaptive rewrites, not deletion',
+                    body: 'Rewrites text to be accessible while preserving its meaning and intent.',
+                    d: 'M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Z',
+                  },
+                ].map((f) => (
+                  <div key={f.title} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white/10 text-sky-300">
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d={f.d} />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white">{f.title}</p>
+                      <p className="text-sm text-slate-400">{f.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-10 text-xs text-slate-500">
+                Tell us a little about yourself so we can personalize your rewrites.
+              </p>
+            </div>
+
+            {/* About Modal (webapp) */}
+            {showAboutModal && (
+              <AboutProject isModal={true} onClose={() => setShowAboutModal(false)} />
+            )}
+          </div>
+          )}
 
           {/* Right Side - Form */}
           <div className="w-full lg:w-1/2 bg-gradient-to-br from-slate-50 to-purple-50">
@@ -521,7 +596,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     placeholder="e.g., Ali"
                     className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                     required
-                    disabled
+                    disabled={IS_DEMO_MODE}
                   />
                 </div>
 
@@ -537,7 +612,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, ageRange: e.target.value })}
                       className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
-                      disabled
+                      disabled={IS_DEMO_MODE}
                     >
                       <option value="">Select</option>
                       <option value="18-24">18–24</option>
@@ -558,7 +633,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
                       className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
-                      disabled
+                      disabled={IS_DEMO_MODE}
                     >
                       <option value="">Select</option>
                       <option value="male">Male</option>
@@ -581,7 +656,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                       className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
-                      disabled
+                      disabled={IS_DEMO_MODE}
                     >
                       <option value="">Select</option>
                       <option value="india">India</option>
@@ -603,7 +678,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                       onChange={(e) => setFormData({ ...formData, languagePreference: e.target.value })}
                       className="w-full px-2 md:px-3 lg:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                       required
-                      disabled
+                      disabled={IS_DEMO_MODE}
                     >
                       <option value="">Select</option>
                       <option value="english">English</option>
@@ -629,7 +704,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                             ? 'bg-blue-600 text-white shadow-md'
                             : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                         }`}
-                        disabled
+                        disabled={IS_DEMO_MODE}
                       >
                         {option.label}
                       </button>
@@ -648,7 +723,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           placeholder="Please specify..."
                           className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                           required
-                          disabled
+                          disabled={IS_DEMO_MODE}
                         />
                       ) : (
                         <select
@@ -657,7 +732,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                           onChange={(e) => setFormData({ ...formData, accessibilitySubOption: e.target.value })}
                           className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
                           required
-                          disabled
+                          disabled={IS_DEMO_MODE}
                         >
                           <option value="">Select option</option>
                           {accessibilityOptions
@@ -685,7 +760,7 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
                     placeholder="Share any additional information..."
                     rows={1}
                     className="w-full px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 resize-none"
-                    disabled
+                    disabled={IS_DEMO_MODE}
                   />
                 </div>
 
