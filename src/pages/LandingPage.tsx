@@ -59,9 +59,15 @@ const LandingPage: React.FC = () => {
             <p className="mt-2 flex-1 text-sm leading-relaxed text-blue-100">
               Type in your own text and get real, personalized rewrites &mdash; generated live on our servers.
             </p>
-            <p className="mt-3 rounded-lg bg-white/10 px-3 py-2 text-xs leading-relaxed text-blue-100/90">
-              Note: to keep it free and open to everyone, this public version uses a lighter model with
-              fewer tokens than the higher-capacity model we use internally.
+            <p className="mt-3 flex items-start gap-2 rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-xs leading-relaxed text-red-800 shadow-sm ring-1 ring-red-500/20">
+              <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0 3.75h.008M10.34 3.94l-8.06 13.97A1.5 1.5 0 0 0 3.58 21h16.84a1.5 1.5 0 0 0 1.3-2.09L13.66 3.94a1.5 1.5 0 0 0-2.62 0Z" />
+              </svg>
+              <span>
+                <span className="font-bold text-red-700">Note:</span> to keep it free and open to everyone,
+                this public version uses a lighter model with fewer tokens than the higher-capacity model we
+                use internally.
+              </span>
             </p>
             <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
               Open the live app
