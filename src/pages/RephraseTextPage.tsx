@@ -64,14 +64,22 @@ const RephraseTextPage: React.FC = () => {
     return acc;
   }, {} as Record<string, number>);
 
-  const buildProfile = (): Record<string, unknown> => ({
-    accessibility_need: preferences?.accessibility_need,
-    reading_level: preferences?.reading_level,
-    country: preferences?.other_preferences?.country,
-    culture: preferences?.other_preferences?.country,
-    language: preferences?.other_preferences?.languagePreference,
-    impairments: preferences?.other_preferences?.accessibilityNeeds,
-  });
+  const buildProfile = (): Record<string, unknown> => {
+    const other = (preferences?.other_preferences || {}) as Record<string, unknown>;
+    const subOption = other.accessibilitySubOption as string | undefined;
+    return {
+      accessibility_need: preferences?.accessibility_need,
+      reading_level: preferences?.reading_level,
+      country: other.country,
+      culture: other.country,
+      language: other.languagePreference,
+      // Category + sub-option carry the actual modality (e.g. hearing / "Deaf");
+      // accessibility_need alone collapses those to "other".
+      accessibility_category: other.accessibilityCategory,
+      impairments: subOption ? [subOption] : [],
+      notes: other.additionalSupport,
+    };
+  };
 
   const handleAnalyze = async () => {
     if (!originalText.trim()) return;
