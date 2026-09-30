@@ -306,10 +306,13 @@ const UserAccountForm: React.FC<UserAccountFormProps> = ({ isLoginMode = false }
         }
         
         console.log('Step 2: Updating profile for user ID:', user.id);
-        await userService.updateProfile(user.id, {
+        const updatedUser = await userService.updateProfile(user.id, {
           name: formData.name,
-          email: formData.email,
+          email: formData.email || user.email,
         });
+        // Push the updated record back into context, otherwise the previously
+        // selected persona's name sticks and drives the wrong example text.
+        setUser(updatedUser);
 
         const primaryAccessibilityNeed = getAccessibilityNeed();
         const colorPalette = getColorPalette(primaryAccessibilityNeed);
